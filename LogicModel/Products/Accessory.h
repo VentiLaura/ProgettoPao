@@ -2,7 +2,7 @@
 #define ACCESSORY_H
 #include "Product.h"
 #include <vector>
-#include "Products/Enums.h"
+#include "Enums.h"
 namespace product {
 class Accessory: public Product {
     private:

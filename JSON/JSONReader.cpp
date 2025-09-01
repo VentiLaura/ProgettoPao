@@ -1,7 +1,6 @@
-#include <iostream>
 #include <vector>
-#include "../Products/IncludeAllProducts.h"
-#include "../Catalog/Memory.h"
+#include "../LogicModel/Products/IncludeAllProducts.h"
+#include "../LogicModel/Catalog/Memory.h"
 #include "JSONReader.h"
 #include <QFile> 
 #include <QJsonDocument> 

@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[]){
     QApplication videogameLibrary(argc, argv);
-/*    mainWindow window;
-    window.show(); */
+    MainWindow window;
+    window.show();
     return videogameLibrary.exec();
 }

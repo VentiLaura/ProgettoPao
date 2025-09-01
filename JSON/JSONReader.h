@@ -1,6 +1,6 @@
 #ifndef JSONREADER_H
 #define JSONREADER_H
-#include "../Products/Product.h"
+#include "../LogicModel/Products/Product.h"
 #include <QFile> 
 #include <QJsonDocument> 
 #include <QJsonObject> 
