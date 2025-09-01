@@ -5,15 +5,15 @@ namespace product {
 class Product {
     private:
     double Price;
-    unsigned int IdProduct;
+    std::string IdProduct;
     int Copies_available;
     public:
-    Product(double, unsigned int, int=1);
+    Product(double, std::string, int=1);
     virtual ~Product() = 0;
     int getAvailability() const;
     void setAvailability(int);
-    int getIdProduct() const;
-    void setIdProduct(int);
+    std::string getIdProduct() const;
+    void setIdProduct(std::string);
     double getPrice() const;
     void setPrice(double);
 };

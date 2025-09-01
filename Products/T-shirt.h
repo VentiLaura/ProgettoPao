@@ -10,7 +10,10 @@ class T_shirt: public Product {
     public:
     ~T_shirt();
     T_shirt(Sizes, std::string, double, std::string, int=1);
-    Sizes getChestSize();
-    
+    int getChestSize();
+    int getWaistSize();
+    int getHipsSize();
+    int getSleeveLength();    
+};
 }
-}
+#endif

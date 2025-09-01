@@ -1,9 +1,7 @@
-#ifndef COLLECTIBLE_CPP
-#define COLLECTIBLE_CPP
 #include "Collectible.h"
 namespace product {
 Collectible::~Collectible() {}
-Collectible::Collectible(std::string category, std::string franchise, std::string producer, double price, unsigned int id, int avaiability): Product(price, id, avaiability), Category(category), Franchise(franchise), Producer(producer) {}
+Collectible::Collectible(std::string category, std::string franchise, std::string producer, double price, std::string id, int avaiability): Product(price, id, avaiability), Category(category), Franchise(franchise), Producer(producer) {}
 std::string Collectible::GetCategory() {
     return Category;
 }
@@ -23,4 +21,3 @@ void Collectible::setCategory(std::string category) {
         Producer=producer;
     }
 }
-#endif

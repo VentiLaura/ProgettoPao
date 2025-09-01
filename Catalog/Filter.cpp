@@ -1,5 +1,3 @@
-#ifndef FILTER_CPP
-#define FILTER_CPP
 #include "Filter.h"
 namespace filter{
 bool FilterVideogames::Select(Product* product) const {
@@ -35,4 +33,3 @@ bool FilterCombiner::Select(Product* product) const {
         return true;
 }
 }
-#endif

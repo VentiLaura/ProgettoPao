@@ -7,7 +7,7 @@ class Console: public Product {
     Console_type Serie;
     public:
     ~Console();
-    Console(Console_type, double, unsigned int, int=1);
+    Console(Console_type, double, std::string, int=1);
     Console_type getSerie() const;
     void setSerie(Console_type&);
 };

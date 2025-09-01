@@ -5,5 +5,6 @@
 #include "Console.h"
 #include "Accessory.h"
 #include "Collectible.h"
+#include "T-shirt.h"
 #include "Enums.h"
 #endif

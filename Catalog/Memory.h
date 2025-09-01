@@ -7,9 +7,13 @@ class Memory {
     private:
     std::vector<product::Product*> Catalog;
     public:
+    Memory();
+    Memory(std::vector<product::Product*>);
+    bool IsUnique(const std::string&) const;
     const std::vector<product::Product*>& getCatalog() const;
     Memory& Add(product::Product*);
-    Memory& Remove(unsigned int); 
+    Memory& Add(std::vector<product::Product*>);
+    Memory& Remove(std::string); 
 };
 }
 #endif

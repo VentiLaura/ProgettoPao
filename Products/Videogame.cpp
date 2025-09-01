@@ -1,9 +1,7 @@
-#ifndef VIDEOGAME_CPP
-#define VIDEOGAME_CPP
 #include "Videogame.h"
 namespace product {
 Videogame::~Videogame() {}
-Videogame::Videogame(std::vector<Console_type> compatible, std::string producer, std::vector<Genre> genre, double price, std::string name, unsigned int idProduct, int availability): Product(price, idProduct, availability), Compatibility(compatible), Producer(producer), Genres(genre), Name(name) {}
+Videogame::Videogame(std::vector<Console_type> compatible, std::string producer, std::vector<Genre> genre, double price, std::string name, std::string idProduct, int availability): Product(price, idProduct, availability), Name(name), Compatibility(compatible), Producer(producer), Genres(genre) {}
 std::string Videogame::getName() const {
     return Name;
 }
@@ -43,4 +41,3 @@ void Videogame::setCompatibility(std::vector<Console_type>& c) {
     Compatibility=c;
 }
 }
-#endif
