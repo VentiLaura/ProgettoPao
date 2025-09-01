@@ -3,14 +3,19 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QLabel>
+#include <QPixmap>
 
 //#include "Products/Product"
 #include "Visitor/visitor.h"
 
-class ProductWidget: public QWidget 
+class ProductWidget: public QWidget
 {
     public: 
         ProductWidget(QWidget *parent = nullptr);
-    virtual void accept(Visitor* visitor) override
+        virtual void accept(Visitor* visitor) = 0;
+
+    private:
+        QLabel *image = new QLabel;
 };
 #endif

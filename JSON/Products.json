@@ -3,14 +3,28 @@
         "Type": "Console",
         "Serie": "Nintendo 3DS",
         "Price": 129.99,
-        "IdProduct": 0,
+        "IdProduct": "0",
         "Copies_available": 5
+    },
+        {
+        "Type": "Console",
+        "Serie": "Play Station 5 PRO",
+        "Price": 399.99,
+        "IdProduct": "11",
+        "Copies_available": 13
+    },
+            {
+        "Type": "Console",
+        "Serie": "Xbox Series X",
+        "Price": 299.99,
+        "IdProduct": "189",
+        "Copies_available": 2
     },
     {
         "Type": "Videogame",
         "Name": "Super Smash Bros. Brawl",
         "Price": 49.99,
-        "IdProduct": 1,
+        "IdProduct": "1",
         "Copies_available": 2,
         "Compatibility": [
             "Wii",
@@ -20,6 +34,36 @@
         "Genres": [
             "Action",
             "Platform"
+        ]
+    },
+    {
+        "Type": "Videogame",
+        "Name": "Persona 5 Royal",
+        "Price": 49.99,
+        "IdProduct": "19",
+        "Copies_available": 7,
+        "Compatibility": [
+            "Play Station 4",
+            "Play Station 5"
+        ],
+        "Producer": "Atlus",
+        "Genres": [
+            "RPG"
+        ]
+    },
+    {
+        "Type": "Videogame",
+        "Name": "Legendo of Zelda: Breath of the Wild",
+        "Price": 69.99,
+        "IdProduct": "45",
+        "Copies_available": 20,
+        "Compatibility": [
+            "Nintendo Switch",
+            "Nintendo Switch 2"
+        ],
+        "Producer": "Nintendo",
+        "Genres": [
+            "Action"
         ]
     }
 ]
