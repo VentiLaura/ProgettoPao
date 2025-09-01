@@ -1,0 +1,25 @@
+[
+    {
+        "Type": "Console",
+        "Serie": "Nintendo 3DS",
+        "Price": 129.99,
+        "IdProduct": 0,
+        "Copies_available": 5
+    },
+    {
+        "Type": "Videogame",
+        "Name": "Super Smash Bros. Brawl",
+        "Price": 49.99,
+        "IdProduct": 1,
+        "Copies_available": 2,
+        "Compatibility": [
+            "Wii",
+            "Wii U"
+        ],
+        "Producer": "Nintendo",
+        "Genres": [
+            "Action",
+            "Platform"
+        ]
+    }
+]
