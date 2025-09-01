@@ -14,8 +14,11 @@ class ProductWidget: public QWidget
     public: 
         ProductWidget(QWidget *parent = nullptr);
         virtual void accept(Visitor* visitor) = 0;
-
+        
     private:
         QLabel *image = new QLabel;
+        QLabel *title = new QLabel;
+        QLabel *price = new QLabel;
+
 };
 #endif
