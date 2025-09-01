@@ -1,5 +1,5 @@
 .vscode/
-.o
-.pro
+*.o
+*.pro
 Makefile
 .qmake.stash
