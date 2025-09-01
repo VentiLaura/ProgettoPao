@@ -1,5 +1,5 @@
 #include <QApplication>
-#include "View/mainwindow.cpp"
+#include "View/mainwindow.h"
 
 int main(int argc, char *argv[]){
     QApplication videogameLibrary(argc, argv);
