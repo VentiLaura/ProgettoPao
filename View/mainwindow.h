@@ -9,7 +9,7 @@ class MainWindow: public QMainWindow {
         MainWindow(QWidget *parent = nullptr);
 
     private:
-        QPushButton *quitButton;
+
 
 };
 #endif
