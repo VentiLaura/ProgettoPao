@@ -1,10 +1,8 @@
-#ifndef ACCESSORY_CPP
-#define ACCESSORY_CPP
 #include "Accessory.h"
 #include "Enums.h"
 #include <vector>
 namespace product {
-Accessory::Accessory(double h, double l, double d, double w, std::vector<Console_type> c, double p, std::string n, unsigned int id, int a): Product(p,id,a), Height(h), Weight(w), Lenght(l), Depth(d), Compatibility(c), Name(n) {}
+Accessory::Accessory(double h, double l, double d, double w, std::vector<Console_type> c, double p, std::string n, std::string id, int a): Product(p,id,a), Name(n), Height(h),Lenght(l),Depth(d), Weight(w), Compatibility(c) {}
 Accessory::~Accessory() {}
 std::string Accessory::getName() const {
     return Name;
@@ -49,4 +47,3 @@ void Accessory::setCompatibility(std::vector<Console_type>& c) {
     Compatibility=c;
 }
 }
-#endif

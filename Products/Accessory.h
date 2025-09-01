@@ -13,7 +13,7 @@ class Accessory: public Product {
     double Weight;
     std::vector<Console_type> Compatibility;
     public:
-    Accessory(double, double, double, double, std::vector<Console_type>, double, std::string, unsigned int, int=1);
+    Accessory(double, double, double, double, std::vector<Console_type>, double, std::string, std::string, int=1);
     ~Accessory();
     std::string getName() const; 
     void setName(std::string);

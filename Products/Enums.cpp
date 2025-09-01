@@ -1,5 +1,3 @@
-#ifndef ENUMS_CPP
-#define ENUMS_CPP
 #include "Enums.h"
 #include <stdexcept>
 #include <algorithm>
@@ -130,7 +128,4 @@ Sizes StringToSize(const std::string& s) {
     if (size == "xl") return Sizes::XL;
     throw std::invalid_argument("Not a size: " + s);
 }
-
-
 }
-#endif

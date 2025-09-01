@@ -1,5 +1,3 @@
-#ifndef JSONREADER_CPP
-#define JSONREADER_CPP
 #include <iostream>
 #include <vector>
 #include "../Products/IncludeAllProducts.h"
@@ -18,7 +16,7 @@ Product* processObject(const QJsonObject& obj) {
     if (type=="Accessory") {
         std::string name=(obj["Name"].toString()).toStdString();
         double price=obj["Price"].toDouble();
-        unsigned int id=obj["IdProduct"].toInt();
+        std::string id=obj["IdProduct"].toString().toStdString();
         int avaiability=obj["Copies_available"].toInt();
         double height=obj["Height"].toDouble();
         double lenght=obj["Lenght"].toDouble();
@@ -35,7 +33,7 @@ Product* processObject(const QJsonObject& obj) {
     } else if (type == "Videogame") {
         std::string name=(obj["Name"].toString()).toStdString();
         double price=obj["Price"].toDouble();
-        unsigned int id=obj["IdProduct"].toInt();
+        std::string id=obj["IdProduct"].toString().toStdString();
         int avaiability=obj["Copies_available"].toInt();
         QJsonArray ArrayCompatibility=obj["Compatibility"].toArray();
         std::vector<Console_type> compatibility;
@@ -48,25 +46,33 @@ Product* processObject(const QJsonObject& obj) {
         for (const QJsonValue& val : ArrayGenres) {
             genres.push_back(StringToGenre((val.toString()).toStdString()));
         }
-        Videogame* videogame=new Videogame(compatibility, producer, genres, price, name, avaiability, id);
+        Videogame* videogame=new Videogame(compatibility, producer, genres, price, name, id, avaiability);
         return videogame;
     } else if (type=="Console") {
         double price=obj["Price"].toDouble();
-        unsigned int id=obj["IdProduct"].toInt();
+        std::string id=obj["IdProduct"].toString().toStdString();
         int avaiability=obj["Copies_available"].toInt();
         Console_type serie=StringToConsoleType((obj["Serie"].toString()).toStdString());
         Console* console=new Console(serie, price, id, avaiability);
         return console;
             } else if(type=="Collectible") {
                 double price=obj["Price"].toDouble();
-                unsigned int id=obj["IdProduct"].toInt();
+                std::string id=obj["IdProduct"].toString().toStdString();
                 int avaiability=obj["Copies_available"].toInt();
                 std::string category=obj["Category"].toString().toStdString();
                 std::string franchise=obj["Franchise"].toString().toStdString();
                 std::string producer=obj["Producer"].toString().toStdString();
                 Collectible* collectible=new Collectible(category, franchise, producer, price, id, avaiability);
                 return collectible;
-            } else {
+            } else if(type=="T-shirt") {
+                double price=obj["Price"].toDouble();
+                std::string id=obj["IdProduct"].toString().toStdString();
+                int avaiability=obj["Copies_available"].toInt();
+                Sizes size=StringToSize(obj["Size"].toString().toStdString());
+                std::string franchise=obj["Franchise"].toString().toStdString();
+                T_shirt* shirt=new T_shirt(size,franchise,price,id,avaiability);
+                return shirt;
+                } else {
         throw std::invalid_argument("Not a Compatible Type of Product:" + type.toStdString());
     }
 }
@@ -101,4 +107,3 @@ std::vector<Product*> JsonReader(const QString& path) {
     return ProductsRead;
 }
 }
-#endif
