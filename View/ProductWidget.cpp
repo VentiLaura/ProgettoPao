@@ -3,7 +3,7 @@
 #include <QPixmap>
 #include <QVBoxLayout>
 
- ProductWidget::ProductWidget(QWidget *parent): QWidget(parent) {
+ ProductWidget::ProductWidget(product::Product* product, std::string ImagePath, QWidget *parent): QWidget(parent), Product(product) {
        QVBoxLayout *layout = new QVBoxLayout;
        layout->setAlignment(Qt::AlignTop);
        layout->addWidget(image);
