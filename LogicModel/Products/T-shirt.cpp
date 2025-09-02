@@ -1,7 +1,7 @@
 #include "T-shirt.h"
 namespace product {
 T_shirt::~T_shirt() {}
-T_shirt::T_shirt(Sizes s, std::string f, double p, std::string id, int av): Product(p,id,av), Size(s), Franchise(f) {}
+T_shirt::T_shirt(Sizes s, std::string f, std::string i, std::string n, double p, std::string id, int av): Product(i,n,p,id,av), Size(s), Franchise(f) {}
 int T_shirt::getChestSize() {
     switch(Size) {
         case Sizes::L: return 103;

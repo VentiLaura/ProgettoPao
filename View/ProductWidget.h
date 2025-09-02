@@ -11,7 +11,7 @@
 class ProductWidget: public QWidget
 {
     public: 
-        ProductWidget(product::Product*, std::string, QWidget *parent = nullptr);
+        ProductWidget(product::Product*, QWidget *parent = nullptr);
     private:
         product::Product* Product;
         QLabel *image = new QLabel;

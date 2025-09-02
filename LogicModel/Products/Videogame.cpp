@@ -1,13 +1,7 @@
 #include "Videogame.h"
 namespace product {
 Videogame::~Videogame() {}
-Videogame::Videogame(std::vector<Console_type> compatible, std::string producer, std::vector<Genre> genre, double price, std::string name, std::string idProduct, int availability): Product(price, idProduct, availability), Name(name), Compatibility(compatible), Producer(producer), Genres(genre) {}
-std::string Videogame::getName() const {
-    return Name;
-}
-void Videogame::setName(std::string n) {
-    Name=n;
-}
+Videogame::Videogame(std::vector<Console_type> compatible, std::string producer, std::vector<Genre> genre, std::string image, std::string name, double price, std::string idProduct, int availability): Product(image, name, price, idProduct, availability), Compatibility(compatible), Producer(producer), Genres(genre) {}
 void Videogame::setGenre(std::vector<Genre> g) {
     Genres=g;
 }

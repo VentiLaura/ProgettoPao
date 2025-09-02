@@ -5,9 +5,10 @@ namespace product {
 class Console: public Product {
     private:
     Console_type Serie;
+    std::string Memory;
     public:
     ~Console();
-    Console(Console_type, double, std::string, int=1);
+    Console(Console_type, std::string, std::string, double, std::string, int=1);
     Console_type getSerie() const;
     void setSerie(Console_type&);
 };

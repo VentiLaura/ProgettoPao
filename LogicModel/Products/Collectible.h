@@ -9,7 +9,7 @@ class Collectible: public Product {
     std::string Producer;
     public:
     ~Collectible();
-    Collectible(std::string, std::string, std::string, double, std::string, int=1);
+    Collectible(std::string, std::string, std::string, std::string, std::string, double, std::string, int=1);
     std::string GetCategory();
     void setCategory(std::string);
     std::string GetFranchise();
