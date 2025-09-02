@@ -14,6 +14,6 @@ class MainWindow: public QMainWindow {
 
     private:
     SortFilterWidget *sortfilter = new SortFilterWidget;
-    MainRightWidget *rightWIdget = new MainRightWidget;
+    MainRightWidget *rightWidget = new MainRightWidget;
 };
 #endif

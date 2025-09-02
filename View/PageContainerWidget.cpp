@@ -1,11 +1,11 @@
 #include "PageContainerWidget.h"
-PageContainerWidget::PageContainerWidget(QWidget* parent, std::vector<product::Product*> products): QWidget(parent) {
+PageContainerWidget::PageContainerWidget(std::vector<product::Product*> products, QWidget* parent): QWidget(parent) {
     int productCounter=0;
     std::vector<product::Product*> pageProducts;
     for(std::vector<product::Product*>::iterator it=products.begin(); it!=products.end(); it++) {
-        if(productCounter=13) {
+        if(productCounter==13) {
             productCounter=0;
-            PageWidget* page=new PageWidget(this, pageProducts);
+            PageWidget* page=new PageWidget(pageProducts, this);
             pageProducts.clear();
             Pages.push_back(page);
         } else {
@@ -14,7 +14,7 @@ PageContainerWidget::PageContainerWidget(QWidget* parent, std::vector<product::P
     }
     productCounter=0;
     if(!pageProducts.empty()) {
-        PageWidget* page=new PageWidget(this, pageProducts);
+        PageWidget* page=new PageWidget(pageProducts, this);
         pageProducts.clear();
         Pages.push_back(page);
     }
