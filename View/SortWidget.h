@@ -2,8 +2,13 @@
 #define SORTWIDGET_H
 
 #include <QWidget>
+#include <QLabel>
 class SortWidget: public QWidget{
-SortWidget(QWidget *parent = nullptr);
+    public:
+        SortWidget(QWidget *parent = nullptr);
+    private:
+        QLabel *sort;
+
 //codice
 };
 #endif

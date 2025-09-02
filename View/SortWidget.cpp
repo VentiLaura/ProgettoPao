@@ -1,5 +1,5 @@
 #include "SortWidget.h"
 
 SortWidget::SortWidget(QWidget *parent):QWidget(parent){
-    //codice
+    sort = new QLabel("Ordina per:", this);
 }
