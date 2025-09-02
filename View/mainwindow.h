@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
  
 #include "SortFilterWidget.h" 
+#include "MainRightWidget.h"
 
 #include <QMainWindow>
 #include <QPushButton>
@@ -13,6 +14,6 @@ class MainWindow: public QMainWindow {
 
     private:
     SortFilterWidget *sortfilter = new SortFilterWidget;
-
+    MainRightWidget *rightWIdget = new MainRightWidget;
 };
 #endif
