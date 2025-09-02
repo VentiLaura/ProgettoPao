@@ -4,12 +4,16 @@
 namespace product {
 class Product {
     private:
+    std::string Image;
+    std::string Name;
     double Price;
     std::string IdProduct;
     int Copies_available;
     public:
-    Product(double, std::string, int=1);
+    Product(std::string, std::string, double, std::string, int=1);
     virtual ~Product() = 0;
+    std::string getName() const; 
+    void setName(std::string);
     int getAvailability() const;
     void setAvailability(int);
     std::string getIdProduct() const;

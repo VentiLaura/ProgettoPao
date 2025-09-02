@@ -1,7 +1,7 @@
 #include "Collectible.h"
 namespace product {
 Collectible::~Collectible() {}
-Collectible::Collectible(std::string category, std::string franchise, std::string producer, double price, std::string id, int avaiability): Product(price, id, avaiability), Category(category), Franchise(franchise), Producer(producer) {}
+Collectible::Collectible(std::string category, std::string franchise, std::string producer, std::string i, std::string name, double price, std::string id, int avaiability): Product(i, name, price, id, avaiability), Category(category), Franchise(franchise), Producer(producer) {}
 std::string Collectible::GetCategory() {
     return Category;
 }

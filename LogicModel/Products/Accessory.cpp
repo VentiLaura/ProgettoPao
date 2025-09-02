@@ -2,7 +2,7 @@
 #include "Enums.h"
 #include <vector>
 namespace product {
-Accessory::Accessory(double h, double l, double d, double w, std::vector<Console_type> c, double p, std::string n, std::string id, int a): Product(p,id,a), Name(n), Height(h),Lenght(l),Depth(d), Weight(w), Compatibility(c) {}
+Accessory::Accessory(double h, double l, double d, double w, std::vector<Console_type> c,std::string i, std::string n, double p, std::string id, int a): Product(i,n,p,id,a), Height(h),Lenght(l),Depth(d), Weight(w), Compatibility(c) {}
 Accessory::~Accessory() {}
 std::string Accessory::getName() const {
     return Name;

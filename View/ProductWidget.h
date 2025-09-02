@@ -5,16 +5,15 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QPixmap>
-
-//#include "Products/Product"
+#include "../LogicModel/Products/Product.h"
 #include "Visitor/visitor.h"
 
 class ProductWidget: public QWidget
 {
     public: 
-        ProductWidget(QWidget *parent = nullptr);
-        virtual void accept(Visitor* visitor) = 0;
-            private:
+        ProductWidget(product::Product*, QWidget *parent = nullptr);
+    private:
+        product::Product* Product;
         QLabel *image = new QLabel;
         QLabel *title = new QLabel;
         QLabel *price = new QLabel;

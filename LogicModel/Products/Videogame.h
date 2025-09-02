@@ -7,15 +7,12 @@
 namespace product {
 class Videogame: public Product {
     private:
-    std::string Name;
     std::vector<Console_type> Compatibility;
     std::string Producer;
     std::vector<Genre> Genres;
     public:
     ~Videogame();
-    Videogame(std::vector<Console_type>, std::string, std::vector<Genre>, double, std::string, std::string, int=1);
-    std::string getName() const; 
-    void setName(std::string);
+    Videogame(std::vector<Console_type>, std::string, std::vector<Genre>, std::string, std::string, double, std::string, int=1);
     const std::vector<Console_type>& getCompatibility() const;
     bool IsCompatible(Console_type) const;
     void setCompatibility(std::vector<Console_type>&);

@@ -13,6 +13,7 @@ namespace json {
 Product* processObject(const QJsonObject& obj) {
     QString type = obj["Type"].toString();
     if (type=="Accessory") {
+        std::string image=(obj["Image"].toString().toStdString());
         std::string name=(obj["Name"].toString()).toStdString();
         double price=obj["Price"].toDouble();
         std::string id=obj["IdProduct"].toString().toStdString();
@@ -26,10 +27,11 @@ Product* processObject(const QJsonObject& obj) {
         for (const QJsonValue& val : ArrayCompatibility) {
             compatibility.push_back(StringToConsoleType((val.toString()).toStdString()));
         }
-        Accessory* accessory=new Accessory(height, lenght, depth, weight, compatibility, price, name, id, avaiability);
+        Accessory* accessory=new Accessory(height, lenght, depth, weight, compatibility, image, name, price, id, avaiability);
         return accessory;
 
     } else if (type == "Videogame") {
+        std::string image=(obj["Image"].toString().toStdString());
         std::string name=(obj["Name"].toString()).toStdString();
         double price=obj["Price"].toDouble();
         std::string id=obj["IdProduct"].toString().toStdString();
@@ -45,31 +47,37 @@ Product* processObject(const QJsonObject& obj) {
         for (const QJsonValue& val : ArrayGenres) {
             genres.push_back(StringToGenre((val.toString()).toStdString()));
         }
-        Videogame* videogame=new Videogame(compatibility, producer, genres, price, name, id, avaiability);
+        Videogame* videogame=new Videogame(compatibility, producer, genres, image, name, price, id, avaiability);
         return videogame;
     } else if (type=="Console") {
+        std::string image=(obj["Image"].toString().toStdString());
+        std::string name=(obj["Name"].toString()).toStdString();
         double price=obj["Price"].toDouble();
         std::string id=obj["IdProduct"].toString().toStdString();
         int avaiability=obj["Copies_available"].toInt();
         Console_type serie=StringToConsoleType((obj["Serie"].toString()).toStdString());
-        Console* console=new Console(serie, price, id, avaiability);
+        Console* console=new Console(serie, image, name, price, id, avaiability);
         return console;
             } else if(type=="Collectible") {
+                std::string image=(obj["Image"].toString().toStdString());
+                std::string name=(obj["Name"].toString()).toStdString();
                 double price=obj["Price"].toDouble();
                 std::string id=obj["IdProduct"].toString().toStdString();
                 int avaiability=obj["Copies_available"].toInt();
                 std::string category=obj["Category"].toString().toStdString();
                 std::string franchise=obj["Franchise"].toString().toStdString();
                 std::string producer=obj["Producer"].toString().toStdString();
-                Collectible* collectible=new Collectible(category, franchise, producer, price, id, avaiability);
+                Collectible* collectible=new Collectible(category, franchise, producer, image, name, price, id, avaiability);
                 return collectible;
             } else if(type=="T-shirt") {
+                std::string image=(obj["Image"].toString().toStdString());
+                std::string name=(obj["Name"].toString()).toStdString();
                 double price=obj["Price"].toDouble();
                 std::string id=obj["IdProduct"].toString().toStdString();
                 int avaiability=obj["Copies_available"].toInt();
                 Sizes size=StringToSize(obj["Size"].toString().toStdString());
                 std::string franchise=obj["Franchise"].toString().toStdString();
-                T_shirt* shirt=new T_shirt(size,franchise,price,id,avaiability);
+                T_shirt* shirt=new T_shirt(size,franchise,image,name,price,id,avaiability);
                 return shirt;
                 } else {
         throw std::invalid_argument("Not a Compatible Type of Product:" + type.toStdString());

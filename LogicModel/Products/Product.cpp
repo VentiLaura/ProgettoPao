@@ -1,7 +1,13 @@
 #include "Product.h"
 namespace product {
 Product::~Product() {}
-Product::Product(double price, std::string idProduct, int availability): Price(price), IdProduct(idProduct), Copies_available(availability) {}
+Product::Product(std::string image, std::string name, double price, std::string idProduct, int availability): Image(image), Name(name), Price(price), IdProduct(idProduct), Copies_available(availability) {}
+std::string Product::getName() const {
+    return Name;
+}
+void Product::setName(std::string n) {
+    Name=n;
+}
 int Product::getAvailability() const {
     return Copies_available;
 }

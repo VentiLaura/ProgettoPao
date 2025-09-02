@@ -9,7 +9,7 @@ class T_shirt: public Product {
     std::string Franchise;
     public:
     ~T_shirt();
-    T_shirt(Sizes, std::string, double, std::string, int=1);
+    T_shirt(Sizes, std::string, std::string, std::string, double, std::string, int=1);
     int getChestSize();
     int getWaistSize();
     int getHipsSize();
