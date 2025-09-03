@@ -36,35 +36,38 @@ std::string ConsoleTypeToString(Console_type console) {
     }
 }
 
-Console_type StringToConsoleType(const std::string& console) {
-    if (console == "GameBoy") return Console_type::GameBoy;
-    if (console == "GameBoy Advance") return Console_type::GameBoyAdvance;
-    if (console == "GameCube") return Console_type::GameCube;
-    if (console == "Nintendo 64") return Console_type::Ninendo_64;
-    if (console == "Nintendo 2DS") return Console_type::Nintendo_2DS;
-    if (console == "Nintendo 3DS") return Console_type::Nintendo_3DS;
-    if (console == "Nintendo DS") return Console_type::Nintendo_DS;
-    if (console == "Nintendo DSi") return Console_type::Nintendo_DSi;
-    if (console == "Nintendo Switch") return Console_type::Nintendo_Switch;
-    if (console == "Nintendo Switch 2") return Console_type::Nintendo_Switch_2;
-    if (console == "Nintendo Switch Lite") return Console_type::Nintendo_Switch_Lite;
-    if (console == "Nintendo Switch Oled") return Console_type::Nintendo_Switch_OLED;
-    if (console == "PlayStation 2") return Console_type::PlayStation2;
-    if (console == "PlayStation 3") return Console_type::PlayStation3;
-    if (console == "PlayStation 4") return Console_type::PlayStation4;
-    if (console == "PlayStation 5") return Console_type::PlayStation5;
-    if (console == "PlayStation") return Console_type::PlayStation;
-    if (console == "PlayStation Vita") return Console_type::PlayStation_Vita;
-    if (console == "Steam") return Console_type::steam;
-    if (console == "Steam Deck") return Console_type::SteamDeck;
-    if (console == "Wii") return Console_type::Wii;
-    if (console == "Wii U") return Console_type::Wii_U;
-    if (console == "Xbox") return Console_type::Xbox;
-    if (console == "Xbox 360") return Console_type::Xbox_360;
-    if (console == "Xbox One") return Console_type::Xbox_One;
-    if (console == "Xbox Series S") return Console_type::Xbox_Series_S;
-    if (console == "Xbox Series X") return Console_type::Xbox_Series_X;
-    throw std::invalid_argument("Not a Console type: " + console);
+Console_type StringToConsoleType(const std::string& c) {
+    std::string console=c;
+    std::transform(console.begin(), console.end(), console.begin(), ::tolower);
+    if (console == "gameboy") return Console_type::GameBoy;
+    if (console == "gameboy advance") return Console_type::GameBoyAdvance;
+    if (console == "gamecube") return Console_type::GameCube;
+    if (console == "nintendo 64") return Console_type::Ninendo_64;
+    if (console == "nintendo 2ds") return Console_type::Nintendo_2DS;
+    if (console == "nintendo 3ds") return Console_type::Nintendo_3DS;
+    if (console == "nintendo ds") return Console_type::Nintendo_DS;
+    if (console == "nintendo dsi") return Console_type::Nintendo_DSi;
+    if (console == "nintendo switch") return Console_type::Nintendo_Switch;
+    if (console == "nintendo switch 2") return Console_type::Nintendo_Switch_2;
+    if (console == "nintendo switch lite") return Console_type::Nintendo_Switch_Lite;
+    if (console == "nintendo switch oled") return Console_type::Nintendo_Switch_OLED;
+    if (console == "playstation 2") return Console_type::PlayStation2;
+    if (console == "playstation 3") return Console_type::PlayStation3;
+    if (console == "playstation 4") return Console_type::PlayStation4;
+    if (console == "playstation 5") return Console_type::PlayStation5;
+    if (console == "playstation") return Console_type::PlayStation;
+    if (console == "playstation vita") return Console_type::PlayStation_Vita;
+    if (console == "steam") return Console_type::steam;
+    if (console == "steam deck") return Console_type::SteamDeck;
+    if (console == "wii") return Console_type::Wii;
+    if (console == "wii u") return Console_type::Wii_U;
+    if (console == "xbox") return Console_type::Xbox;
+    if (console == "xbox 360") return Console_type::Xbox_360;
+    if (console == "xbox one") return Console_type::Xbox_One;
+    if (console == "xbox series s") return Console_type::Xbox_Series_S;
+    if (console == "xbox series x") return Console_type::Xbox_Series_X;
+
+    throw std::invalid_argument("Not a Console type: " + c);
 }
 
 std::string GenreToString(Genre genre) {
@@ -105,7 +108,7 @@ Genre StringToGenre(const std::string& s) {
     if (genre == "gacha") return Genre::Gacha;
     if (genre == "simulator") return Genre::Simulator;
     if (genre == "battle royale" || genre == "battle_royale") return Genre::Battle_royale;
-    throw std::invalid_argument("Not a genre");
+    throw std::invalid_argument("Not a genre" + s);
 }
 std::string SizeToString(Sizes size) {
     switch (size) {

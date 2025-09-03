@@ -7,8 +7,8 @@
 class PageWidget: public QWidget {
     Q_OBJECT
     public:
-        PageWidget(std::vector<product::Product*>, QWidget* = nullptr);
+    PageWidget(std::vector<product::Product*>, QWidget* = nullptr);
     private:
-    std::vector<ProductWidget*> productwidgets;
+    std::vector<ProductWidget*> Productwidgets;
 };
 #endif

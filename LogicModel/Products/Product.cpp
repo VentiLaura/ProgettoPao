@@ -2,6 +2,12 @@
 namespace product {
 Product::~Product() {}
 Product::Product(std::string image, std::string name, double price, std::string idProduct, int availability): Image(image), Name(name), Price(price), IdProduct(idProduct), Copies_available(availability) {}
+std::string Product::getImage() {
+    return Image;
+}
+void Product::setImage(std::string s) {
+    Image=s;
+}
 std::string Product::getName() const {
     return Name;
 }

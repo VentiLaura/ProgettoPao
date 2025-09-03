@@ -10,7 +10,8 @@
         {
         "Image": "../Immagini/PS5_PRO.jpg",
         "Type": "Console",
-        "Serie": "Play Station 5 PRO",
+        "Memory": "idk",
+        "Serie": "PlayStation 5",
         "Price": 399.99,
         "IdProduct": "11",
         "Copies_available": 13
@@ -48,8 +49,8 @@
         "IdProduct": "19",
         "Copies_available": 7,
         "Compatibility": [
-            "Play Station 4",
-            "Play Station 5"
+            "PlayStation 4",
+            "PlayStation 5"
         ],
         "Producer": "Atlus",
         "Genres": [

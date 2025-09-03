@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 #include "../LogicModel/Products/IncludeAllProducts.h"
 #include "../LogicModel/Catalog/Memory.h"
 #include "JSONReader.h"
@@ -51,12 +52,13 @@ Product* processObject(const QJsonObject& obj) {
         return videogame;
     } else if (type=="Console") {
         std::string image=(obj["Image"].toString().toStdString());
-        std::string name=(obj["Name"].toString()).toStdString();
+        //std::string name=(obj["Name"].toString()).toStdString();
+        std::string memory=(obj["Memory"].toString().toStdString());
         double price=obj["Price"].toDouble();
         std::string id=obj["IdProduct"].toString().toStdString();
         int avaiability=obj["Copies_available"].toInt();
         Console_type serie=StringToConsoleType((obj["Serie"].toString()).toStdString());
-        Console* console=new Console(serie, image, name, price, id, avaiability);
+        Console* console=new Console(serie, memory, image, price, id, avaiability);
         return console;
             } else if(type=="Collectible") {
                 std::string image=(obj["Image"].toString().toStdString());

@@ -1,5 +1,6 @@
 #ifndef PAGECONTAINERWIDGET_H
 #define PAGECONTAINERWIDGET_H
+#include <QStackedLayout>
 #include <QMainWindow>
 #include <QPushButton>
 #include "PageWidget.h"
@@ -7,9 +8,12 @@
 class PageContainerWidget: public QWidget {
     Q_OBJECT
     public:
+        PageContainerWidget(QWidget* = nullptr);
         PageContainerWidget(std::vector<product::Product*>, QWidget* = nullptr);
         int getPageNumber();
+        void AddPage(PageWidget*);
     private:
     std::vector<PageWidget*> Pages;
+    QStackedLayout* stackedLayout;
 };
 #endif

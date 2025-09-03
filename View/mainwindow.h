@@ -3,6 +3,8 @@
  
 #include "SortFilterWidget.h" 
 #include "MainRightWidget.h"
+#include "PageContainerWidget.h"
+#include "../JSON/JSONReader.h"
 
 #include <QMainWindow>
 #include <QPushButton>
@@ -14,6 +16,6 @@ class MainWindow: public QMainWindow {
 
     private:
     SortFilterWidget *sortfilter = new SortFilterWidget;
-    MainRightWidget *rightWidget = new MainRightWidget;
+    //MainRightWidget *rightWidget = new MainRightWidget;
 };
 #endif
