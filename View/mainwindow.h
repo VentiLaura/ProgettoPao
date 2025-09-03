@@ -9,13 +9,15 @@
 #include <QMainWindow>
 #include <QPushButton>
 
+
+
 class MainWindow: public QMainWindow {
     Q_OBJECT
     public:
         MainWindow(QWidget *parent = nullptr);
 
     private:
-    SortFilterWidget *sortfilter = new SortFilterWidget;
+    //SortFilterWidget *sortfilter = new SortFilterWidget;
     //MainRightWidget *rightWidget = new MainRightWidget;
 };
 #endif
