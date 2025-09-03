@@ -4,6 +4,6 @@
 int main(int argc, char *argv[]){
     QApplication videogameLibrary(argc, argv);
     MainWindow window;
-    window.showFullScreen(); //CHIEDERE ALLA ANGELA SE COSI VA BENE
+    window.show();
     return videogameLibrary.exec();
 }
