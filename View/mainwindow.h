@@ -9,6 +9,7 @@
 #include <QMainWindow>
 #include <QPushButton>
 
+#include <QDebug>
 
 
 class MainWindow: public QMainWindow {
@@ -17,11 +18,16 @@ class MainWindow: public QMainWindow {
         MainWindow(QWidget *parent = nullptr);
 
     private:
+<<<<<<< HEAD
         SortFilterWidget *sortfilter = new SortFilterWidget;
         MainRightWidget *rightWidget = new MainRightWidget;
 
     private slots:
         void updateFilter(const QString& filter); 
     
+=======
+    SortFilterWidget *leftWidget = new SortFilterWidget;
+    MainRightWidget *rightWidget = new MainRightWidget;
+>>>>>>> 7bf26185ac194c13ee6d52153b10ebf9213ff26b
 };
 #endif
