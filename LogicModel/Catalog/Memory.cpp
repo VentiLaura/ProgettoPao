@@ -3,10 +3,14 @@
 #include <string>
 #include <stdexcept>
 namespace memory {
+    std::vector<product::Product*> Memory::getCatalog() {
+        return Catalog;
+    }
 Memory::Memory() {}
 Memory::Memory(std::vector<product::Product*> c): Catalog(c) {}
-const std::vector<product::Product*>& Memory::getCatalog() const {
-    return Catalog;
+Memory& Memory::getCentralMemoryInstance() {
+    static Memory CentralMemory;
+    return CentralMemory;
 }
 bool Memory::IsUnique(const std::string& id) const {
     for(std::vector<product::Product*>::const_iterator it=Catalog.begin(); it!=Catalog.end(); it++) {
