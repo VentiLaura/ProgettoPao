@@ -15,7 +15,11 @@ class MainWindow: public QMainWindow {
         MainWindow(QWidget *parent = nullptr);
 
     private:
-    SortFilterWidget *sortfilter = new SortFilterWidget;
-    //MainRightWidget *rightWidget = new MainRightWidget;
+        SortFilterWidget *sortfilter = new SortFilterWidget;
+        MainRightWidget *rightWidget = new MainRightWidget;
+
+    private slots:
+        void updateFilter(const QString& filter); 
+    
 };
 #endif

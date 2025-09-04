@@ -1,4 +1,22 @@
 #include "FilterWidget.h"
+#include <QFormLayout>
+
 FilterWidget::FilterWidget(QWidget *parent): QWidget(parent){
-    filter = new QLabel("Filtro", this);
+    QFormLayout *filterLayout = new QFormLayout;
+    filter = new QLabel("Filtro:", this);
+    filterMenu = new QComboBox(this);
+    filterMenu->addItem("Tutti");      
+    filterMenu->addItem("Console");
+    filterMenu->addItem("Videogiochi");
+    filterMenu->addItem("Accessori");
+    filterMenu->addItem("Collezionabili");
+    filterMenu->addItem("Magliette");
+    filterLayout->addRow(filter, filterMenu);
+    setLayout(filterLayout);
+    connect(filterMenu, &QComboBox::currentTextChanged, //currentTextChanged è un segnale emesso da QComboBox
+            this, &FilterWidget::onFilterChanged);
+    
+}
+void FilterWidget::onFilterChanged(const QString& text) {
+    emit FilterChanged(text); 
 }
