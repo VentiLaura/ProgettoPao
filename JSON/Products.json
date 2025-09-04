@@ -1,6 +1,6 @@
 [
     {
-        "Image": "../Immagini/Nintendo_3DS.jpg",
+        "Image": "Immagini/Nintendo_3DS.jpg",
         "Type": "Console",
         "Serie": "Nintendo 3DS",
         "Price": 129.99,
@@ -8,7 +8,7 @@
         "Copies_available": 5
     },
         {
-        "Image": "../Immagini/PS5_PRO.jpg",
+        "Image": "Immagini/PS5_PRO.jpg",
         "Type": "Console",
         "Memory": "idk",
         "Serie": "PlayStation 5",
@@ -17,7 +17,7 @@
         "Copies_available": 13
     },
     {
-        "Image": "../Immagini/xbox-seriesx.jpg",
+        "Image": "Immagini/xbox-seriesx.jpg",
         "Type": "Console",
         "Serie": "Xbox Series X",
         "Price": 299.99,
@@ -25,7 +25,7 @@
         "Copies_available": 2
     },
     {
-        "Image": "../Immagini/SuperSmashBros_Brawl.jpg",
+        "Image": "Immagini/SuperSmashBros_Brawl.jpg",
         "Type": "Videogame",
         "Name": "Super Smash Bros. Brawl",
         "Price": 49.99,
@@ -42,7 +42,7 @@
         ]
     },
     {
-        "Image": "../Immagini/Persona5R.jpg",
+        "Image": "Immagini/Persona5R.jpg",
         "Type": "Videogame",
         "Name": "Persona 5 Royal",
         "Price": 49.99,
@@ -58,7 +58,7 @@
         ]
     },
     {
-        "Image": "ProgettoPao/Immagini/legend-of-zelda.jpg",
+        "Image": "Immagini/legend-of-zelda.jpg",
         "Type": "Videogame",
         "Name": "Legendo of Zelda: Breath of the Wild",
         "Price": 69.99,

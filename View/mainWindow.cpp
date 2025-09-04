@@ -4,6 +4,7 @@
 #include <QWidget>
 
 MainWindow::MainWindow(QWidget *parent):QMainWindow(parent){
+    qDebug() << "mainwindow";
     QHBoxLayout *mainLayout = new QHBoxLayout;
       QWidget *central = new QWidget(this);
       mainLayout->addWidget(sortfilter);

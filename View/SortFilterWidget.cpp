@@ -8,9 +8,9 @@ SortFilterWidget::SortFilterWidget(QWidget *parent): QWidget(parent){
         filter = new FilterWidget(this); 
         leftLayout->addWidget(filter);
         setLayout(leftLayout);
-}
-void SortFilterWidget::filterModified(const QString& text){
-        filter = new FilterWidget(this);
         connect(filter, &FilterWidget::FilterChanged,
         this, &SortFilterWidget::filterModified);
+}
+void SortFilterWidget::onFilterModified(const QString& text){
+        emit filterModified(text); 
 }
