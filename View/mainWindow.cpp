@@ -1,24 +1,13 @@
 #include "mainwindow.h"
 #include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <QWidget>
+#include "../Utility/FilterFunctions.h"
+using namespace filterfunctions;
 
+/*
 MainWindow::MainWindow(QWidget *parent):QMainWindow(parent){
-    qDebug() << "mainwindow";
     QHBoxLayout *mainLayout = new QHBoxLayout;
-<<<<<<< HEAD
-      QWidget *central = new QWidget(this);
-      mainLayout->addWidget(sortfilter);
-      mainLayout->addWidget(rightWidget);
-      central->setLayout(mainLayout);
-      setCentralWidget(central);
-     // connect(filter, &FilterWidget::FilterChanged, this, &MainWindow::onFilterChanged);
-
-      //  QVBoxLayout *leftLayout = new QVBoxLayout;   cavare e creare file SortFilterWidget (possibiltà: creare fx che il costruttore del widget usa per creare i sottowidget e collegarli al resto)
-}
-void MainWindow::updateFilter(const QString &filtro) {
-    qDebug() << "Filtro selezionato in MainWindow:" << filtro;
-}
-=======
         //mainLayout->addWidget(sortfilter);
         QString path="JSON/Products.json";
         std::vector<product::Product*> prova=json::JsonReader(path);
@@ -52,10 +41,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     qDebug() <<"dentro main window";
     QWidget* centralContainer = new QWidget(this);
     QHBoxLayout* layout = new QHBoxLayout(centralContainer);
-    leftWidget->setStyleSheet("background-color: lightblue;");
+    sortfilter->setStyleSheet("background-color: lightblue;");
     rightWidget->setStyleSheet("background-color: lightgreen;");
 
-    layout->addWidget(leftWidget);
+    layout->addWidget(sortfilter);
     layout->addWidget(rightWidget);
 
     // Imposta proporzioni: left 40%, right 60% (2:3 ratio)
@@ -64,7 +53,16 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
     centralContainer->setLayout(layout);
     setCentralWidget(centralContainer);
+
+    connect(sortfilter, &SortFilterWidget::filterModified,
+        this, &MainWindow::updateFilter);
+    
+    connect(this, &MainWindow::productsFiltered,
+        rightWidget, &MainRightWidget::updateProducts);
 }
 
-
->>>>>>> 7bf26185ac194c13ee6d52153b10ebf9213ff26b
+void MainWindow::updateFilter(const QString& selectedFilter) {
+    auto allProducts = memory::Memory::getCentralMemoryInstance().getCatalog();
+    std::vector<product::Product*> filtered = applyFilter(selectedFilter, allProducts);
+    emit productsFiltered(filtered);
+}

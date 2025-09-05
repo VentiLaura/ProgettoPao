@@ -14,3 +14,9 @@ MainRightWidget::MainRightWidget(QWidget *p): QWidget(p),MainRightWidgetLayout(n
     MainRightWidgetLayout->setStretch(1, 9);
     setLayout(MainRightWidgetLayout);
 }
+void MainRightWidget::updateProducts(const std::vector<product::Product*>& products) {
+    if (pcw) {
+        pcw->updateProducts(products); 
+    }
+}
+
