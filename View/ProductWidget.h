@@ -13,9 +13,9 @@ class ProductWidget: public QWidget
     public: 
         ProductWidget(product::Product*, QWidget *parent = nullptr);
     protected:
-    protected:
-    void resizeEvent(QResizeEvent* event) override;
+    //void resizeEvent(QResizeEvent* event) override;
     private:
+        QPixmap originalPixmap;
         product::Product* Product;
         QLabel *image = new QLabel;
         QLabel *title = new QLabel;

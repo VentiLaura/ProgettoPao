@@ -1,4 +1,6 @@
 #include "PageContainerWidget.h"
+
+
 PageContainerWidget::PageContainerWidget(QWidget* parent): QWidget(parent), stackedLayout(new QStackedLayout) {}
 PageContainerWidget::PageContainerWidget(std::vector<product::Product*> products, QWidget* parent): QWidget(parent), stackedLayout(new QStackedLayout) {
     int productCounter=0;

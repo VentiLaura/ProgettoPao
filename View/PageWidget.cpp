@@ -2,6 +2,7 @@
 #include "ProductWidget.h"
 #include <QMainWindow>
 #include <QPushButton>
+
 PageWidget::PageWidget(std::vector<product::Product*> products, QWidget* parent): QWidget(parent) {
     QGridLayout* gridLayout = new QGridLayout;
     const int columns = 4;

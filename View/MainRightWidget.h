@@ -11,6 +11,7 @@ class MainRightWidget: public QWidget {
     Q_OBJECT
     public:
         MainRightWidget(QWidget* = nullptr);
+        void showme();
     private:
     QVBoxLayout* MainRightWidgetLayout;
     PageContainerWidget* pcw;
