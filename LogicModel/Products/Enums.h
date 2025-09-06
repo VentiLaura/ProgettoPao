@@ -19,12 +19,8 @@ enum class Genre {
     Horror,
     Gacha,
     Simulator,
-    Battle_royale, 
-<<<<<<< HEAD
-    Coperativo
-=======
+    Battle_royale,
     Cooperative
->>>>>>> 005f07d74998dfc87bfccd4f3e117f35ae489e70
 };
 enum class Console_type {
     Xbox,
