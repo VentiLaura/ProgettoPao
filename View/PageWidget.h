@@ -13,7 +13,8 @@ class PageWidget : public QWidget {
 
 public:
     explicit PageWidget(const std::vector<product::Product*>& products, QWidget* parent = nullptr);
-
+     void updateProducts(const std::vector<product::Product*>& products);
+     std::vector<ProductWidget*> Products;
 private:
     QScrollArea* scrollArea;
     QWidget* scrollContent;

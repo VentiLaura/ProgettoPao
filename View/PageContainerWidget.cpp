@@ -32,7 +32,7 @@ void PageContainerWidget::AddPage(PageWidget* page) {
     Pages.push_back(page);
     stackedLayout->addWidget(page);
 }
-void PageContainerWidget::updateProducts(const std::vector<product::Product*>& products) {
+/*void PageContainerWidget::updateProducts(const std::vector<product::Product*>& products) {
     // Pulire le pagine precedenti:
     for (std::vector<PageWidget*>::iterator it = Pages.begin(); it != Pages.end(); ++it) {
         PageWidget* page = *it;
@@ -63,4 +63,4 @@ void PageContainerWidget::updateProducts(const std::vector<product::Product*>& p
     }
 
     stackedLayout->setCurrentIndex(0);
-}
+}*/

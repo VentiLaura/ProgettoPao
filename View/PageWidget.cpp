@@ -37,6 +37,16 @@ void PageWidget::populateGrid(const std::vector<product::Product*>& products)
 
         ProductWidget* pw = new ProductWidget(products[i]);
         gridLayout->addWidget(pw, row, col);
+        Products.push_back(pw);
     }
     scrollContent->adjustSize(); 
+}
+
+void PageWidget::updateProducts(const std::vector<product::Product*>& products) {
+    for(int i=0; i < static_cast<int>(Products.size()); ++i) {
+        delete Products[i];
+    }
+    Products.clear();
+    populateGrid(products);
+
 }

@@ -12,11 +12,14 @@ class MainRightWidget: public QWidget {
     Q_OBJECT
     public:
         MainRightWidget(QWidget* = nullptr);
-        void updateProducts(const std::vector<product::Product*>&);
+        //void updateProducts(const std::vector<product::Product*>&);
     private:
         QVBoxLayout* MainRightWidgetLayout;
         PageWidget* pcw;
         SearchBarWidget* sbw;
+        public slots:
+        void updateProducts(const std::vector<product::Product*>& products);
+
 
 };
 #endif
