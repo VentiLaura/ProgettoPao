@@ -15,6 +15,17 @@ MainRightWidget::MainRightWidget(QWidget *p): QWidget(p),MainRightWidgetLayout(n
     MainRightWidgetLayout->setStretch(1, 9);
     setLayout(MainRightWidgetLayout);
 }
+void MainRightWidget::updateProducts(const std::vector<product::Product*>& products) {
+    pcw->updateProducts(products); // pcw = PageContainerWidget o PageWidget
+}
+
+/*void MainRightWidget::updateProducts(const std::vector<product::Product*>& products) {
+    // Pulire le pagine precedenti:
+    MainRightWidgetLayout->removeWidget(pcw);
+    delete pcw;
+    pcw=new PageWidget(products);
+    MainRightWidgetLayout->addWidget(pcw);
+}*/
 /*void MainRightWidget::updateProducts(const std::vector<product::Product*>& products) {
    // if (pcw) {
       //  pcw->updateProducts(products); 

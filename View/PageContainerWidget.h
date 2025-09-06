@@ -11,7 +11,7 @@ class PageContainerWidget: public QWidget {
         PageContainerWidget(std::vector<product::Product*>, QWidget* = nullptr);
         int getPageNumber();
         void AddPage(PageWidget*);
-        void updateProducts(const std::vector<product::Product*>& products);
+        //void updateProducts(const std::vector<product::Product*>& products);
 
     private:
     std::vector<PageWidget*> Pages;
