@@ -5,6 +5,7 @@ namespace product {
 
 enum class Genre {
     Action,
+    Adventure,
     RPG,
     Platform,
     Puzzle,
@@ -18,7 +19,8 @@ enum class Genre {
     Horror,
     Gacha,
     Simulator,
-    Battle_royale
+    Battle_royale, 
+    Cooperative
 };
 enum class Console_type {
     Xbox,

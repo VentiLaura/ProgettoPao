@@ -6,6 +6,7 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     qDebug() <<"dentro main window";
     QWidget* centralContainer = new QWidget(this);
+    centralContainer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     QHBoxLayout* layout = new QHBoxLayout(centralContainer);
     leftWidget->setStyleSheet("background-color: lightblue;");
     rightWidget->setStyleSheet("background-color: lightgreen;");
@@ -19,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
     centralContainer->setLayout(layout);
     setCentralWidget(centralContainer);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
 
 

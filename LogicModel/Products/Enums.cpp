@@ -87,6 +87,8 @@ std::string GenreToString(Genre genre) {
         case Genre::Gacha: return "Gacha";
         case Genre::Simulator: return "Simulator";
         case Genre::Battle_royale: return "Battle Royale";
+        case Genre::Adventure: return "Adventure";
+        case Genre::Cooperative: return "Cooperative";
         throw std::invalid_argument("Not a genre");
     }
 }
@@ -108,6 +110,8 @@ Genre StringToGenre(const std::string& s) {
     if (genre == "gacha") return Genre::Gacha;
     if (genre == "simulator") return Genre::Simulator;
     if (genre == "battle royale" || genre == "battle_royale") return Genre::Battle_royale;
+    if (genre == "adventure") return Genre::Adventure;
+    if (genre == "cooperative") return Genre::Cooperative;
     throw std::invalid_argument("Not a genre" + s);
 }
 std::string SizeToString(Sizes size) {

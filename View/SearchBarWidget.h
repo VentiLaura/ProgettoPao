@@ -9,6 +9,6 @@ class SearchBarWidget:public QWidget {
     QHBoxLayout* searchLayout;
     QLineEdit* searchBar;
     public:
-    SearchBarWidget(QWidget*);    
+    SearchBarWidget(QWidget* = nullptr);    
 };
 #endif

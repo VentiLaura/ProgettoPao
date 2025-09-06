@@ -1,26 +1,13 @@
+
+
 #include "ProductWidget.h"
-#include "../LogicModel/Products/Console.h"
-#include "../LogicModel/Products/Enums.h"
-#include "mainwindow.h"
-#include <QLabel>
-#include <QPixmap>
-#include <QVBoxLayout>
-#include <QApplication>
-#include <QScreen>
-#include <QDebug>
-#include <QSizePolicy>
-#include <QVBoxLayout>
-#include <QLabel>
-#include <QPixmap>
-#include <QSizePolicy>
-#include <QFont>
 
 ProductWidget::ProductWidget(product::Product* product, QWidget *parent)
-    : QWidget(parent), Product(product) {
+    : QWidget(parent), p(product) {
 
     // Setup image label
     QPixmap pixmap(QString::fromStdString(product->getImage()));
-originalPixmap = pixmap; // salva l'originale se vuoi usarlo nel resizeEvent
+
 image->setPixmap(pixmap);
 image->setScaledContents(true); // permette alla QLabel di scalare l'immagine da sola
     image->setAlignment(Qt::AlignCenter);
@@ -55,6 +42,6 @@ image->setScaledContents(true); // permette alla QLabel di scalare l'immagine da
     setLayout(layout);
 
     // Ensure widget expands to fill grid cell
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    setMaximumSize(300, 400);  // esempio
+    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    setMaximumSize(250, 350);  // esempio
 }

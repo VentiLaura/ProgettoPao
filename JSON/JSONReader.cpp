@@ -13,6 +13,7 @@ using namespace product;
 namespace json {
 Product* processObject(const QJsonObject& obj) {
     QString type = obj["Type"].toString();
+    qDebug()<<"entrato\n";
     if (type=="Accessory") {
         std::string image=(obj["Image"].toString().toStdString());
         std::string name=(obj["Name"].toString()).toStdString();
@@ -108,6 +109,7 @@ std::vector<Product*> JsonReader(const QString& path) {
                 ProductsRead.push_back(processObject(val.toObject()));
                 
         }
+        qDebug()<<ProductsRead.size();
     } else if(doc.isObject()) {
         ProductsRead.push_back(processObject(doc.object()));
     } else {

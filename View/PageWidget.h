@@ -1,16 +1,25 @@
 #ifndef PAGEWIDGET_H
 #define PAGEWIDGET_H
-#include <QMainWindow>
-#include <QPushButton>
+
+#include <QWidget>
+#include <vector>
+#include <QScrollArea>
+#include <QGridLayout>
 #include "ProductWidget.h"
-#include "../LogicModel/Products/Product.h"
-class PageWidget: public QWidget {
+#include "../LogicModel/Products/Product.h"  // o product/Product.h, dipende da dove hai messo la classe
+
+class PageWidget : public QWidget {
     Q_OBJECT
-    public:
-    PageWidget(std::vector<product::Product*>, QWidget* = nullptr);
-    //protected:
-    //void resizeEvent(QResizeEvent* event) override;
-    private:
-    std::vector<ProductWidget*> Productwidgets;
+
+public:
+    explicit PageWidget(const std::vector<product::Product*>& products, QWidget* parent = nullptr);
+
+private:
+    QScrollArea* scrollArea;
+    QWidget* scrollContent;
+    QGridLayout* gridLayout;
+
+    void populateGrid(const std::vector<product::Product*>& products);
 };
-#endif
+
+#endif // PAGEWIDGET_H

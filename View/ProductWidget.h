@@ -16,7 +16,7 @@ class ProductWidget: public QWidget
     //void resizeEvent(QResizeEvent* event) override;
     private:
         QPixmap originalPixmap;
-        product::Product* Product;
+        product::Product* p;
         QLabel *image = new QLabel;
         QLabel *title = new QLabel;
         QLabel *price = new QLabel;

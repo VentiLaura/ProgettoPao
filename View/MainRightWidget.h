@@ -14,7 +14,7 @@ class MainRightWidget: public QWidget {
         void showme();
     private:
     QVBoxLayout* MainRightWidgetLayout;
-    PageContainerWidget* pcw;
+    PageWidget* pcw;
     SearchBarWidget* sbw;
 };
 #endif
