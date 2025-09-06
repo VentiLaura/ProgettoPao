@@ -71,6 +71,92 @@
         "Producer": "Nintendo",
         "Genres": [
             "Action"
-        ]
-    }
+        ] 
+    },
+    {
+        "Image": "Immagini/split-fiction.jpg",
+        "Type": "Videogame",
+        "Name": "Split Fiction",
+        "Price": 59.99,
+        "IdProduct": "49",
+        "Copies_available": 12,
+        "Compatibility": [
+            "PlayStation 4",
+            "PlayStation 5"
+        ],
+        "Producer": "Eletronic Arts",
+        "Genres": [
+            "Action",
+            "Adventure",
+            "Cooperative"
+        ] 
+    },
+        {
+        "Image": "Immagini/maglietta-superman.jpg",
+        "Type": "T-shirt",
+        "Name": "Maglietta con logo di Super-Man",
+        "Price": 20.00,
+        "IdProduct":"454",
+        "Copies_available": 5,
+        "Size": "XL",
+        "Franchise": "DC Superman"
+
+    },
+
+    {
+        "Image": "Immagini/maglietta-super-mario-.jpg",
+        "Type": "T-shirt",
+        "Name": "Maglietta con logo di Super-Mario",
+        "Price": 29.95,
+        "IdProduct":"455",
+        "Copies_available": 2,
+        "Size": "XS",
+        "Franchise": "Super-Mario Bros"
+    },
+
+    {
+        "Image": "Immagini/cuffie-gaming.jpg",
+        "Type": "Accessory",
+        "Name": "Cuffie HyperX",
+        "Price": 38.20,
+        "IdProduct":"985",
+        "Copies_available": 12,
+        "Height": 17.60,
+        "Lenght": 20.10,
+        "Depht": 9.20,
+        "Weight": 780    },
+
+        {
+        "Image": "Immagini/joker-pop.jpg",
+        "Type": "Collectible",
+        "Name": "Joker Vinyl Figure",
+        "Price": 16.50,
+        "IdProduct": "120",
+        "Copies_available": 6,
+        "Franchise": "Persona 5",
+        "Producer": "Funko Pop"
+        },
+
+        {
+        "Image": "Immagini/widowmaker-figure.jpg",
+        "Type": "Collectible",
+        "Name": "Overwatch Widowmaker",
+        "Price": 19.50,
+        "IdProduct": "121",
+        "Copies_available": 2,
+        "Franchise": "Overwatch",
+        "Producer": "Hasbro"
+        },
+
+     {
+        "Image": "Immagini/supporto-carica-switch.jpg",
+        "Type": "Accessory",
+        "Name": "Supporto controller Switch",
+        "Price": 18.90,
+        "IdProduct":"984",
+        "Copies_available": 3,
+        "Height": 6,
+        "Lenght": 16.20,
+        "Depht": 7.20,
+        "Weight": 568    }
 ]
