@@ -7,4 +7,10 @@ SortFilterWidget::SortFilterWidget(QWidget *parent): QWidget(parent){
         qDebug() << "SortWidget Costruito";
         filter = new FilterWidget(this); 
         leftLayout->addWidget(filter);
+        setLayout(leftLayout);
+        connect(filter, &FilterWidget::FilterChanged,
+        this, &SortFilterWidget::filterModified);
+}
+void SortFilterWidget::onFilterModified(const QString& text){
+        emit filterModified(text); 
 }

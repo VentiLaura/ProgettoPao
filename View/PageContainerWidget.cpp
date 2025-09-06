@@ -32,3 +32,35 @@ void PageContainerWidget::AddPage(PageWidget* page) {
     Pages.push_back(page);
     stackedLayout->addWidget(page);
 }
+void PageContainerWidget::updateProducts(const std::vector<product::Product*>& products) {
+    // Pulire le pagine precedenti:
+    for (std::vector<PageWidget*>::iterator it = Pages.begin(); it != Pages.end(); ++it) {
+        PageWidget* page = *it;
+        stackedLayout->removeWidget(page);
+        delete(page); 
+    }
+    Pages.clear();
+
+    // Ricreare le pagine con i prodotti filtrati
+    int productCounter = 0;
+    std::vector<product::Product*> pageProducts;
+    for (std::vector<product::Product*>::const_iterator it = products.begin(); it != products.end(); ++it) {
+        product::Product* prod = *it;
+        pageProducts.push_back(prod);
+        if (++productCounter == 13) {
+            auto* page = new PageWidget(pageProducts, this);
+            stackedLayout->addWidget(page);
+            Pages.push_back(page);
+            pageProducts.clear();
+            productCounter = 0;
+        }
+    }
+    // eventuale ultima pagina
+    if (!pageProducts.empty()) {
+        auto* page = new PageWidget(pageProducts, this);
+        stackedLayout->addWidget(page);
+        Pages.push_back(page);
+    }
+
+    stackedLayout->setCurrentIndex(0);
+}

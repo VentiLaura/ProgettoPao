@@ -7,7 +7,7 @@ MainRightWidget::MainRightWidget(QWidget *p): QWidget(p),MainRightWidgetLayout(n
     QString Path="JSON/Products.json";
     memory::Memory& m=memory::Memory::getCentralMemoryInstance();
     m.Add(json::JsonReader(Path));
-    pcw=new PageWidget(m.getCatalog());
+    pcw = new PageWidget(m.getCatalog());
     qDebug() << m.getCatalog().size();
     MainRightWidgetLayout->addWidget(sbw);
     MainRightWidgetLayout->addWidget(pcw);
@@ -15,3 +15,9 @@ MainRightWidget::MainRightWidget(QWidget *p): QWidget(p),MainRightWidgetLayout(n
     MainRightWidgetLayout->setStretch(1, 9);
     setLayout(MainRightWidgetLayout);
 }
+/*void MainRightWidget::updateProducts(const std::vector<product::Product*>& products) {
+   // if (pcw) {
+      //  pcw->updateProducts(products); 
+   // }
+}
+*/

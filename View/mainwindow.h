@@ -5,6 +5,8 @@
 #include "MainRightWidget.h"
 #include "PageContainerWidget.h"
 #include "../JSON/JSONReader.h"
+#include "../LogicModel/Catalog/Filter.h"
+
 
 #include <QMainWindow>
 #include <QPushButton>
@@ -18,7 +20,14 @@ class MainWindow: public QMainWindow {
         MainWindow(QWidget *parent = nullptr);
 
     private:
-    SortFilterWidget *leftWidget = new SortFilterWidget;
-    MainRightWidget *rightWidget = new MainRightWidget;
+        SortFilterWidget *sortfilter = new SortFilterWidget;
+        MainRightWidget *rightWidget = new MainRightWidget;
+
+    private slots:
+        void updateFilter(const QString& filter); 
+
+    signals:
+        void productsFiltered(const std::vector<product::Product*>&);
+    
 };
 #endif

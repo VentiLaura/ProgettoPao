@@ -146,5 +146,20 @@
         "Copies_available": 2,
         "Franchise": "Overwatch",
         "Producer": "Hasbro"
-        }
+        },
+
+     {
+        "Image": "Immagini/supporto-carica-switch.jpg",
+        "Type": "Accessory",
+        "Name": "Supporto controller Switch",
+        "Price": 18.90,
+        "IdProduct":"984",
+        "Copies_available": 3,
+        "Height": 6,
+        "Lenght": 16.20,
+        "Depht": 7.20,
+        "Weight": 568    }
 ]
+
+    
+ 
