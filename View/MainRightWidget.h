@@ -12,6 +12,7 @@ class MainRightWidget: public QWidget {
     Q_OBJECT
     public:
         MainRightWidget(QWidget* = nullptr);
+        void showme();
         void updateProducts(const std::vector<product::Product*>&);
     private:
         QVBoxLayout* MainRightWidgetLayout;

@@ -1,18 +1,42 @@
 #include "PageWidget.h"
-#include "ProductWidget.h"
-#include <QMainWindow>
-#include <QPushButton>
-PageWidget::PageWidget(std::vector<product::Product*> products, QWidget* parent): QWidget(parent) {
-    QGridLayout* gridLayout = new QGridLayout;
+#include <QVBoxLayout>
+
+PageWidget::PageWidget(const std::vector<product::Product*>& products, QWidget* parent)
+    : QWidget(parent)
+{
+    scrollArea = new QScrollArea(this);
+    
+    scrollArea->setWidgetResizable(true);
+    //scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+
+    scrollContent = new QWidget();
+    scrollContent->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
+    gridLayout = new QGridLayout(scrollContent);
+    gridLayout->setSpacing(10);
+    gridLayout->setContentsMargins(10, 10, 10, 10);
+
+    scrollContent->setLayout(gridLayout);
+    scrollArea->setWidget(scrollContent);
+
+    QVBoxLayout* mainLayout = new QVBoxLayout(this);
+    mainLayout->addWidget(scrollArea);
+    setLayout(mainLayout);
+
+    populateGrid(products);
+    
+}
+
+void PageWidget::populateGrid(const std::vector<product::Product*>& products)
+{
     const int columns = 4;
-    for (int i=0; i < products.size(); ++i) {
-        ProductWidget* widget = new ProductWidget(products[i], this);
-        Productwidgets.push_back(widget);
+
+    for (int i = 0; i < static_cast<int>(products.size()); ++i) {
         int row = i / columns;
-        int column = i % columns;
-        gridLayout->addWidget(widget, row, column);
-        gridLayout->setColumnStretch(column, 1);
-        gridLayout->setRowStretch(row, 1);
+        int col = i % columns;
+
+        ProductWidget* pw = new ProductWidget(products[i]);
+        gridLayout->addWidget(pw, row, col);
     }
-    setLayout(gridLayout);
+    scrollContent->adjustSize(); 
 }

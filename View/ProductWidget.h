@@ -13,10 +13,10 @@ class ProductWidget: public QWidget
     public: 
         ProductWidget(product::Product*, QWidget *parent = nullptr);
     protected:
-    protected:
-    void resizeEvent(QResizeEvent* event) override;
+    //void resizeEvent(QResizeEvent* event) override;
     private:
-        product::Product* Product;
+        QPixmap originalPixmap;
+        product::Product* p;
         QLabel *image = new QLabel;
         QLabel *title = new QLabel;
         QLabel *price = new QLabel;

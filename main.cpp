@@ -7,5 +7,6 @@ int main(int argc, char *argv[]){
     qDebug() << "Avvio app";
     MainWindow window;
     window.show();
+    window.show(); //CHIEDERE ALLA ANGELA SE COSI VA BENE
     return videogameLibrary.exec();
 }

@@ -1,6 +1,9 @@
 #include "PageContainerWidget.h"
+
+
 PageContainerWidget::PageContainerWidget(QWidget* parent): QWidget(parent), stackedLayout(new QStackedLayout) {}
 PageContainerWidget::PageContainerWidget(std::vector<product::Product*> products, QWidget* parent): QWidget(parent), stackedLayout(new QStackedLayout) {
+    setStyleSheet("background-color: lightgreen; border: 2px solid red;");
     int productCounter=0;
     std::vector<product::Product*> pageProducts;
     for(std::vector<product::Product*>::iterator it=products.begin(); it!=products.end(); it++) {

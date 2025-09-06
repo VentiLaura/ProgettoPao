@@ -6,7 +6,6 @@
 #include "PageWidget.h"
 #include "../LogicModel/Products/Product.h"
 class PageContainerWidget: public QWidget {
-    Q_OBJECT
     public:
         PageContainerWidget(QWidget* = nullptr);
         PageContainerWidget(std::vector<product::Product*>, QWidget* = nullptr);
