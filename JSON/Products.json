@@ -2,6 +2,7 @@
     {
         "Image": "Immagini/Nintendo_3DS.jpg",
         "Type": "Console",
+        "Memory": "20GB",
         "Serie": "Nintendo 3DS",
         "Price": 129.99,
         "IdProduct": "0",
@@ -19,6 +20,7 @@
     {
         "Image": "Immagini/xbox-seriesx.jpg",
         "Type": "Console",
+        "Memory": "550GB",
         "Serie": "Xbox Series X",
         "Price": 299.99,
         "IdProduct": "189",
