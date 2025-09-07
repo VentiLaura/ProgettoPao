@@ -21,24 +21,17 @@ public:
      //void clearLayout(QLayout*); 
      
 private:
-//QWidget* saveContent;
-//QWidget* contentWidget=nullptr;
-DetailsPageWidget* detailsPage;
-//QVBoxLayout* infoLayout;
-QVBoxLayout* mainLayout;
-//QHBoxLayout* detailsLayout;
+    DetailsPageWidget* detailsPage;
+    QVBoxLayout* mainLayout;
     QScrollArea* scrollArea;
     QWidget* scrollContent;
     QGridLayout* gridLayout;
     std::vector<product::Product*> currentProducts;
     std::vector<ProductWidget*> Products;
-    //QWidget* selected;
-
     void populateGrid(const std::vector<product::Product*>& products);
     public slots:
     void showProductDetails(product::Product* product);
     void showGrid();
-
 };
 
 #endif // PAGEWIDGET_H

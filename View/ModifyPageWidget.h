@@ -1,5 +1,5 @@
-#ifndef DETAILSPAGEWIDGET_H
-#define DETAILSPAGEWIDGET_H
+#ifndef MODIFYPAGEWIDGET_H
+#define MODIFYPAGEWIDGET_H
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QObject>
@@ -10,32 +10,29 @@
 #include "ProductWidget.h"
 #include "../LogicModel/Products/IncludeAllProducts.h"
 #include "PageWidget.h"
-#include "ModifyPageWidget.h"
+#include <QLabel>
+#include <QLineEdit>
+#include <QVBoxLayout>
+#include <QStringList>
 
-class ModifyPageWidget;
-
-class DetailsPageWidget: public QWidget {
+class ModifyPageWidget: public QWidget {
     Q_OBJECT
     public:
-    DetailsPageWidget(QWidget* =nullptr);
-    void ShowDetailsOf(product::Product*);
+    ModifyPageWidget(QWidget* =nullptr);
+    void ModifyInfoOf(product::Product*);
     void DeleteDetails();
-    void ModifyClicked();
-    void Return();
     private:
     product::Product* selected;
     QWidget* details;
     QWidget* bar;
     QVBoxLayout* pageLayout;
     QHBoxLayout* topBarLayout;
-    QPushButton* quitButton;
+    QPushButton* cancelButton;
     QHBoxLayout* detailsLayout;
     QVBoxLayout* infoLayout;
-    QPushButton* modifyButton;
-    QPushButton* deleteButton;
-    ModifyPageWidget* mpw;
+    QPushButton* acceptButton;
     signals:
-    void quitClicked();
+    void cancelClicked();
 
 };
 #endif

@@ -2,28 +2,32 @@
 DetailsPageWidget::DetailsPageWidget(QWidget* parent): QWidget(parent) {
     pageLayout = new QVBoxLayout(this); // layout principale della pagina
     // Barra in alto con pulsante Quit
+    mpw= new ModifyPageWidget;
     bar=new QWidget;
     topBarLayout = new QHBoxLayout(bar);
     quitButton = new QPushButton("Quit");
+    modifyButton=new QPushButton("Modify");
+    deleteButton=new QPushButton("Delete");
     topBarLayout->addStretch();           // spinge il pulsante a destra
+    topBarLayout->addWidget(modifyButton);
+    topBarLayout->addWidget(deleteButton);
     topBarLayout->addWidget(quitButton);
     //pageLayout->insertStretch(0, 1);           // Inserisce lo stretch a sinistra
             // Spazio vuoto = 9  
     bar->setLayout(topBarLayout);  // aggiunge il pulsante
     pageLayout->addWidget(bar, 1);  // aggiunge la barra in alto al layout principale
     connect(quitButton, &QPushButton::clicked, this, &DetailsPageWidget::quitClicked);
+    connect(quitButton, &QPushButton::clicked, this, &DetailsPageWidget::DeleteDetails);
+    connect(modifyButton, &QPushButton::clicked, this, &DetailsPageWidget::ModifyClicked);
+    connect(mpw, &ModifyPageWidget::cancelClicked, this, &DetailsPageWidget::Return);
     qDebug()<<"funziona";
     setLayout(pageLayout);
 }
 
 void DetailsPageWidget::ShowDetailsOf(product::Product* product) {
-    if(details) {
-        pageLayout->removeWidget(details);
-        delete details;
-    }
-    qDebug()<<"dentro show";
+    qDebug()<<"funzione chiamata";
+    selected=product;
     details=new QWidget;
-    qDebug()<<"dopo eli e creaz";
     detailsLayout = new QHBoxLayout(details);
     details->setLayout(detailsLayout);
     QLabel* imageLabel = new QLabel;
@@ -116,4 +120,33 @@ else if (auto tshirt = dynamic_cast<product::T_shirt*>(product)) {
     detailsLayout->addLayout(infoLayout, 3);
     pageLayout->addWidget(details, 9);
     qDebug()<<"fine funz";
+}
+
+void DetailsPageWidget::DeleteDetails() {
+    pageLayout->removeWidget(details);
+    delete details;
+}
+
+void DetailsPageWidget::ModifyClicked() {
+    layout()->removeWidget(details);    // Rimuove la griglia (se presente)
+    details->hide();
+    layout()->removeWidget(bar);
+    bar->hide();
+
+    mpw->ModifyInfoOf(selected);   // Prepara la pagina dettagliata
+
+    layout()->addWidget(mpw);      // Aggiunge la pagina dettagliata
+    mpw->show();  
+}
+void DetailsPageWidget::Return() {
+    layout()->removeWidget(mpw);    // Rimuove la griglia (se presente)
+    mpw->hide();
+
+    //ShowDetailsOf(selected);   // Prepara la pagina dettagliata
+
+    
+    pageLayout->addWidget(bar, 1);      // Aggiunge la pagina dettagliata
+    bar->show();
+    pageLayout->addWidget(details, 9);      // Aggiunge la pagina dettagliata
+    details->show(); 
 }
