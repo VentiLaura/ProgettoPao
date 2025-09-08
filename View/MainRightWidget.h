@@ -8,6 +8,7 @@
 #include "PageContainerWidget.h"
 #include "../LogicModel/Catalog/Memory.h"
 #include "../JSON/JSONReader.h"
+#include "../XML/XMLReader.h"
 class MainRightWidget: public QWidget {
     Q_OBJECT
     public:

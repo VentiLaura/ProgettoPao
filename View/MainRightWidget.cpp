@@ -4,9 +4,12 @@
 #include <QScreen>
 #include <vector>
 MainRightWidget::MainRightWidget(QWidget *p): QWidget(p),MainRightWidgetLayout(new QVBoxLayout(this)), sbw(new SearchBarWidget(this))/*, pcw(new PageContainerWidget(this))*/ {
-    QString Path="JSON/Products.json";
+    //QString Path="JSON/Products.json";
+    QString Path="XML/Products.xml";  
     memory::Memory& m=memory::Memory::getCentralMemoryInstance();
-    m.Add(json::JsonReader(Path));
+    //m.Add(json::JsonReader(Path));
+    m.Add(xml::XMLReader(Path));
+
     pcw = new PageWidget(m.getCatalog());
     qDebug() << m.getCatalog().size();
     MainRightWidgetLayout->addWidget(sbw);
