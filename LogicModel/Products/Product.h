@@ -1,6 +1,7 @@
 #ifndef PRODUCT_H
 #define PRODUCT_H
 #include <string>
+#include "../../View/Visitor/visitor.h"
 namespace product {
 class Product {
     private:
@@ -22,6 +23,7 @@ class Product {
     void setIdProduct(std::string);
     double getPrice() const;
     void setPrice(double);
+    virtual void accept(Visitor*)=0;
 };
 }
 #endif

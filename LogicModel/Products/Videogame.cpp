@@ -34,4 +34,7 @@ void Videogame::setProducer(std::string producer) {
 void Videogame::setCompatibility(std::vector<Console_type>& c) {
     Compatibility=c;
 }
+void Videogame::accept(Visitor* v) {
+        v->visitVideogame(this);
+}
 }

@@ -11,6 +11,9 @@ class Console: public Product {
     Console(Console_type, std::string, std::string, double, std::string, int=1);
     Console_type getSerie() const;
     void setSerie(Console_type&);
+    std::string getMemory();
+    void setMemory(std::string);
+    void accept(Visitor*);
 };
 }
 #endif

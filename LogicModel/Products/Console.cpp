@@ -10,5 +10,15 @@ Console_type Console::getSerie() const {
 void Console::setSerie(Console_type& c) {
     Serie=c;
 }
+
+std::string Console::getMemory() {
+    return Memory;
+}
+void Console::setMemory(std::string m) {
+    Memory=m;
+}
+void Console::accept(Visitor* v) {
+        v->visitConsole(this);
+}
 }
 #endif

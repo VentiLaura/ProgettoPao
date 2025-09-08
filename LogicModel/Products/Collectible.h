@@ -1,6 +1,7 @@
 #ifndef COLLECTIBLE_H
 #define COLLECTIBLE_H
 #include "Product.h"
+//#include "../../View/Visitor/visitor.h"
 namespace product {
 class Collectible: public Product {
     private:
@@ -16,6 +17,7 @@ class Collectible: public Product {
     void setFranchise(std::string);
     std::string GetProducer();
     void setProducer(std::string);
+    void accept(Visitor*);
 };
 }
 #endif

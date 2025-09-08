@@ -3,6 +3,7 @@
 #include "Product.h"
 #include <vector>
 #include "Enums.h"
+//#include "../../View/Visitor/visitor.h"
 namespace product {
 class Accessory: public Product {
     private:
@@ -28,6 +29,7 @@ class Accessory: public Product {
     bool IsCompatible(Console_type) const;
     const std::vector<Console_type>& getCompatibility() const;
     void setCompatibility(std::vector<Console_type>&);
+    void accept(Visitor*);
 };
 }
 #endif

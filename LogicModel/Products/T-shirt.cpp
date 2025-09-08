@@ -39,4 +39,19 @@ int T_shirt::getSleeveLength() {
         case Sizes::XS: return 60;
     }
 }
+std::string T_shirt::getFranchise() {
+    return Franchise;
+}
+void T_shirt::setFranchise(std::string f) {
+    Franchise=f;
+}
+Sizes T_shirt::getSize() {
+    return Size;
+}
+void T_shirt::setSizes(Sizes s) {
+    Size=s;
+}
+void T_shirt::accept(Visitor* v) {
+        v->visitTshirt(this);
+}
 }
