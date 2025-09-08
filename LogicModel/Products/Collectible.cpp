@@ -20,4 +20,7 @@ void Collectible::setCategory(std::string category) {
     void Collectible::setProducer(std::string producer) {
         Producer=producer;
     }
+    void Collectible::accept(Visitor* v) {
+        v->visitCollectible(this);
+    }
 }

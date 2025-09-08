@@ -51,4 +51,7 @@ Sizes T_shirt::getSize() {
 void T_shirt::setSizes(Sizes s) {
     Size=s;
 }
+void T_shirt::accept(Visitor* v) {
+        v->visitTshirt(this);
+}
 }

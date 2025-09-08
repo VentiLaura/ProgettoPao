@@ -13,6 +13,7 @@ class Console: public Product {
     void setSerie(Console_type&);
     std::string getMemory();
     void setMemory(std::string);
+    void accept(Visitor*);
 };
 }
 #endif

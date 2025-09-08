@@ -4,6 +4,7 @@
 #include <string>
 #include "Enums.h"
 #include "Product.h"
+class Visitor;
 namespace product {
 class Videogame: public Product {
     private:
@@ -21,6 +22,7 @@ class Videogame: public Product {
     const std::vector<Genre>& getGenres() const;
     bool IsGenre(Genre) const; //se appartiene a quel genere, ritorna true
     void setGenre(std::vector<Genre>);
+    void accept(Visitor*);
 };
 }
 #endif

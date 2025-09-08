@@ -17,5 +17,8 @@ std::string Console::getMemory() {
 void Console::setMemory(std::string m) {
     Memory=m;
 }
+void Console::accept(Visitor* v) {
+        v->visitConsole(this);
+}
 }
 #endif

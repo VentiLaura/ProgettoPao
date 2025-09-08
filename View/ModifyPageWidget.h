@@ -14,6 +14,7 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 #include <QStringList>
+#include "CreateWritableObjectWidget.h"
 
 class ModifyPageWidget: public QWidget {
     Q_OBJECT
@@ -23,7 +24,7 @@ class ModifyPageWidget: public QWidget {
     void DeleteDetails();
     private:
     product::Product* selected;
-    QWidget* details;
+    QWidget* ModifyDetails;
     QWidget* bar;
     QVBoxLayout* pageLayout;
     QHBoxLayout* topBarLayout;
@@ -31,6 +32,8 @@ class ModifyPageWidget: public QWidget {
     QHBoxLayout* detailsLayout;
     QVBoxLayout* infoLayout;
     QPushButton* acceptButton;
+    QVBoxLayout* modifylayout;
+    CreateWritableObjectWidget* cwow;
     signals:
     void cancelClicked();
 

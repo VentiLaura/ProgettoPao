@@ -2,6 +2,7 @@
 #define T_SHIRT
 #include "Product.h"
 #include "Enums.h"
+
 namespace product{
 class T_shirt: public Product {
     private:
@@ -17,7 +18,8 @@ class T_shirt: public Product {
     int getHipsSize();
     int getSleeveLength();  
     std::string getFranchise();
-    void setFranchise(std::string);  
+    void setFranchise(std::string);
+    void accept(Visitor*);  
 };
 }
 #endif

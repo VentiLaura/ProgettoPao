@@ -46,4 +46,7 @@ const std::vector<Console_type>& Accessory::getCompatibility() const {
 void Accessory::setCompatibility(std::vector<Console_type>& c) {
     Compatibility=c;
 }
+void Accessory::accept(Visitor* v) {
+    v->visitAccessory(this);
+}
 }
