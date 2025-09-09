@@ -12,7 +12,11 @@ class SortFilterWidget: public QWidget {
         FilterWidget *filter;
     signals:
         void filterModified(const QString& text);
+        void sortModified(const QString& text);
+
     private slots:
         void onFilterModified(const QString &text);
+        void onSortModified(const QString &text);
+
 };
 #endif
