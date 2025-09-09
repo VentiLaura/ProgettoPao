@@ -27,10 +27,11 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_DetailsPageWidget_t {
-    uint offsetsAndSizes[6];
+    uint offsetsAndSizes[8];
     char stringdata0[18];
     char stringdata1[12];
     char stringdata2[1];
+    char stringdata3[13];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_DetailsPageWidget_t::offsetsAndSizes) + ofs), len 
@@ -38,11 +39,13 @@ Q_CONSTINIT static const qt_meta_stringdata_DetailsPageWidget_t qt_meta_stringda
     {
         QT_MOC_LITERAL(0, 17),  // "DetailsPageWidget"
         QT_MOC_LITERAL(18, 11),  // "quitClicked"
-        QT_MOC_LITERAL(30, 0)   // ""
+        QT_MOC_LITERAL(30, 0),  // ""
+        QT_MOC_LITERAL(31, 12)   // "ReturnToGrid"
     },
     "DetailsPageWidget",
     "quitClicked",
-    ""
+    "",
+    "ReturnToGrid"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -53,17 +56,19 @@ Q_CONSTINIT static const uint qt_meta_data_DetailsPageWidget[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   20,    2, 0x06,    1 /* Public */,
+       1,    0,   26,    2, 0x06,    1 /* Public */,
+       3,    0,   27,    2, 0x06,    2 /* Public */,
 
  // signals: parameters
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -79,6 +84,8 @@ Q_CONSTINIT const QMetaObject DetailsPageWidget::staticMetaObject = { {
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<DetailsPageWidget, std::true_type>,
         // method 'quitClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'ReturnToGrid'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -91,6 +98,7 @@ void DetailsPageWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         (void)_t;
         switch (_id) {
         case 0: _t->quitClicked(); break;
+        case 1: _t->ReturnToGrid(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -99,6 +107,13 @@ void DetailsPageWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
             using _t = void (DetailsPageWidget::*)();
             if (_t _q_method = &DetailsPageWidget::quitClicked; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (DetailsPageWidget::*)();
+            if (_t _q_method = &DetailsPageWidget::ReturnToGrid; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 1;
                 return;
             }
         }
@@ -125,13 +140,13 @@ int DetailsPageWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 2)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
 }
@@ -140,6 +155,12 @@ int DetailsPageWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 void DetailsPageWidget::quitClicked()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void DetailsPageWidget::ReturnToGrid()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

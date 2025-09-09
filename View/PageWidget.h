@@ -19,8 +19,10 @@ public:
      void updateProducts(const std::vector<product::Product*>&);
      //void showGrid();
      //void clearLayout(QLayout*); 
+     void eraseGrid();
      
 private:
+product::Product* selected;
     DetailsPageWidget* detailsPage;
     QVBoxLayout* mainLayout;
     QScrollArea* scrollArea;

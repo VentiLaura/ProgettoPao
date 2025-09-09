@@ -18,10 +18,18 @@ PageWidget::PageWidget(const std::vector<product::Product*>& products, QWidget* 
         populateGrid(products); 
         detailsPage=new DetailsPageWidget;
         connect(detailsPage, &DetailsPageWidget::quitClicked, this, &PageWidget::showGrid);
+        connect(detailsPage, &DetailsPageWidget::ReturnToGrid, this, &PageWidget::eraseGrid);
 
 } 
-    
+
+void PageWidget::eraseGrid() {
+    qDebug()<<currentProducts.size();
+    updateProducts(currentProducts);
+}
+
+
 void PageWidget::populateGrid(const std::vector<product::Product*>& products) { 
+    currentProducts=products;
     const int columns = 4; 
     for (int i = 0; i < static_cast<int>(products.size()); ++i) {
             int row = i / columns; 
@@ -41,6 +49,7 @@ void PageWidget::updateProducts(const std::vector<product::Product*>& products) 
     populateGrid(products); 
 } 
 void PageWidget::showProductDetails(product::Product* product) {
+    selected=product;
     layout()->removeWidget(scrollArea);    // Rimuove la griglia (se presente)
     scrollArea->hide();
 

@@ -23,4 +23,15 @@ void Collectible::setCategory(std::string category) {
     void Collectible::accept(Visitor* v) {
         v->visitCollectible(this);
     }
+    Collectible& Collectible::operator=(Collectible& c) {
+        setName(c.getName());
+        setPrice(c.getPrice());
+        setIdProduct(c.getIdProduct());
+        setImage(c.getImage());
+        setAvailability(c.getAvailability());
+        Category = c.GetCategory();
+        Franchise = c.GetFranchise();
+        Producer = c.GetProducer();
+        return *this;
+    }
 }

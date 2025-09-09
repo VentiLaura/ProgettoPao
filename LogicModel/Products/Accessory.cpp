@@ -40,7 +40,7 @@ bool Accessory::IsCompatible(Console_type console) const {
     }
     return false;
 }
-const std::vector<Console_type>& Accessory::getCompatibility() const {
+const std::vector<Console_type> Accessory::getCompatibility() const {
     return Compatibility;
 }
 void Accessory::setCompatibility(std::vector<Console_type>& c) {
@@ -49,4 +49,17 @@ void Accessory::setCompatibility(std::vector<Console_type>& c) {
 void Accessory::accept(Visitor* v) {
     v->visitAccessory(this);
 }
+ Accessory& Accessory::operator=(Accessory& a) {
+        setName(a.getName());
+        setPrice(a.getPrice());
+        setIdProduct(a.getIdProduct());
+        setImage(a.getImage());
+        setAvailability(a.getAvailability());
+        Compatibility=a.getCompatibility();
+        Height = a.getHeight();
+        Depth = a.getDepth();
+        Lenght = a.getLenght();
+        Weight=a.getWeight();
+        return *this;
+    }
 }

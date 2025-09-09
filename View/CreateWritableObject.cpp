@@ -1,120 +1,147 @@
 #include "CreateWritableObjectWidget.h"
-CreateWritableObjectWidget::CreateWritableObjectWidget(QWidget* parent): QWidget(parent) {
-}
 void CreateWritableObjectWidget::createProduct(product::Product* product) {
+    selected=product;
     layout = new QVBoxLayout(this);
-    // Nome - disponibile per tutti i prodotti
+    if(!dynamic_cast<product::Console*> (product)) {
     layout->addWidget(new QLabel("Name:"));
-    QLineEdit* nameEdit = new QLineEdit;
+    nameEdit = new QLineEdit(QString::fromStdString(product->getName())); // Precompila
     layout->addWidget(nameEdit);
+    }
+
     layout->addWidget(new QLabel("Price:"));
-    QLineEdit* priceEdit = new QLineEdit;
+    priceEdit = new QLineEdit(QString::number(product->getPrice(), 'f', 2));
     layout->addWidget(priceEdit);
 
-
-    // Campo: ID Prodotto
     layout->addWidget(new QLabel("ID product:"));
-    QLineEdit* idEdit = new QLineEdit;
+    idEdit = new QLineEdit(QString::fromStdString(product->getIdProduct()));
     layout->addWidget(idEdit);
 
-    // Campo: Path immagine
-    layout->addWidget(new QLabel("image Path:"));
-    QLineEdit* imageEdit = new QLineEdit;
+    layout->addWidget(new QLabel("Image Path:"));
+    imageEdit = new QLineEdit(QString::fromStdString(product->getImage()));
     layout->addWidget(imageEdit);
 
-    // Campo: Copie disponibili
     layout->addWidget(new QLabel("Copies Available:"));
-    QLineEdit* copiesEdit = new QLineEdit;
+    copiesEdit = new QLineEdit(QString::number(product->getAvailability()));
     layout->addWidget(copiesEdit);
+    setLayout(layout);
 }
 
 void CreateWritableObjectWidget::visitVideogame(product::Videogame* videogame) {
     createProduct(videogame);
+
     layout->addWidget(new QLabel("Producer:"));
-    QLineEdit* producerEdit = new QLineEdit;
+    producerEdit = new QLineEdit(QString::fromStdString(videogame->getProducer()));
     layout->addWidget(producerEdit);
 
-    layout->addWidget(new QLabel("Compatibility (one per row):"));
-    QLineEdit* compatEdit = new QLineEdit;
-    layout->addWidget(compatEdit);
+    layout->addWidget(new QLabel("Compatibility (comma-separated):"));
+    QStringList compatList;
+    for (auto c : videogame->getCompatibility())
+        compatList << QString::fromStdString(ConsoleTypeToString(c));
+    CompatibilityEdit = new QLineEdit(compatList.join(", "));
+    layout->addWidget(CompatibilityEdit);
 
-    layout->addWidget(new QLabel("Genres (one per row):"));
-    QLineEdit* genresEdit = new QLineEdit;
-    layout->addWidget(genresEdit);
-}
-
-void visitConsole(product::Console*) {
-
+    layout->addWidget(new QLabel("Genres (comma-separated):"));
+    QStringList genreList;
+    for (auto g : videogame->getGenres())
+        genreList << QString::fromStdString(GenreToString(g));
+    GenreEdit = new QLineEdit(genreList.join(", "));
+    layout->addWidget(GenreEdit);  
 }
 void CreateWritableObjectWidget::visitTshirt(product::T_shirt* tshirt) {
     createProduct(tshirt);
     layout->addWidget(new QLabel("Franchise:"));
-    QLineEdit* franchiseEdit = new QLineEdit;
+    franchiseEdit = new QLineEdit(QString::fromStdString(tshirt->getFranchise()));
     layout->addWidget(franchiseEdit);
 
     layout->addWidget(new QLabel("Size:"));
-    QLineEdit* sizeEdit = new QLineEdit;
+    sizeEdit = new QLineEdit(QString::fromStdString(SizeToString(tshirt->getSize())));
     layout->addWidget(sizeEdit);
-
-    layout->addWidget(new QLabel("Chest (cm):"));
-    QLineEdit* chestEdit = new QLineEdit;
-    layout->addWidget(chestEdit);
-
-    layout->addWidget(new QLabel("Waist (cm):"));
-    QLineEdit* waistEdit = new QLineEdit;
-    layout->addWidget(waistEdit);
-
-    layout->addWidget(new QLabel("Hips (cm):"));
-    QLineEdit* hipsEdit = new QLineEdit;
-    layout->addWidget(hipsEdit);
-
-    layout->addWidget(new QLabel("Sleeve length (cm):"));
-    QLineEdit* sleeveEdit = new QLineEdit;
-    layout->addWidget(sleeveEdit);
 }
+
 void CreateWritableObjectWidget::visitCollectible(product::Collectible* coll) {
     createProduct(coll);
+
     layout->addWidget(new QLabel("Category:"));
-    QLineEdit* categoryEdit = new QLineEdit;
+    categoryEdit = new QLineEdit(QString::fromStdString(coll->GetCategory()));
     layout->addWidget(categoryEdit);
 
     layout->addWidget(new QLabel("Franchise:"));
-    QLineEdit* franchiseEdit = new QLineEdit;
+    franchiseEdit = new QLineEdit(QString::fromStdString(coll->GetFranchise()));
     layout->addWidget(franchiseEdit);
 
     layout->addWidget(new QLabel("Producer:"));
-    QLineEdit* producerEdit = new QLineEdit;
+    producerEdit = new QLineEdit(QString::fromStdString(coll->GetProducer()));
     layout->addWidget(producerEdit);
 }
+
 void CreateWritableObjectWidget::visitConsole(product::Console* console) {
     createProduct(console);
+
     layout->addWidget(new QLabel("Serie:"));
-    QLineEdit* serieEdit = new QLineEdit;
+    serieEdit = new QLineEdit(QString::fromStdString(ConsoleTypeToString(console->getSerie())));
     layout->addWidget(serieEdit);
 
     layout->addWidget(new QLabel("Memory:"));
-    QLineEdit* memoryEdit = new QLineEdit;
+    memoryEdit = new QLineEdit(QString::fromStdString(console->getMemory()));
     layout->addWidget(memoryEdit);
 }
 void CreateWritableObjectWidget::visitAccessory(product::Accessory* acc) {
     createProduct(acc);
+
     layout->addWidget(new QLabel("Height (in cm):"));
-        QLineEdit* heightEdit = new QLineEdit;
-        layout->addWidget(heightEdit);
+    heightEdit = new QLineEdit(QString::number(acc->getHeight()));
+    layout->addWidget(heightEdit);
 
-        layout->addWidget(new QLabel("Lenght (in cm):"));
-        QLineEdit* lengthEdit = new QLineEdit;
-        layout->addWidget(lengthEdit);
+    layout->addWidget(new QLabel("Length (in cm):"));
+    lengthEdit = new QLineEdit(QString::number(acc->getLenght()));
+    layout->addWidget(lengthEdit);
 
-        layout->addWidget(new QLabel("Depth (in cm):"));
-        QLineEdit* depthEdit = new QLineEdit;
-        layout->addWidget(depthEdit);
+    layout->addWidget(new QLabel("Depth (in cm):"));
+    depthEdit = new QLineEdit(QString::number(acc->getDepth()));
+    layout->addWidget(depthEdit);
 
-        layout->addWidget(new QLabel("Weight (in gramms):"));
-        QLineEdit* weightEdit = new QLineEdit;
-        layout->addWidget(weightEdit);
+    layout->addWidget(new QLabel("Weight (in grams):"));
+    weightEdit = new QLineEdit(QString::number(acc->getWeight()));
+    layout->addWidget(weightEdit);
 
-        layout->addWidget(new QLabel("Compatibility (one per row):"));
-        QLineEdit* compatEdit = new QLineEdit;
-        layout->addWidget(compatEdit);
+    layout->addWidget(new QLabel("Compatibility (comma-separated):"));
+    QStringList compatList;
+    for (auto c : acc->getCompatibility()) {
+        compatList << QString::fromStdString(ConsoleTypeToString(c));
+    }
+    CompatibilityEdit = new QLineEdit(compatList.join(", "));
+    layout->addWidget(CompatibilityEdit);
+    
+}
+
+void CreateWritableObjectWidget::Updateproduct() {
+    if(dynamic_cast<product::Videogame*>(selected)) {
+        QStringList genreLines = GenreEdit->text().split(", ");
+        std::vector<product::Genre> genres;
+        for (const QString& line : genreLines) {
+            genres.push_back(product::StringToGenre(line.toStdString()));
+        }
+        QStringList compatLines = CompatibilityEdit->text().split(", ");
+        std::vector<product::Console_type> compatibility;
+        for (const QString& line : compatLines) {
+            compatibility.push_back(product::StringToConsoleType(line.toStdString()));
+        }
+        qDebug()<<"prima creazione";
+        newProduct=new product::Videogame(compatibility, producerEdit->text().toStdString(), genres, imageEdit->text().toStdString(), nameEdit->text().toStdString(), priceEdit->text().toDouble(), idEdit->text().toStdString(), copiesEdit->text().toInt());
+        qDebug()<<"dopo Creazione";
+    } else if(dynamic_cast<product::Console*>(selected)) {
+        newProduct=new product::Console(product::StringToConsoleType(serieEdit->text().toStdString()), memoryEdit->text().toStdString(), imageEdit->text().toStdString(), priceEdit->text().toDouble(), idEdit->text().toStdString(), copiesEdit->text().toInt());
+    } else if(dynamic_cast<product::Accessory*>(selected)) {
+        QStringList compatLines = CompatibilityEdit->text().split(", ");
+    std::vector<product::Console_type> compatibility;
+    for (const QString& line : compatLines) {
+        compatibility.push_back(product::StringToConsoleType(line.toStdString()));
+    }
+    newProduct=new product::Accessory(heightEdit->text().toDouble(), lengthEdit->text().toDouble(), depthEdit->text().toDouble(), weightEdit->text().toDouble(), compatibility, imageEdit->text().toStdString(), nameEdit->text().toStdString(), priceEdit->text().toDouble(), idEdit->text().toStdString(), copiesEdit->text().toInt());
+} else if(dynamic_cast<product::Collectible*>(selected)) {
+    newProduct=new product::Collectible(categoryEdit->text().toStdString(), franchiseEdit->text().toStdString(), producerEdit->text().toStdString(), imageEdit->text().toStdString(), nameEdit->text().toStdString(), priceEdit->text().toDouble(), idEdit->text().toStdString(), copiesEdit->text().toInt());
+} else if(dynamic_cast<product::T_shirt*>(selected)) {
+    newProduct=new product::T_shirt(product::StringToSize(sizeEdit->text().toStdString()), franchiseEdit->text().toStdString(), imageEdit->text().toStdString(), nameEdit->text().toStdString(), priceEdit->text().toDouble(), idEdit->text().toStdString(), copiesEdit->text().toInt());
+}
+    *selected = *newProduct;
 }

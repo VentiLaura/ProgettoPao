@@ -4,7 +4,6 @@
 #include <string>
 #include "Enums.h"
 #include "Product.h"
-class Visitor;
 namespace product {
 class Videogame: public Product {
     private:
@@ -14,6 +13,7 @@ class Videogame: public Product {
     public:
     ~Videogame();
     Videogame(std::vector<Console_type>, std::string, std::vector<Genre>, std::string, std::string, double, std::string, int=1);
+    Videogame& operator=(Videogame&);
     const std::vector<Console_type>& getCompatibility() const;
     bool IsCompatible(Console_type) const;
     void setCompatibility(std::vector<Console_type>&);

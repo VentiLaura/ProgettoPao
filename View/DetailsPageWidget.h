@@ -1,5 +1,6 @@
 #ifndef DETAILSPAGEWIDGET_H
 #define DETAILSPAGEWIDGET_H
+#include <iostream>
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QObject>
@@ -22,6 +23,8 @@ class DetailsPageWidget: public QWidget {
     void DeleteDetails();
     void ModifyClicked();
     void Return();
+    void Updateproduct();
+    void UpdateDetails();
     private:
     product::Product* selected;
     QWidget* details;
@@ -36,6 +39,8 @@ class DetailsPageWidget: public QWidget {
     ModifyPageWidget* mpw;
     signals:
     void quitClicked();
+    void ReturnToGrid();
+    //void callMe();
 
 };
 #endif

@@ -14,6 +14,9 @@ ModifyPageWidget::ModifyPageWidget(QWidget* parent): QWidget(parent) {
     setLayout(pageLayout);
     connect(cancelButton, &QPushButton::clicked, this, &ModifyPageWidget::cancelClicked);
     connect(cancelButton, &QPushButton::clicked, this, &ModifyPageWidget::DeleteDetails);
+    connect(acceptButton, &QPushButton::clicked, this, &ModifyPageWidget::Updateproduct);
+    connect(acceptButton, &QPushButton::clicked, this, &ModifyPageWidget::acceptClicked);
+    connect(acceptButton, &QPushButton::clicked, this, &ModifyPageWidget::DeleteDetails);
 }
 void ModifyPageWidget::ModifyInfoOf(product::Product* product) {
     ModifyDetails=new QWidget;
@@ -28,4 +31,8 @@ void ModifyPageWidget::DeleteDetails() {
     pageLayout->removeWidget(ModifyDetails);
     delete ModifyDetails;
     //delete cwow;
+}
+void ModifyPageWidget::Updateproduct() {
+    qDebug()<<"Dentro update modifywidget";
+    cwow->Updateproduct();
 }

@@ -160,7 +160,9 @@
         "Height": 6,
         "Lenght": 16.20,
         "Depht": 7.20,
-        "Weight": 568    }
+        "Weight": 568,
+    "Compatibility": ["Nintendo Switch", "Nintendo Switch 2"]
+    }
 ]
 
     

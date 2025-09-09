@@ -54,4 +54,14 @@ void T_shirt::setSizes(Sizes s) {
 void T_shirt::accept(Visitor* v) {
         v->visitTshirt(this);
 }
+T_shirt& T_shirt::operator=(T_shirt& t) {
+    setName(t.getName());
+    setPrice(t.getPrice());
+    setIdProduct(t.getIdProduct());
+    setImage(t.getImage());
+    setAvailability(t.getAvailability());
+    Size = t.getSize();
+    Franchise = t.getFranchise();
+    return *this;
+}
 }

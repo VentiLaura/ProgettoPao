@@ -9,9 +9,10 @@ class Console: public Product {
     public:
     ~Console();
     Console(Console_type, std::string, std::string, double, std::string, int=1);
+    Console& operator=(Console&);
     Console_type getSerie() const;
-    void setSerie(Console_type&);
-    std::string getMemory();
+    void setSerie(Console_type);
+    std::string getMemory() const;
     void setMemory(std::string);
     void accept(Visitor*);
 };

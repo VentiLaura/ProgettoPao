@@ -16,6 +16,7 @@ class Accessory: public Product {
     public:
     Accessory(double, double, double, double, std::vector<Console_type>, std::string, std::string, double, std::string, int=1);
     ~Accessory();
+    Accessory& operator=(Accessory&);
     std::string getName() const; 
     void setName(std::string);
     double getHeight() const;
@@ -27,7 +28,7 @@ class Accessory: public Product {
     double getWeight() const;
     void setWeight(double);
     bool IsCompatible(Console_type) const;
-    const std::vector<Console_type>& getCompatibility() const;
+    const std::vector<Console_type> getCompatibility() const;
     void setCompatibility(std::vector<Console_type>&);
     void accept(Visitor*);
 };

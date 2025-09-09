@@ -20,6 +20,15 @@ DetailsPageWidget::DetailsPageWidget(QWidget* parent): QWidget(parent) {
     connect(quitButton, &QPushButton::clicked, this, &DetailsPageWidget::DeleteDetails);
     connect(modifyButton, &QPushButton::clicked, this, &DetailsPageWidget::ModifyClicked);
     connect(mpw, &ModifyPageWidget::cancelClicked, this, &DetailsPageWidget::Return);
+    connect(mpw, &ModifyPageWidget::acceptClicked, this, &DetailsPageWidget::Return);
+    connect(mpw, &ModifyPageWidget::acceptClicked, this, &DetailsPageWidget::ReturnToGrid);
+    connect(mpw, &ModifyPageWidget::acceptClicked, this, &DetailsPageWidget::Updateproduct);
+    
+
+
+
+
+
     qDebug()<<"funziona";
     setLayout(pageLayout);
 }
@@ -149,4 +158,10 @@ void DetailsPageWidget::Return() {
     bar->show();
     pageLayout->addWidget(details, 9);      // Aggiunge la pagina dettagliata
     details->show(); 
+}
+
+void DetailsPageWidget::Updateproduct() {
+    qDebug()<< "dentro update in details";
+    DeleteDetails();
+    ShowDetailsOf(selected);
 }

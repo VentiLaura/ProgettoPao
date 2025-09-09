@@ -11,6 +11,7 @@ class T_shirt: public Product {
     public:
     ~T_shirt();
     T_shirt(Sizes, std::string, std::string, std::string, double, std::string, int=1);
+    T_shirt& operator=(T_shirt&);
     Sizes getSize();
     void setSizes(Sizes);
     int getChestSize();

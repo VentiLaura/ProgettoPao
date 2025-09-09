@@ -22,6 +22,7 @@ class ModifyPageWidget: public QWidget {
     ModifyPageWidget(QWidget* =nullptr);
     void ModifyInfoOf(product::Product*);
     void DeleteDetails();
+    void Updateproduct();
     private:
     product::Product* selected;
     QWidget* ModifyDetails;
@@ -36,6 +37,8 @@ class ModifyPageWidget: public QWidget {
     CreateWritableObjectWidget* cwow;
     signals:
     void cancelClicked();
+    void acceptClicked();
+    void update();
 
 };
 #endif
