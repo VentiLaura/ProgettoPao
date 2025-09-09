@@ -11,4 +11,9 @@ SortWidget::SortWidget(QWidget *parent):QWidget(parent){
     sortMenu->addItem("Disponibilità");
     sortLayout->addRow(sort, sortMenu);
     setLayout(sortLayout);
+    connect(sortMenu, &QComboBox::currentTextChanged,
+            this, &SortWidget::onSortChanged);
+}
+void SortWidget::onSortChanged(const QString& text) {
+    emit SortChanged(text); 
 }

@@ -24,10 +24,12 @@ class MainWindow: public QMainWindow {
         MainRightWidget *rightWidget = new MainRightWidget;
 
     private slots:
+        void updateSort(const QString& sort); 
         void updateFilter(const QString& filter); 
+
 
     signals:
         void productsFiltered(const std::vector<product::Product*>&);
-    
+        void productsSorted(const std::vector<product::Product*>&);
 };
 #endif

@@ -10,7 +10,12 @@ SortFilterWidget::SortFilterWidget(QWidget *parent): QWidget(parent){
         setLayout(leftLayout);
         connect(filter, &FilterWidget::FilterChanged,
         this, &SortFilterWidget::filterModified);
+        connect(sort, &SortWidget::SortChanged,
+        this, &SortFilterWidget::sortModified);
 }
 void SortFilterWidget::onFilterModified(const QString& text){
         emit filterModified(text); 
+}
+void SortFilterWidget::onSortModified(const QString& text){
+        emit sortModified(text); 
 }

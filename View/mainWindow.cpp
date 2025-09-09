@@ -3,7 +3,10 @@
 #include <QVBoxLayout>
 #include <QWidget>
 #include "../Utility/FilterFunctions.h"
+#include "../Utility/SortFunctions.h"
+
 using namespace filterfunctions;
+using namespace sortfunctions;
 
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
@@ -30,10 +33,22 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     
     connect(this, &MainWindow::productsFiltered,
         rightWidget, &MainRightWidget::updateProducts);
+
+    connect(sortfilter, &SortFilterWidget::sortModified,
+        this, &MainWindow::updateSort);
+    
+    connect(this, &MainWindow::productsSorted,
+        rightWidget, &MainRightWidget::updateProducts);
 }
 
 void MainWindow::updateFilter(const QString& selectedFilter) {
     auto allProducts = memory::Memory::getCentralMemoryInstance().getCatalog();
     std::vector<product::Product*> filtered = applyFilter(selectedFilter, allProducts);
     emit productsFiltered(filtered);
+}
+
+void MainWindow::updateSort(const QString& selectedSort) {
+    auto allProducts = memory::Memory::getCentralMemoryInstance().getCatalog();
+    std::vector<product::Product*> sorted = applySort(selectedSort, allProducts);
+    emit productsSorted(sorted);
 }
