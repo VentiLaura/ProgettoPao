@@ -3,12 +3,18 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QComboBox>
+
 class SortWidget: public QWidget{
     public:
         SortWidget(QWidget *parent = nullptr);
     private:
         QLabel *sort;
+        QComboBox* sortMenu;
+    private slots:
+        void onSortChanged(const QString&);
 
-//codice
+    signals:
+        void SortChanged(const QString& sortChosen);
 };
 #endif
