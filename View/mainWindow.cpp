@@ -9,15 +9,24 @@ using namespace sortfunctions;
 
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
+    //QString Path="JSON/Products.json";
+    QString Path="XML/Products.xml";  
+    memory::Memory& m=memory::Memory::getCentralMemoryInstance();
+    //m.Add(json::JsonReader(Path));
+    m.Add(xml::XMLReader(Path));
+    page = new PageWidget(m.getCatalog());
+    qDebug() << m.getCatalog().size();
+
+
     qDebug() <<"dentro main window";
     QWidget* centralContainer = new QWidget(this);
     centralContainer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     QVBoxLayout* layout = new QVBoxLayout(centralContainer);
     sortfilter->setStyleSheet("background-color: lightblue;");
-    rightWidget->setStyleSheet("background-color: lightgreen;");
+    page->setStyleSheet("background-color: lightgreen;");
 
     layout->addWidget(sortfilter);
-    layout->addWidget(rightWidget);
+    layout->addWidget(page);
 
     // Imposta proporzioni: left 40%, right 60% (2:3 ratio)
     layout->setStretch(0, 1);
@@ -31,13 +40,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
         this, &MainWindow::updateFilter);
     
     connect(this, &MainWindow::productsFiltered,
-        rightWidget, &MainRightWidget::updateProducts);
+        page, &PageWidget::updateProducts);
 
     connect(sortfilter, &SortFilterWidget::sortModified,
         this, &MainWindow::updateSort);
     
     connect(this, &MainWindow::productsSorted,
-        rightWidget, &MainRightWidget::updateProducts);
+        page, &PageWidget::updateProducts);
 }
 
 void MainWindow::updateFilter(const QString& selectedFilter) {

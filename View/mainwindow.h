@@ -21,7 +21,7 @@ class MainWindow: public QMainWindow {
 
     private:
         SortFilterWidget *sortfilter = new SortFilterWidget;
-        MainRightWidget *rightWidget = new MainRightWidget;
+        PageWidget* page;
 
     private slots:
         void updateSort(const QString& sort); 
