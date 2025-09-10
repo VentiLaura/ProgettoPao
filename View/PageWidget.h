@@ -20,6 +20,7 @@ public:
      //void showGrid();
      //void clearLayout(QLayout*); 
      void eraseGrid();
+     void DeleteProduct();
      
 private:
 product::Product* selected;

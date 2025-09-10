@@ -18,8 +18,10 @@ PageWidget::PageWidget(const std::vector<product::Product*>& products, QWidget* 
         populateGrid(products); 
         detailsPage=new DetailsPageWidget;
         connect(detailsPage, &DetailsPageWidget::quitClicked, this, &PageWidget::showGrid);
+        connect(detailsPage, &DetailsPageWidget::DeleteGridProduct, this, &PageWidget::DeleteProduct);
         connect(detailsPage, &DetailsPageWidget::ReturnToGrid, this, &PageWidget::eraseGrid);
-
+        
+        
 } 
 
 void PageWidget::eraseGrid() {
@@ -29,6 +31,7 @@ void PageWidget::eraseGrid() {
 
 
 void PageWidget::populateGrid(const std::vector<product::Product*>& products) { 
+    qDebug()<<"dentro oioulategrid";
     currentProducts=products;
     const int columns = 4; 
     for (int i = 0; i < static_cast<int>(products.size()); ++i) {
@@ -40,6 +43,7 @@ void PageWidget::populateGrid(const std::vector<product::Product*>& products) {
             connect(pw, &ProductWidget::clicked, this, &PageWidget::showProductDetails); 
         } 
         scrollContent->adjustSize(); 
+        qDebug()<<"fuori oioulategrid";
 } 
 void PageWidget::updateProducts(const std::vector<product::Product*>& products) { 
     for(int i=0; i < static_cast<int>(Products.size()); ++i) { 
@@ -64,4 +68,14 @@ void PageWidget::showGrid() {
     detailsPage->hide();
     layout()->addWidget(scrollArea);
     scrollArea->show();
+}
+
+void PageWidget::DeleteProduct() {
+    qDebug()<<"dentro delete pr";
+    auto it=currentProducts.begin();
+    while((*it)->getIdProduct()!=selected->getIdProduct()) {
+        it++;
+    }
+    currentProducts.erase(it);
+    qDebug()<<"fine delete pr";
 }

@@ -12,6 +12,8 @@
 #include "../LogicModel/Products/IncludeAllProducts.h"
 #include "PageWidget.h"
 #include "ModifyPageWidget.h"
+#include "CreateWritableObjectWidget.h"
+#include "../LogicModel/Catalog/Memory.h"
 
 class ModifyPageWidget;
 
@@ -25,6 +27,7 @@ class DetailsPageWidget: public QWidget {
     void Return();
     void Updateproduct();
     void UpdateDetails();
+    void DeleteProduct();
     private:
     product::Product* selected;
     QWidget* details;
@@ -37,9 +40,11 @@ class DetailsPageWidget: public QWidget {
     QPushButton* modifyButton;
     QPushButton* deleteButton;
     ModifyPageWidget* mpw;
+    CreateWritableObjectWidget* cwow;
     signals:
     void quitClicked();
     void ReturnToGrid();
+    void DeleteGridProduct();
     //void callMe();
 
 };

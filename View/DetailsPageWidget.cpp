@@ -23,6 +23,14 @@ DetailsPageWidget::DetailsPageWidget(QWidget* parent): QWidget(parent) {
     connect(mpw, &ModifyPageWidget::acceptClicked, this, &DetailsPageWidget::Return);
     connect(mpw, &ModifyPageWidget::acceptClicked, this, &DetailsPageWidget::ReturnToGrid);
     connect(mpw, &ModifyPageWidget::acceptClicked, this, &DetailsPageWidget::Updateproduct);
+
+    
+    connect(deleteButton, &QPushButton::clicked, this, &DetailsPageWidget::DeleteGridProduct);
+    connect(deleteButton, &QPushButton::clicked, this, &DetailsPageWidget::DeleteProduct);
+    connect(deleteButton, &QPushButton::clicked, this, &DetailsPageWidget::ReturnToGrid);
+    connect(deleteButton, &QPushButton::clicked, this, &DetailsPageWidget::quitClicked);
+    connect(deleteButton, &QPushButton::clicked, this, &DetailsPageWidget::DeleteDetails);
+    
     
 
 
@@ -164,4 +172,14 @@ void DetailsPageWidget::Updateproduct() {
     qDebug()<< "dentro update in details";
     DeleteDetails();
     ShowDetailsOf(selected);
+}
+
+void DetailsPageWidget::DeleteProduct() {
+    memory::Memory& mem=memory::Memory::getCentralMemoryInstance();
+    //std::vector<product::Product*> catalog=mem.getCatalog();
+    qDebug()<<"prima eliminato";
+    mem.Remove(selected->getIdProduct());
+    qDebug()<<"prima delete";
+    //delete selected;
+    qDebug()<<"eliminato";
 }
