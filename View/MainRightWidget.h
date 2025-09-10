@@ -17,7 +17,7 @@ class MainRightWidget: public QWidget {
     private:
         QVBoxLayout* MainRightWidgetLayout;
         PageWidget* pcw;
-        SearchBarWidget* sbw;
+        //SearchBarWidget* sbw;
         public slots:
         void updateProducts(const std::vector<product::Product*>& products);
 
