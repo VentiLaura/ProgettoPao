@@ -33,10 +33,14 @@
         <IdProduct>1</IdProduct>
         <Copies_available>2</Copies_available>
         <Producer>Nintendo</Producer>
-        <Compatibility>Wii</Compatibility>
-        <Compatibility>Wii U</Compatibility>
+        <Compatibility>
+        <Console>Wii</Console>
+        <Console>Wii U</Console>
+        </Compatibility>
+        <Genres>
         <Genre>Action</Genre>
         <Genre>Platform</Genre>
+        </Genres>
     </Product>
     <Product>
         <Type>Videogame</Type>
@@ -46,9 +50,13 @@
         <IdProduct>19</IdProduct>
         <Copies_available>7</Copies_available>
         <Producer>Atlus</Producer>
-        <Compatibility>PlayStation 4</Compatibility>
-        <Compatibility>PlayStation 5</Compatibility>
+        <Compatibility>
+        <Console>PlayStation 4</Console>
+        <Console>PlayStation 5</Console>
+        </Compatibility>
+        <Genres>
         <Genre>RPG</Genre>
+        </Genres>
     </Product>
     <Product>
         <Type>Videogame</Type>
@@ -58,9 +66,13 @@
         <IdProduct>45</IdProduct>
         <Copies_available>20</Copies_available>
         <Producer>Nintendo</Producer>
-        <Compatibility>Nintendo Switch</Compatibility>
-        <Compatibility>Nintendo Switch 2</Compatibility>
+        <Compatibility>
+        <Console>Nintendo Switch</Console>
+        <Console>Nintendo Switch 2</Console>
+        </Compatibility>
+        <Genres>
         <Genre>Action</Genre>
+        </Genres>
     </Product>
     <Product>
         <Type>Videogame</Type>
@@ -70,11 +82,15 @@
         <IdProduct>49</IdProduct>
         <Copies_available>12</Copies_available>
         <Producer>Eletronic Arts</Producer>
-        <Compatibility>PlayStation 4</Compatibility>
-        <Compatibility>PlayStation 5</Compatibility>
+        <Compatibility>
+        <Console>PlayStation 4</Console>
+        <Console>PlayStation 5</Console>
+        </Compatibility>
+        <Genres>
         <Genre>Action</Genre>
         <Genre>Adventure</Genre>
         <Genre>Cooperative</Genre>
+        </Genres>
     </Product>
     <Product>
         <Type>T-shirt</Type>
@@ -107,6 +123,9 @@
         <Lenght>20.10</Lenght>
         <Depht>9.20</Depht>
         <Weight>780</Weight>
+        <Compatibility>
+        <Console>Xbox</Console>
+        </Compatibility>
     </Product>
      <Product>
         <Type>Collectible</Type>

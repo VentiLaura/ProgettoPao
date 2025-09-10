@@ -26,6 +26,7 @@ class CreateWritableObjectWidget: public Visitor, public QWidget {
     void visitCollectible(product::Collectible*);
     void visitAccessory(product::Accessory*);
     void Updateproduct();
+    void CreateProduct();
     private:
     product::Product* newProduct;
     //ProductModifier* modifier;
