@@ -1,13 +1,20 @@
 #include "SortFilterWidget.h"
+#include <QHBoxLayout> 
 #include <QVBoxLayout> 
 SortFilterWidget::SortFilterWidget(QWidget *parent): QWidget(parent){
-        QVBoxLayout *leftLayout = new QVBoxLayout;
+        sortFilter = new QWidget(this);
+        QVBoxLayout *leftLayout = new QVBoxLayout;        
         sort = new SortWidget(this);
         leftLayout->addWidget(sort);
         qDebug() << "SortWidget Costruito";
         filter = new FilterWidget(this); 
         leftLayout->addWidget(filter);
-        setLayout(leftLayout);
+        sortFilter->setLayout(leftLayout);
+        QHBoxLayout *layout = new QHBoxLayout;
+        layout->addWidget(sortFilter);
+        searchbar = new SearchBarWidget(this);
+        layout->addWidget(searchbar);
+        setLayout(layout);
         connect(filter, &FilterWidget::FilterChanged,
         this, &SortFilterWidget::filterModified);
         connect(sort, &SortWidget::SortChanged,
