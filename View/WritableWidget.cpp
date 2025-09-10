@@ -1,10 +1,10 @@
-#include "CreateWritableObjectWidget.h"
-void CreateWritableObjectWidget::createProduct(product::Product* product) {
+#include "WritableWidget.h"
+void WritableWidget::createProduct(product::Product* product) {
     selected=product;
     layout = new QVBoxLayout(this);
     if(!dynamic_cast<product::Console*> (product)) {
     layout->addWidget(new QLabel("Name:"));
-    nameEdit = new QLineEdit(QString::fromStdString(product->getName())); // Precompila
+    nameEdit = new QLineEdit(QString::fromStdString(product->getName()));
     layout->addWidget(nameEdit);
     }
 
@@ -26,7 +26,7 @@ void CreateWritableObjectWidget::createProduct(product::Product* product) {
     setLayout(layout);
 }
 
-void CreateWritableObjectWidget::visitVideogame(product::Videogame* videogame) {
+void WritableWidget::visitVideogame(product::Videogame* videogame) {
     qDebug()<<"dentro videogame";
     createProduct(videogame);
 
@@ -52,7 +52,7 @@ void CreateWritableObjectWidget::visitVideogame(product::Videogame* videogame) {
     GenreEdit = new QLineEdit(genreList.join(", "));
     layout->addWidget(GenreEdit);  
 }
-void CreateWritableObjectWidget::visitTshirt(product::T_shirt* tshirt) {
+void WritableWidget::visitTshirt(product::T_shirt* tshirt) {
     createProduct(tshirt);
     layout->addWidget(new QLabel("Franchise:"));
     franchiseEdit = new QLineEdit(QString::fromStdString(tshirt->getFranchise()));
@@ -63,7 +63,7 @@ void CreateWritableObjectWidget::visitTshirt(product::T_shirt* tshirt) {
     layout->addWidget(sizeEdit);
 }
 
-void CreateWritableObjectWidget::visitCollectible(product::Collectible* coll) {
+void WritableWidget::visitCollectible(product::Collectible* coll) {
     createProduct(coll);
 
     layout->addWidget(new QLabel("Category:"));
@@ -79,7 +79,7 @@ void CreateWritableObjectWidget::visitCollectible(product::Collectible* coll) {
     layout->addWidget(producerEdit);
 }
 
-void CreateWritableObjectWidget::visitConsole(product::Console* console) {
+void WritableWidget::visitConsole(product::Console* console) {
     createProduct(console);
 
     layout->addWidget(new QLabel("Serie:"));
@@ -90,7 +90,7 @@ void CreateWritableObjectWidget::visitConsole(product::Console* console) {
     memoryEdit = new QLineEdit(QString::fromStdString(console->getMemory()));
     layout->addWidget(memoryEdit);
 }
-void CreateWritableObjectWidget::visitAccessory(product::Accessory* acc) {
+void WritableWidget::visitAccessory(product::Accessory* acc) {
     createProduct(acc);
 
     layout->addWidget(new QLabel("Height (in cm):"));
@@ -119,7 +119,7 @@ void CreateWritableObjectWidget::visitAccessory(product::Accessory* acc) {
     
 }
 
-void CreateWritableObjectWidget::Updateproduct() {
+void WritableWidget::Updateproduct() {
     if(dynamic_cast<product::Videogame*>(selected)) {
         QStringList genreLines = GenreEdit->text().split(", ");
         std::vector<product::Genre> genres;
@@ -144,10 +144,10 @@ void CreateWritableObjectWidget::Updateproduct() {
             compatibility.push_back(product::StringToConsoleType(line.toStdString()));
         }
         newProduct=new product::Accessory(heightEdit->text().toDouble(), lengthEdit->text().toDouble(), depthEdit->text().toDouble(), weightEdit->text().toDouble(), compatibility, imageEdit->text().toStdString(), nameEdit->text().toStdString(), priceEdit->text().toDouble(), idEdit->text().toStdString(), copiesEdit->text().toInt());
-} else if(dynamic_cast<product::Collectible*>(selected)) {
-    newProduct=new product::Collectible(categoryEdit->text().toStdString(), franchiseEdit->text().toStdString(), producerEdit->text().toStdString(), imageEdit->text().toStdString(), nameEdit->text().toStdString(), priceEdit->text().toDouble(), idEdit->text().toStdString(), copiesEdit->text().toInt());
-} else if(dynamic_cast<product::T_shirt*>(selected)) {
-    newProduct=new product::T_shirt(product::StringToSize(sizeEdit->text().toStdString()), franchiseEdit->text().toStdString(), imageEdit->text().toStdString(), nameEdit->text().toStdString(), priceEdit->text().toDouble(), idEdit->text().toStdString(), copiesEdit->text().toInt());
-}
+    } else if(dynamic_cast<product::Collectible*>(selected)) {
+        newProduct=new product::Collectible(categoryEdit->text().toStdString(), franchiseEdit->text().toStdString(), producerEdit->text().toStdString(), imageEdit->text().toStdString(), nameEdit->text().toStdString(), priceEdit->text().toDouble(), idEdit->text().toStdString(), copiesEdit->text().toInt());
+    } else if(dynamic_cast<product::T_shirt*>(selected)) {
+        newProduct=new product::T_shirt(product::StringToSize(sizeEdit->text().toStdString()), franchiseEdit->text().toStdString(), imageEdit->text().toStdString(), nameEdit->text().toStdString(), priceEdit->text().toDouble(), idEdit->text().toStdString(), copiesEdit->text().toInt());
+    }
     *selected = *newProduct;
 }

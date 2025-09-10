@@ -22,17 +22,17 @@ void ModifyPageWidget::ModifyInfoOf(product::Product* product) {
     ModifyDetails=new QWidget;
     modifylayout = new QVBoxLayout(ModifyDetails);
     modifylayout->addWidget(new QLabel("Modify product:"), 1);
-    cwow=new CreateWritableObjectWidget();
-    product->accept(cwow);
-    modifylayout->addWidget(cwow, 9);
-    pageLayout->addWidget(ModifyDetails);
+    ModifyPage=new WritableWidget();
+    product->accept(ModifyPage);
+    modifylayout->addWidget(ModifyPage, 9);
+    pageLayout->addWidget(ModifyDetails, 9);
 }
 void ModifyPageWidget::DeleteDetails() {
     pageLayout->removeWidget(ModifyDetails);
     delete ModifyDetails;
-    //delete cwow;
+    //delete ModifyPage;
 }
 void ModifyPageWidget::Updateproduct() {
     qDebug()<<"Dentro update modifywidget";
-    cwow->Updateproduct();
+    ModifyPage->Updateproduct();
 }

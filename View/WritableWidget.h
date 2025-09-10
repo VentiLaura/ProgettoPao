@@ -1,38 +1,30 @@
 #ifndef CREATEWRITABLEOBJECTWIDGET_H
 #define CREATEWRITABLEOBJECTWIDGET_H
 #include "Visitor/visitor.h"
-#include "ProductModifier.h"
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QObject>
 #include <QWidget>
 #include <vector>
-#include <QScrollArea>
-#include <QGridLayout>
-#include "ProductWidget.h"
 #include "../LogicModel/Products/IncludeAllProducts.h"
-#include "../LogicModel/Products/T-shirt.h"
 #include <QLabel>
 #include <QLineEdit>
-#include <QVBoxLayout>
 #include <QStringList>
 #include <QDebug>
-class CreateWritableObjectWidget: public Visitor, public QWidget {
+class WritableWidget: public Visitor, public QWidget {
     public:
-    //CreateWritableObjectWidget(QWidget* =nullptr);
+    //WritableWidget(QWidget* =nullptr);
     void visitVideogame(product::Videogame*);
     void visitConsole(product::Console*);
     void visitTshirt(product::T_shirt*);
     void visitCollectible(product::Collectible*);
     void visitAccessory(product::Accessory*);
     void Updateproduct();
-    void CreateProduct();
     private:
-    product::Product* newProduct;
-    //ProductModifier* modifier;
-    QVBoxLayout* layout;
     void createProduct(product::Product* product);
+    product::Product* newProduct;
     product::Product* selected;
+    QVBoxLayout* layout;
     QWidget* details;
     QWidget* bar;
     QVBoxLayout* pageLayout;
@@ -47,7 +39,6 @@ class CreateWritableObjectWidget: public Visitor, public QWidget {
     QLineEdit* idEdit;
     QLineEdit* imageEdit;
     QLineEdit* copiesEdit;
-    QStringList genresList;
 
     QLineEdit* franchiseEdit;
     QLineEdit* sizeEdit;

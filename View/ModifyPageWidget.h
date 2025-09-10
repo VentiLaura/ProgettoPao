@@ -4,17 +4,9 @@
 #include <QPushButton>
 #include <QObject>
 #include <QWidget>
-#include <vector>
-#include <QScrollArea>
-#include <QGridLayout>
-#include "ProductWidget.h"
 #include "../LogicModel/Products/IncludeAllProducts.h"
-#include "PageWidget.h"
-#include <QLabel>
-#include <QLineEdit>
-#include <QVBoxLayout>
 #include <QStringList>
-#include "CreateWritableObjectWidget.h"
+#include "WritableWidget.h"
 
 class ModifyPageWidget: public QWidget {
     Q_OBJECT
@@ -34,7 +26,7 @@ class ModifyPageWidget: public QWidget {
     QVBoxLayout* infoLayout;
     QPushButton* acceptButton;
     QVBoxLayout* modifylayout;
-    CreateWritableObjectWidget* cwow;
+    WritableWidget* ModifyPage;
     signals:
     void cancelClicked();
     void acceptClicked();

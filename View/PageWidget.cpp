@@ -1,7 +1,4 @@
 #include "PageWidget.h"
-#include <QVBoxLayout>
-#include <QPushButton>
-#include <QObject>
 PageWidget::PageWidget(const std::vector<product::Product*>& products, QWidget* parent) : QWidget(parent) {
      scrollArea = new QScrollArea(this); 
      scrollArea->setWidgetResizable(true);

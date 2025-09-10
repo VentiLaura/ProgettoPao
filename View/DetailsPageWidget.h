@@ -1,18 +1,12 @@
 #ifndef DETAILSPAGEWIDGET_H
 #define DETAILSPAGEWIDGET_H
-#include <iostream>
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QObject>
 #include <QWidget>
-#include <vector>
-#include <QScrollArea>
-#include <QGridLayout>
-#include "ProductWidget.h"
 #include "../LogicModel/Products/IncludeAllProducts.h"
-#include "PageWidget.h"
 #include "ModifyPageWidget.h"
-#include "CreateWritableObjectWidget.h"
+#include "WritableWidget.h"
 #include "../LogicModel/Catalog/Memory.h"
 
 class ModifyPageWidget;
@@ -40,7 +34,7 @@ class DetailsPageWidget: public QWidget {
     QPushButton* modifyButton;
     QPushButton* deleteButton;
     ModifyPageWidget* mpw;
-    CreateWritableObjectWidget* cwow;
+    WritableWidget* ModifyPage;
     signals:
     void quitClicked();
     void ReturnToGrid();

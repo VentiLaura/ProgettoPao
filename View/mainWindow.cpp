@@ -1,8 +1,4 @@
-#include "mainwindow.h"
-#include <QVBoxLayout>
-#include <QWidget>
-#include "../Utility/FilterFunctions.h"
-#include "../Utility/SortFunctions.h"
+#include "MainWindow.h"
 
 using namespace filterfunctions;
 using namespace sortfunctions;
@@ -30,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
     // Imposta proporzioni: left 40%, right 60% (2:3 ratio)
     layout->setStretch(0, 1);
-    layout->setStretch(1, 3);
+    layout->setStretch(1, 9);
 
     centralContainer->setLayout(layout);
     setCentralWidget(centralContainer);

@@ -8,7 +8,7 @@
 #include "ProductWidget.h"
 #include "../LogicModel/Products/IncludeAllProducts.h"
 #include "DetailsPageWidget.h"
-class DetailsPageWidget;
+
 
 
 class PageWidget : public QWidget {
