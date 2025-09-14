@@ -31,10 +31,13 @@ SortFilterWidget::SortFilterWidget(QWidget *parent): QWidget(parent){
 
 
         setLayout(layout);
-        connect(filter, &FilterWidget::FilterChanged, this, &SortFilterWidget::filterModified);
-        connect(sort, &SortWidget::SortChanged, this, &SortFilterWidget::sortModified);
+        connect(filter, &FilterWidget::FilterChanged, this, &SortFilterWidget::onFilterModified);
+        connect(sort, &SortWidget::SortChanged, this, &SortFilterWidget::onSortModified);
         //connect(this, &SortFilterWidget::Reload, filter, &FilterWidget::Reload);
         //connect(this, &SortFilterWidget::Reload, sort, &SortWidget::Reload);
+        connect(searchbar, &SearchBarWidget::searchRequested, this, &SortFilterWidget::searchModified);
+        
+        
 }
 void SortFilterWidget::onFilterModified(const QString& text){
         emit filterModified(text); 

@@ -25,6 +25,7 @@ class SortFilterWidget: public QWidget {
     signals:
         void filterModified(const QString& text);
         void sortModified(const QString& text);
+        void searchModified(const QString& text);
         void AddClicked(const QString&);
 
     private slots:

@@ -23,7 +23,7 @@ PageWidget::PageWidget(const std::vector<product::Product*>& products, QWidget* 
     //connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::AddProduct);
     connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::Callsortfilter);
     connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::eraseGrid); 
-    connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::showGrid);
+    //connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::showGrid);
     //connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::ReloadFilters); 
         
         
@@ -39,34 +39,51 @@ PageWidget::PageWidget(const std::vector<product::Product*>& products, QWidget* 
 
 void PageWidget::eraseGrid() {
     qDebug()<<"dopo prima aggiunta";
-    qDebug()<<currentProducts.size();
+    //qDebug()<<currentProducts.size();
     //currentProducts=mem.getCatalog();
     updateProducts(currentProducts);
+    qDebug()<<"fuori erased grid";
 }
 
 
 void PageWidget::populateGrid(const std::vector<product::Product*>& products) { 
     qDebug()<<"dentro oioulategrid";
+    //currentProducts.clear();
     currentProducts=products;
+    qDebug()<<"dentro oioulategrid: current product size:";
+    qDebug()<<currentProducts.size();
     const int columns = 4; 
     for (int i = 0; i < static_cast<int>(products.size()); ++i) {
             int row = i / columns; 
             int col = i % columns; 
             ProductWidget* pw = new ProductWidget(products[i]); 
+           
+            
+
             gridLayout->addWidget(pw, row, col); 
             Products.push_back(pw); 
             connect(pw, &ProductWidget::clicked, this, &PageWidget::showProductDetails); 
         } 
         scrollContent->adjustSize(); 
         qDebug()<<"fuori oioulategrid";
+        return;
 } 
 void PageWidget::updateProducts(const std::vector<product::Product*>& products) { 
-    for(int i=0; i < static_cast<int>(Products.size()); ++i) { 
-        delete Products[i]; 
-    } 
+    qDebug()<<"dentro updaateproduct pagewidget";
+
+    // Svuota il layout in modo sicuro
+    QLayoutItem* item;
+    while ((item = gridLayout->takeAt(0)) != nullptr) {
+        if (item->widget()) {
+            delete item->widget();  // Lascia che Qt gestisca la distruzione
+        }
+        delete item; // Libera il layout item stesso
+    }
+    
     Products.clear(); 
     populateGrid(products); 
 } 
+
 void PageWidget::showProductDetails(product::Product* product) {
     selected=product;
      if(scrollArea&&!scrollArea->isHidden()) {
@@ -83,6 +100,7 @@ void PageWidget::showProductDetails(product::Product* product) {
 
     layout()->addWidget(detailsPage);      // Aggiunge la pagina dettagliata
     detailsPage->show();                   // Mostra visivamente
+    qDebug()<<"fine updaateproduct pagewidget";
 }
 
 void PageWidget::showGrid() {

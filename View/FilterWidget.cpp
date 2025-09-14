@@ -13,9 +13,7 @@ FilterWidget::FilterWidget(QWidget *parent): QWidget(parent){
     filterMenu->addItem("Magliette");
     filterLayout->addRow(filter, filterMenu);
     setLayout(filterLayout);
-    connect(filterMenu, &QComboBox::currentTextChanged, //currentTextChanged è un segnale emesso da QComboBox
-            this, &FilterWidget::onFilterChanged);
-    
+    connect(filterMenu, &QComboBox::currentTextChanged, this, &FilterWidget::onFilterChanged);
 }
 void FilterWidget::onFilterChanged(const QString& text) {
     emit FilterChanged(text); 

@@ -25,20 +25,26 @@ class MainWindow: public QMainWindow {
         //handleAddProduct(QString);
         void Callsort();
         void Callfilter();
+        void CallSearch();
+        std::vector<product::Product*> SearchProduct(const QString&, const std::vector<product::Product*>& );
     private:
+    memory::Memory& mem = memory::Memory::getCentralMemoryInstance();
         SortFilterWidget *sortfilter = new SortFilterWidget;
         QString activeFilter;
         PageWidget* page;
         QString activeSort;
+        QString activeSearch;
 
     private slots:
-        void updateSort(const QString& sort); 
-        void updateFilter(const QString& filter); 
+        void updateSort(const QString&); 
+        void updateFilter(const QString&); 
+        void UpdateSearch(const QString&);
 
 
     signals:
         void productsFiltered(const std::vector<product::Product*>&);
         void productsSorted(const std::vector<product::Product*>&);
+        void productsSearched(const std::vector<product::Product*>&);
         void ReloadFilters();
 };
 #endif
