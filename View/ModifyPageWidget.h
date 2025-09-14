@@ -7,6 +7,7 @@
 #include "../LogicModel/Products/IncludeAllProducts.h"
 #include <QStringList>
 #include "WritableWidget.h"
+#include "CreateWidget.h"
 
 class ModifyPageWidget: public QWidget {
     Q_OBJECT
@@ -15,6 +16,7 @@ class ModifyPageWidget: public QWidget {
     void ModifyInfoOf(product::Product*);
     void DeleteDetails();
     void Updateproduct();
+    void CreateProduct(const QString&);
     private:
     product::Product* selected;
     QWidget* ModifyDetails;
@@ -27,6 +29,8 @@ class ModifyPageWidget: public QWidget {
     QPushButton* acceptButton;
     QVBoxLayout* modifylayout;
     WritableWidget* ModifyPage;
+    CreateWidget* CreatePage;
+    QString Type;
     signals:
     void cancelClicked();
     void acceptClicked();

@@ -9,6 +9,7 @@ class SortWidget: public QWidget{
     Q_OBJECT
     public:
         SortWidget(QWidget *parent = nullptr);
+        void Reload();
     private:
         QLabel *sort;
         QComboBox* sortMenu;

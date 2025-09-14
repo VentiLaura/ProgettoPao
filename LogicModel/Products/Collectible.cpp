@@ -23,15 +23,17 @@ void Collectible::setCategory(std::string category) {
     void Collectible::accept(Visitor* v) {
         v->visitCollectible(this);
     }
-    Collectible& Collectible::operator=(Collectible& c) {
-        setName(c.getName());
-        setPrice(c.getPrice());
-        setIdProduct(c.getIdProduct());
-        setImage(c.getImage());
-        setAvailability(c.getAvailability());
-        Category = c.GetCategory();
-        Franchise = c.GetFranchise();
-        Producer = c.GetProducer();
+    Collectible& Collectible::operator=(Product& c) {
+        Collectible* coll=dynamic_cast<Collectible*>(&c);
+        if(!coll) std::__throw_invalid_argument ("Assigned Product is not a collectible");
+        setName(coll->getName());
+        setPrice(coll->getPrice());
+        setIdProduct(coll->getIdProduct());
+        setImage(coll->getImage());
+        setAvailability(coll->getAvailability());
+        Category = coll->GetCategory();
+        Franchise = coll->GetFranchise();
+        Producer = coll->GetProducer();
         return *this;
     }
 }

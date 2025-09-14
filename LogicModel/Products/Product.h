@@ -13,6 +13,7 @@ class Product {
     public:
     Product(std::string, std::string, double, std::string, int=1);
     virtual ~Product() = 0;
+    virtual Product& operator=(Product&) =0;
     std::string getImage();
     void setImage(std::string);
     std::string getName() const; 

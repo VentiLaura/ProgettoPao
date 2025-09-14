@@ -2,20 +2,19 @@
 namespace product {
 Videogame::~Videogame() {}
 Videogame::Videogame(std::vector<Console_type> compatible, std::string producer, std::vector<Genre> genre, std::string image, std::string name, double price, std::string idProduct, int availability): Product(image, name, price, idProduct, availability), Compatibility(compatible), Producer(producer), Genres(genre) {}
-Videogame& Videogame::operator=(Videogame& v) {
-    if (this != &v) {  // Protezione contro auto-assegnamento
-        // Assegna i campi della classe base (Product)
-        setName(v.getName());
-        setPrice(v.getPrice());
-        setIdProduct(v.getIdProduct());
-        setImage(v.getImage());
-        setAvailability(v.getAvailability());
+Videogame& Videogame::operator=(Product& v) {
+    Videogame* videogame=dynamic_cast<Videogame*>(&v);
+    if (!videogame) std::__throw_invalid_argument ("Assigned Product is not a videogame");
+        setName(videogame->getName());
+        setPrice(videogame->getPrice());
+        setIdProduct(videogame->getIdProduct());
+        setImage(videogame->getImage());
+        setAvailability(videogame->getAvailability());
 
         // Assegna i campi specifici di Videogame
-        Producer = v.getProducer();
-        Compatibility = v.getCompatibility();
-        Genres = v.getGenres();
-    }
+        Producer = videogame->getProducer();
+        Compatibility = videogame->getCompatibility();
+        Genres = videogame->getGenres();
     return *this;
 }
 

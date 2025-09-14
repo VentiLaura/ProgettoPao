@@ -54,14 +54,16 @@ void T_shirt::setSizes(Sizes s) {
 void T_shirt::accept(Visitor* v) {
         v->visitTshirt(this);
 }
-T_shirt& T_shirt::operator=(T_shirt& t) {
-    setName(t.getName());
-    setPrice(t.getPrice());
-    setIdProduct(t.getIdProduct());
-    setImage(t.getImage());
-    setAvailability(t.getAvailability());
-    Size = t.getSize();
-    Franchise = t.getFranchise();
+T_shirt& T_shirt::operator=(Product& t) {
+    T_shirt* shirt=dynamic_cast<T_shirt*>(&t);
+    if(!shirt) std::__throw_invalid_argument ("Assigned Product is not a T_shirt");
+    setName(shirt->getName());
+    setPrice(shirt->getPrice());
+    setIdProduct(shirt->getIdProduct());
+    setImage(shirt->getImage());
+    setAvailability(shirt->getAvailability());
+    Size = shirt->getSize();
+    Franchise = shirt->getFranchise();
     return *this;
 }
 }

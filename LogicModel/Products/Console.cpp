@@ -1,5 +1,6 @@
 #ifndef CONSOLE_CPP
 #define CONSOLE_CPP
+#include <QDebug>
 #include "Console.h"
 namespace product {
 Console::Console(Console_type c, std::string m, std::string i, double p, std::string id, int av): Product(i, ConsoleTypeToString(c), p, id, av), Serie(c), Memory(m) {}
@@ -20,14 +21,18 @@ void Console::setMemory(std::string m) {
 void Console::accept(Visitor* v) {
     v->visitConsole(this);
 }
-Console& Console::operator=(Console& c) {
-    setName(c.getName());
-    setPrice(c.getPrice());
-    setIdProduct(c.getIdProduct());
-    setImage(c.getImage());
-    setAvailability(c.getAvailability());
-    Memory = c.getMemory();
-    Serie = c.getSerie();
+Console& Console::operator=(Product& c) {
+    Console* console=dynamic_cast<Console*>(&c);
+    if(!console) std::__throw_invalid_argument ("Assigned Product is not a console");
+    setName(console->getName());
+    setPrice(console->getPrice());
+    setIdProduct(console->getIdProduct());
+    setImage(console->getImage());
+    setAvailability(console->getAvailability());
+    Memory = console->getMemory();
+    qDebug()<<"console:";
+    qDebug()<<QString::fromStdString(ConsoleTypeToString((console->getSerie())));
+    Serie = console->getSerie();
     return *this;
 }
 }

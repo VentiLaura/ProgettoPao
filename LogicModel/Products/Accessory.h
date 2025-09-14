@@ -16,7 +16,7 @@ class Accessory: public Product {
     public:
     Accessory(double, double, double, double, std::vector<Console_type>, std::string, std::string, double, std::string, int=1);
     ~Accessory();
-    Accessory& operator=(Accessory&);
+    Accessory& operator=(Product&);
     std::string getName() const; 
     void setName(std::string);
     double getHeight() const;

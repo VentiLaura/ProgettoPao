@@ -11,7 +11,7 @@ class Collectible: public Product {
     public:
     ~Collectible();
     Collectible(std::string, std::string, std::string, std::string, std::string, double, std::string, int=1);
-    Collectible& operator=(Collectible&);
+    Collectible& operator=(Product&);
     std::string GetCategory();
     void setCategory(std::string);
     std::string GetFranchise();

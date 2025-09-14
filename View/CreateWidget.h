@@ -1,5 +1,6 @@
-#ifndef CREATEWRITABLEOBJECTWIDGET_H
-#define CREATEWRITABLEOBJECTWIDGET_H
+#ifndef CREATEWIDGET_H
+#define CREATEWIDGET_H
+
 #include "Visitor/visitor.h"
 #include <QVBoxLayout>
 #include <QPushButton>
@@ -13,24 +14,27 @@
 #include <QStringList>
 #include <QDebug>
 #include <QComboBox>
-class WritableWidget: public Visitor, public QWidget {
+
+class CreateWidget: public QWidget {
+    Q_OBJECT
     public:
     //WritableWidget(QWidget* =nullptr);
-    void visitVideogame(product::Videogame*);
-    void visitConsole(product::Console*);
-    void visitTshirt(product::T_shirt*);
-    void visitCollectible(product::Collectible*);
-    void visitAccessory(product::Accessory*);
-    void Updateproduct();
+    CreateWidget(const QString&);
+    product::Product* CreateProduct(const QString&);
     private:
     memory::Memory& mem=memory::Memory::getCentralMemoryInstance();
+    void DeleteDetails();
+    void VideogameWindow();
+    void ConsoleWindow();
+    void TshirtWindow();
+    void CollectibleWindow();
+    void AccessoryWindow();
+    QWidget* Page;
     void createProduct(product::Product* product);
     product::Product* newProduct;
     product::Product* selected;
-    QVBoxLayout* layout;
-    QWidget* details;
-    QWidget* bar;
     QVBoxLayout* pageLayout;
+    QWidget* bar;
     QHBoxLayout* topBarLayout;
     QPushButton* cancelButton;
     QHBoxLayout* detailsLayout;
@@ -57,6 +61,10 @@ class WritableWidget: public Visitor, public QWidget {
     QLineEdit* weightEdit;
     QLineEdit* CompatibilityEdit;
     QLineEdit* GenreEdit;
+
+    signals:
+    void cancelClicked();
+    void acceptClicked();
     
 };
 #endif

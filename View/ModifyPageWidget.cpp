@@ -27,12 +27,40 @@ void ModifyPageWidget::ModifyInfoOf(product::Product* product) {
     modifylayout->addWidget(ModifyPage, 9);
     pageLayout->addWidget(ModifyDetails, 9);
 }
+
+void ModifyPageWidget::CreateProduct(const QString& type) {
+    Type=type;
+    ModifyDetails=new QWidget;
+    modifylayout = new QVBoxLayout(ModifyDetails);
+    QLabel* title = new QLabel("Create product: " + type);
+    modifylayout->addWidget(title, 1);
+    CreatePage=new CreateWidget(type);
+    modifylayout->addWidget(CreatePage, 9);
+    pageLayout->addWidget(ModifyDetails, 9);
+    qDebug()<<"fine CreateProduct";
+}
+
 void ModifyPageWidget::DeleteDetails() {
+    qDebug()<<"deletedetails inizio";
     pageLayout->removeWidget(ModifyDetails);
     delete ModifyDetails;
+    /*if(selected) {
+    pageLayout->removeWidget(ModifyDetails);
+    delete ModifyDetails;
+    }else{
+    pageLayout->removeWidget(CreatePage);
+    delete CreatePage;*/
+    //}
     //delete ModifyPage;
+    qDebug()<<"deletedetails fine";
 }
 void ModifyPageWidget::Updateproduct() {
     qDebug()<<"Dentro update modifywidget";
+    if(ModifyPage)
     ModifyPage->Updateproduct();
+    if(CreatePage) {
+        CreatePage->CreateProduct(Type);
+         qDebug()<<"Fuori update modifywidget";
+    }
+   
 }

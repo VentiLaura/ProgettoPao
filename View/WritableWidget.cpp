@@ -59,8 +59,16 @@ void WritableWidget::visitTshirt(product::T_shirt* tshirt) {
     layout->addWidget(franchiseEdit);
 
     layout->addWidget(new QLabel("Size:"));
-    sizeEdit = new QLineEdit(QString::fromStdString(SizeToString(tshirt->getSize())));
-    layout->addWidget(sizeEdit);
+    sizeComboBox = new QComboBox();
+    for (int i = static_cast<int>(product::Sizes::XS); i <= static_cast<int>(product::Sizes::XL); ++i) {
+        product::Sizes size = static_cast<product::Sizes>(i);
+        sizeComboBox->addItem(QString::fromStdString(product::SizeToString(size)));
+        if (size == tshirt->getSize()) {
+            sizeComboBox->setCurrentIndex(sizeComboBox->count() - 1);
+        }
+    }
+    layout->addWidget(sizeComboBox);
+
 }
 
 void WritableWidget::visitCollectible(product::Collectible* coll) {
@@ -83,12 +91,20 @@ void WritableWidget::visitConsole(product::Console* console) {
     createProduct(console);
 
     layout->addWidget(new QLabel("Serie:"));
-    serieEdit = new QLineEdit(QString::fromStdString(ConsoleTypeToString(console->getSerie())));
-    layout->addWidget(serieEdit);
+    serieComboBox = new QComboBox();
+    for (int i = static_cast<int>(product::Console_type::Xbox); i <= static_cast<int>(product::Console_type::Nintendo_Switch_2); ++i) {
+        product::Console_type type = static_cast<product::Console_type>(i);
+        serieComboBox->addItem(QString::fromStdString(product::ConsoleTypeToString(type)));
+        if (type == console->getSerie()) {
+            serieComboBox->setCurrentIndex(serieComboBox->count() - 1);
+        }
+    }
+    layout->addWidget(serieComboBox);
 
     layout->addWidget(new QLabel("Memory:"));
     memoryEdit = new QLineEdit(QString::fromStdString(console->getMemory()));
     layout->addWidget(memoryEdit);
+
 }
 void WritableWidget::visitAccessory(product::Accessory* acc) {
     createProduct(acc);
@@ -133,21 +149,58 @@ void WritableWidget::Updateproduct() {
             compatibility.push_back(product::StringToConsoleType(line.toStdString()));
         }
         qDebug()<<"prima creazione";
-        newProduct=new product::Videogame(compatibility, producerEdit->text().toStdString(), genres, imageEdit->text().toStdString(), nameEdit->text().toStdString(), priceEdit->text().toDouble(), idEdit->text().toStdString(), copiesEdit->text().toInt());
+        newProduct=new product::Videogame(compatibility, 
+        producerEdit->text().toStdString(), 
+        genres, imageEdit->text().toStdString(), 
+        nameEdit->text().toStdString(), 
+        priceEdit->text().toDouble(), 
+        idEdit->text().toStdString(), 
+        copiesEdit->text().toInt());
         qDebug()<<"dopo Creazione";
     } else if(dynamic_cast<product::Console*>(selected)) {
-        newProduct=new product::Console(product::StringToConsoleType(serieEdit->text().toStdString()), memoryEdit->text().toStdString(), imageEdit->text().toStdString(), priceEdit->text().toDouble(), idEdit->text().toStdString(), copiesEdit->text().toInt());
+        qDebug()<<QString::fromStdString(product::ConsoleTypeToString(product::StringToConsoleType(serieComboBox->currentText().toStdString())));
+        newProduct = new product::Console(
+        product::StringToConsoleType(serieComboBox->currentText().toStdString()),
+        memoryEdit->text().toStdString(),
+        imageEdit->text().toStdString(),
+        priceEdit->text().toDouble(),
+        idEdit->text().toStdString(),
+        copiesEdit->text().toInt());
+
     } else if(dynamic_cast<product::Accessory*>(selected)) {
         QStringList compatLines = CompatibilityEdit->text().split(", ");
         std::vector<product::Console_type> compatibility;
         for (const QString& line : compatLines) {
             compatibility.push_back(product::StringToConsoleType(line.toStdString()));
         }
-        newProduct=new product::Accessory(heightEdit->text().toDouble(), lengthEdit->text().toDouble(), depthEdit->text().toDouble(), weightEdit->text().toDouble(), compatibility, imageEdit->text().toStdString(), nameEdit->text().toStdString(), priceEdit->text().toDouble(), idEdit->text().toStdString(), copiesEdit->text().toInt());
+        newProduct=new product::Accessory(heightEdit->text().toDouble(), 
+        lengthEdit->text().toDouble(), 
+        depthEdit->text().toDouble(), 
+        weightEdit->text().toDouble(), 
+        compatibility, 
+        imageEdit->text().toStdString(), 
+        nameEdit->text().toStdString(), 
+        priceEdit->text().toDouble(), 
+        idEdit->text().toStdString(), 
+        copiesEdit->text().toInt());
     } else if(dynamic_cast<product::Collectible*>(selected)) {
-        newProduct=new product::Collectible(categoryEdit->text().toStdString(), franchiseEdit->text().toStdString(), producerEdit->text().toStdString(), imageEdit->text().toStdString(), nameEdit->text().toStdString(), priceEdit->text().toDouble(), idEdit->text().toStdString(), copiesEdit->text().toInt());
+        newProduct=new product::Collectible(categoryEdit->text().toStdString(), 
+        franchiseEdit->text().toStdString(), producerEdit->text().toStdString(), 
+        imageEdit->text().toStdString(), 
+        nameEdit->text().toStdString(), 
+        priceEdit->text().toDouble(), 
+        idEdit->text().toStdString(), 
+        copiesEdit->text().toInt());
     } else if(dynamic_cast<product::T_shirt*>(selected)) {
-        newProduct=new product::T_shirt(product::StringToSize(sizeEdit->text().toStdString()), franchiseEdit->text().toStdString(), imageEdit->text().toStdString(), nameEdit->text().toStdString(), priceEdit->text().toDouble(), idEdit->text().toStdString(), copiesEdit->text().toInt());
+        newProduct = new product::T_shirt(
+        product::StringToSize(sizeComboBox->currentText().toStdString()),
+        franchiseEdit->text().toStdString(),
+        imageEdit->text().toStdString(),
+        nameEdit->text().toStdString(),
+        priceEdit->text().toDouble(),
+        idEdit->text().toStdString(),
+        copiesEdit->text().toInt());
     }
-    *selected = *newProduct;
+    mem.UpdateProduct(selected->getIdProduct(), newProduct);
+    //*selected = *newProduct;
 }

@@ -1,47 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <Products>
-    <Product>
-        <Type>Console</Type>
-        <Image>Immagini/Nintendo_3DS.jpg</Image>
-        <Serie>Nintendo 3DS</Serie>
-        <Price>129.99</Price>
-        <IdProduct>0</IdProduct>
-        <Copies_available>5</Copies_available>
-    </Product>
-    <Product>
-        <Type>Console</Type>
-        <Image>Immagini/PS5_PRO.jpg</Image>
-        <Memory>idk</Memory>
-        <Serie>PlayStation 5</Serie>
-        <Price>399.99</Price>
-        <IdProduct>11</IdProduct>
-        <Copies_available>13</Copies_available>
-    </Product>
-    <Product>
-        <Type>Console</Type>
-        <Image>Immagini/xbox-seriesx.jpg</Image>
-        <Serie>Xbox Series X</Serie>
-        <Price>299.99</Price>
-        <IdProduct>189</IdProduct>
-        <Copies_available>2</Copies_available>
-    </Product>
-     <Product>
-        <Type>Videogame</Type>
-        <Image>Immagini/SuperSmashBros_Brawl.jpg</Image>
-        <Name>Super Smash Bros. Brawl</Name>
-        <Price>49.99</Price>
-        <IdProduct>1</IdProduct>
-        <Copies_available>2</Copies_available>
-        <Producer>Nintendo</Producer>
-        <Compatibility>
-        <Console>Wii</Console>
-        <Console>Wii U</Console>
-        </Compatibility>
-        <Genres>
-        <Genre>Action</Genre>
-        <Genre>Platform</Genre>
-        </Genres>
-    </Product>
     <Product>
         <Type>Videogame</Type>
         <Image>Immagini/Persona5R.jpg</Image>
@@ -51,27 +9,11 @@
         <Copies_available>7</Copies_available>
         <Producer>Atlus</Producer>
         <Compatibility>
-        <Console>PlayStation 4</Console>
-        <Console>PlayStation 5</Console>
+            <Console>PlayStation 4</Console>
+            <Console>PlayStation 5</Console>
         </Compatibility>
         <Genres>
-        <Genre>RPG</Genre>
-        </Genres>
-    </Product>
-    <Product>
-        <Type>Videogame</Type>
-        <Image>Immagini/legend-of-zelda.jpg</Image>
-        <Name>Legendo of Zelda: Breath of the Wild</Name>
-        <Price>69.99</Price>
-        <IdProduct>45</IdProduct>
-        <Copies_available>20</Copies_available>
-        <Producer>Nintendo</Producer>
-        <Compatibility>
-        <Console>Nintendo Switch</Console>
-        <Console>Nintendo Switch 2</Console>
-        </Compatibility>
-        <Genres>
-        <Genre>Action</Genre>
+            <Genre>RPG</Genre>
         </Genres>
     </Product>
     <Product>
@@ -83,13 +25,13 @@
         <Copies_available>12</Copies_available>
         <Producer>Eletronic Arts</Producer>
         <Compatibility>
-        <Console>PlayStation 4</Console>
-        <Console>PlayStation 5</Console>
+            <Console>PlayStation 4</Console>
+            <Console>PlayStation 5</Console>
         </Compatibility>
         <Genres>
-        <Genre>Action</Genre>
-        <Genre>Adventure</Genre>
-        <Genre>Cooperative</Genre>
+            <Genre>Action</Genre>
+            <Genre>Adventure</Genre>
+            <Genre>Cooperative</Genre>
         </Genres>
     </Product>
     <Product>
@@ -102,7 +44,7 @@
         <Size>XL</Size>
         <Franchise>DC Superman</Franchise>
     </Product>
-     <Product>
+    <Product>
         <Type>T-shirt</Type>
         <Image>Immagini/maglietta-super-mario-.jpg</Image>
         <Name>Maglietta con logo di Super-Mario</Name>
@@ -112,7 +54,7 @@
         <Size>XS</Size>
         <Franchise>Super-Mario Bros</Franchise>
     </Product>
-     <Product>
+    <Product>
         <Type>Accessory</Type>
         <Image>Immagini/cuffie-gaming.jpg</Image>
         <Name>Cuffie HyperX</Name>
@@ -124,10 +66,10 @@
         <Depht>9.20</Depht>
         <Weight>780</Weight>
         <Compatibility>
-        <Console>Xbox</Console>
+            <Console>Xbox</Console>
         </Compatibility>
     </Product>
-     <Product>
+    <Product>
         <Type>Collectible</Type>
         <Image>Immagini/joker-pop.jpg</Image>
         <Name>Joker Vinyl Figure</Name>
@@ -158,5 +100,45 @@
         <Lenght>16.20</Lenght>
         <Depht>7.20</Depht>
         <Weight>568</Weight>
+    </Product>
+    <Product>
+        <Type>Videogame</Type>
+        <IdProduct>40</IdProduct>
+        <Image>Immagini/legend-of-zelda.jpg</Image>
+        <Price>69.99</Price>
+        <Copies_available>20</Copies_available>
+        <Name>Legendo of Zelda: Breath of the Wild</Name>
+        <Producer>Nintendo</Producer>
+        <Compatibility>
+            <Console>Nintendo Switch</Console>
+            <Console>Nintendo Switch 2</Console>
+        </Compatibility>
+        <Genres>
+            <Genre>Action</Genre>
+        </Genres>
+    </Product>
+    <Product>
+        <Type>Console</Type>
+        <IdProduct>190</IdProduct>
+        <Image>Immagini/xbox-seriesx.jpg</Image>
+        <Price>299.99</Price>
+        <Copies_available>3</Copies_available>
+        <Serie>Xbox Series X</Serie>
+        <Memory/>
+    </Product>
+    <Product>
+        <Type>Videogame</Type>
+        <IdProduct>6868</IdProduct>
+        <Image></Image>
+        <Price>13.00</Price>
+        <Copies_available>8</Copies_available>
+        <Name>cc</Name>
+        <Producer>bhbh</Producer>
+        <Compatibility>
+            <Console>Wii</Console>
+        </Compatibility>
+        <Genres>
+            <Genre>Action</Genre>
+        </Genres>
     </Product>
 </Products>

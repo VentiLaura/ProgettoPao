@@ -21,10 +21,14 @@ class MainWindow: public QMainWindow {
     Q_OBJECT
     public:
         MainWindow(QWidget *parent = nullptr);
+        void CallAddWindow(const QString&);
+        //handleAddProduct(QString);
 
     private:
         SortFilterWidget *sortfilter = new SortFilterWidget;
+        QString activeFilter;
         PageWidget* page;
+        QString activeSort;
 
     private slots:
         void updateSort(const QString& sort); 
@@ -34,5 +38,6 @@ class MainWindow: public QMainWindow {
     signals:
         void productsFiltered(const std::vector<product::Product*>&);
         void productsSorted(const std::vector<product::Product*>&);
+        void ReloadFilters();
 };
 #endif

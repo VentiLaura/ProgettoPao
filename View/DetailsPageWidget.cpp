@@ -19,10 +19,10 @@ DetailsPageWidget::DetailsPageWidget(QWidget* parent): QWidget(parent) {
     connect(quitButton, &QPushButton::clicked, this, &DetailsPageWidget::quitClicked);
     connect(quitButton, &QPushButton::clicked, this, &DetailsPageWidget::DeleteDetails);
     connect(modifyButton, &QPushButton::clicked, this, &DetailsPageWidget::ModifyClicked);
-    connect(mpw, &ModifyPageWidget::cancelClicked, this, &DetailsPageWidget::Return);
-    connect(mpw, &ModifyPageWidget::acceptClicked, this, &DetailsPageWidget::Return);
-    connect(mpw, &ModifyPageWidget::acceptClicked, this, &DetailsPageWidget::ReturnToGrid);
-    connect(mpw, &ModifyPageWidget::acceptClicked, this, &DetailsPageWidget::Updateproduct);
+    connect(DetailsPageWidget::mpw, &ModifyPageWidget::cancelClicked, this, &DetailsPageWidget::Return);
+    connect(DetailsPageWidget::mpw, &ModifyPageWidget::acceptClicked, this, &DetailsPageWidget::Return);
+    connect(DetailsPageWidget::mpw, &ModifyPageWidget::acceptClicked, this, &DetailsPageWidget::ReturnToGrid);
+    connect(DetailsPageWidget::mpw, &ModifyPageWidget::acceptClicked, this, &DetailsPageWidget::Updateproduct);
 
     
     connect(deleteButton, &QPushButton::clicked, this, &DetailsPageWidget::DeleteGridProduct);

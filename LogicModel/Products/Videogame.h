@@ -13,7 +13,7 @@ class Videogame: public Product {
     public:
     ~Videogame();
     Videogame(std::vector<Console_type>, std::string, std::vector<Genre>, std::string, std::string, double, std::string, int=1);
-    Videogame& operator=(Videogame&);
+    Videogame& operator=(Product&);
     const std::vector<Console_type>& getCompatibility() const;
     bool IsCompatible(Console_type) const;
     void setCompatibility(std::vector<Console_type>&);

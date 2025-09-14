@@ -49,17 +49,19 @@ void Accessory::setCompatibility(std::vector<Console_type>& c) {
 void Accessory::accept(Visitor* v) {
     v->visitAccessory(this);
 }
- Accessory& Accessory::operator=(Accessory& a) {
-        setName(a.getName());
-        setPrice(a.getPrice());
-        setIdProduct(a.getIdProduct());
-        setImage(a.getImage());
-        setAvailability(a.getAvailability());
-        Compatibility=a.getCompatibility();
-        Height = a.getHeight();
-        Depth = a.getDepth();
-        Lenght = a.getLenght();
-        Weight=a.getWeight();
+ Accessory& Accessory::operator=(Product& a) {
+    Accessory* acc=dynamic_cast<Accessory*>(&a);
+    if(!acc) std::__throw_invalid_argument ("Assigned Product is not an accessory");
+        setName(acc->getName());
+        setPrice(acc->getPrice());
+        setIdProduct(acc->getIdProduct());
+        setImage(acc->getImage());
+        setAvailability(acc->getAvailability());
+        Compatibility=acc->getCompatibility();
+        Height = acc->getHeight();
+        Depth = acc->getDepth();
+        Lenght = acc->getLenght();
+        Weight=acc->getWeight();
         return *this;
     }
 }

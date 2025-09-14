@@ -9,7 +9,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     QString Path="XML/Products.xml";  
     memory::Memory& m=memory::Memory::getCentralMemoryInstance();
     //m.Add(json::JsonReader(Path));
-    m.Add(xml::XMLReader(Path));
+    //m.Add(xml::XMLReader(Path));
+    m.LoadFromFile(Path);
     page = new PageWidget(m.getCatalog());
     qDebug() << m.getCatalog().size();
 
@@ -20,6 +21,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     QVBoxLayout* layout = new QVBoxLayout(centralContainer);
     sortfilter->setStyleSheet("background-color: lightblue;");
     page->setStyleSheet("background-color: lightgreen;");
+
+    
+    //layout->addWidget(addButton);
+    //layout->setStretch(0, 1);  // AddButton = 0
+    //layout->setStretch(1, 1);  // sortfilter = 1
+    //layout->setStretch(2, 8);  // page = 9
+
 
     layout->addWidget(sortfilter);
     layout->addWidget(page);
@@ -32,27 +40,34 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     setCentralWidget(centralContainer);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    connect(sortfilter, &SortFilterWidget::filterModified,
-        this, &MainWindow::updateFilter);
-    
-    connect(this, &MainWindow::productsFiltered,
-        page, &PageWidget::updateProducts);
-
-    connect(sortfilter, &SortFilterWidget::sortModified,
-        this, &MainWindow::updateSort);
-    
-    connect(this, &MainWindow::productsSorted,
-        page, &PageWidget::updateProducts);
+    connect(sortfilter, &SortFilterWidget::filterModified, this, &MainWindow::updateFilter);
+    connect(this, &MainWindow::productsFiltered, page, &PageWidget::updateProducts);
+    connect(sortfilter, &SortFilterWidget::sortModified, this, &MainWindow::updateSort);
+    connect(this, &MainWindow::productsSorted, page, &PageWidget::updateProducts);
+    //connect(this, &MainWindow::CallAddWindow, sortfilter, &SortFilterWidget::AddClicked);
+    connect(sortfilter, &SortFilterWidget::AddClicked, this, &MainWindow::CallAddWindow);
+    //connect(this, &MainWindow::ReloadFilters, sortfilter, &SortFilterWidget::Reload);
 }
 
 void MainWindow::updateFilter(const QString& selectedFilter) {
-    auto allProducts = memory::Memory::getCentralMemoryInstance().getCatalog();
-    std::vector<product::Product*> filtered = applyFilter(selectedFilter, allProducts);
+    auto Products = memory::Memory::getCentralMemoryInstance().getCatalog();
+    activeFilter=selectedFilter;
+    //auto Products=page->currentProducts;
+    std::vector<product::Product*> filtered = applyFilter(selectedFilter, Products);
+    if(!activeSort.isEmpty()) {
+        applySort(activeSort, filtered);
+    }
     emit productsFiltered(filtered);
 }
 
 void MainWindow::updateSort(const QString& selectedSort) {
-    auto allProducts = memory::Memory::getCentralMemoryInstance().getCatalog();
-    std::vector<product::Product*> sorted = applySort(selectedSort, allProducts);
+    //auto allProducts = memory::Memory::getCentralMemoryInstance().getCatalog();
+    activeSort=selectedSort;
+    auto Products=page->currentProducts;
+    std::vector<product::Product*> sorted = applySort(selectedSort, Products);
     emit productsSorted(sorted);
+}
+
+void MainWindow::CallAddWindow(const QString& type) {
+    page->callAddWindow(type);
 }

@@ -1,169 +1,144 @@
 [
     {
-        "Image": "Immagini/Nintendo_3DS.jpg",
-        "Type": "Console",
-        "Memory": "20GB",
-        "Serie": "Nintendo 3DS",
-        "Price": 129.99,
-        "IdProduct": "0",
-        "Copies_available": 5
-    },
-        {
-        "Image": "Immagini/PS5_PRO.jpg",
-        "Type": "Console",
-        "Memory": "idk",
-        "Serie": "PlayStation 5",
-        "Price": 399.99,
-        "IdProduct": "11",
-        "Copies_available": 13
-    },
-    {
-        "Image": "Immagini/xbox-seriesx.jpg",
-        "Type": "Console",
-        "Memory": "550GB",
-        "Serie": "Xbox Series X",
-        "Price": 299.99,
-        "IdProduct": "189",
-        "Copies_available": 2
-    },
-    {
-        "Image": "Immagini/SuperSmashBros_Brawl.jpg",
-        "Type": "Videogame",
-        "Name": "Super Smash Bros. Brawl",
-        "Price": 49.99,
-        "IdProduct": "1",
-        "Copies_available": 2,
-        "Compatibility": [
-            "Wii",
-            "Wii U"
-        ],
-        "Producer": "Nintendo",
-        "Genres": [
-            "Action",
-            "Platform"
-        ]
-    },
-    {
-        "Image": "Immagini/Persona5R.jpg",
-        "Type": "Videogame",
-        "Name": "Persona 5 Royal",
-        "Price": 49.99,
-        "IdProduct": "19",
-        "Copies_available": 7,
         "Compatibility": [
             "PlayStation 4",
             "PlayStation 5"
         ],
-        "Producer": "Atlus",
+        "Copies_available": 7,
         "Genres": [
             "RPG"
-        ]
-    },
-    {
-        "Image": "Immagini/legend-of-zelda.jpg",
-        "Type": "Videogame",
-        "Name": "Legendo of Zelda: Breath of the Wild",
-        "Price": 69.99,
-        "IdProduct": "45",
-        "Copies_available": 20,
-        "Compatibility": [
-            "Nintendo Switch",
-            "Nintendo Switch 2"
         ],
-        "Producer": "Nintendo",
-        "Genres": [
-            "Action"
-        ] 
+        "IdProduct": "19",
+        "Image": "Immagini/Persona5R.jpg",
+        "Name": "Persona 5 Royal",
+        "Price": 49.99,
+        "Producer": "Atlus",
+        "Type": "Videogame"
     },
     {
-        "Image": "Immagini/split-fiction.jpg",
-        "Type": "Videogame",
-        "Name": "Split Fiction",
-        "Price": 59.99,
-        "IdProduct": "49",
-        "Copies_available": 12,
         "Compatibility": [
             "PlayStation 4",
             "PlayStation 5"
         ],
-        "Producer": "Eletronic Arts",
+        "Copies_available": 12,
         "Genres": [
             "Action",
             "Adventure",
             "Cooperative"
-        ] 
+        ],
+        "IdProduct": "49",
+        "Image": "Immagini/split-fiction.jpg",
+        "Name": "Split Fiction",
+        "Price": 59.99,
+        "Producer": "Eletronic Arts",
+        "Type": "Videogame"
     },
-        {
-        "Image": "Immagini/maglietta-superman.jpg",
-        "Type": "T-shirt",
-        "Name": "Maglietta con logo di Super-Man",
-        "Price": 20.00,
-        "IdProduct":"454",
-        "Copies_available": 5,
-        "Size": "XL",
-        "Franchise": "DC Superman"
-
-    },
-
     {
+        "Copies_available": 5,
+        "Franchise": "DC Superman",
+        "IdProduct": "454",
+        "Image": "Immagini/maglietta-superman.jpg",
+        "Name": "Maglietta con logo di Super-Man",
+        "Price": 20,
+        "Size": "XL",
+        "Type": "T-shirt"
+    },
+    {
+        "Copies_available": 2,
+        "Franchise": "Super-Mario Bros",
+        "IdProduct": "455",
         "Image": "Immagini/maglietta-super-mario-.jpg",
-        "Type": "T-shirt",
         "Name": "Maglietta con logo di Super-Mario",
         "Price": 29.95,
-        "IdProduct":"455",
-        "Copies_available": 2,
         "Size": "XS",
-        "Franchise": "Super-Mario Bros"
+        "Type": "T-shirt"
     },
-
     {
-        "Image": "Immagini/cuffie-gaming.jpg",
-        "Type": "Accessory",
-        "Name": "Cuffie HyperX",
-        "Price": 38.20,
-        "IdProduct":"985",
         "Copies_available": 12,
-        "Height": 17.60,
-        "Lenght": 20.10,
-        "Depht": 9.20,
-        "Weight": 780    },
-
-        {
-        "Image": "Immagini/joker-pop.jpg",
-        "Type": "Collectible",
-        "Name": "Joker Vinyl Figure",
-        "Price": 16.50,
-        "IdProduct": "120",
+        "Depht": 9.2,
+        "Height": 17.6,
+        "IdProduct": "985",
+        "Image": "Immagini/cuffie-gaming.jpg",
+        "Lenght": 20.1,
+        "Name": "Cuffie HyperX",
+        "Price": 38.2,
+        "Type": "Accessory",
+        "Weight": 780
+    },
+    {
         "Copies_available": 6,
         "Franchise": "Persona 5",
-        "Producer": "Funko Pop"
-        },
-
-        {
-        "Image": "Immagini/widowmaker-figure.jpg",
-        "Type": "Collectible",
-        "Name": "Overwatch Widowmaker",
-        "Price": 19.50,
-        "IdProduct": "121",
+        "IdProduct": "120",
+        "Image": "Immagini/joker-pop.jpg",
+        "Name": "Joker Vinyl Figure",
+        "Price": 16.5,
+        "Producer": "Funko Pop",
+        "Type": "Collectible"
+    },
+    {
         "Copies_available": 2,
         "Franchise": "Overwatch",
-        "Producer": "Hasbro"
-        },
-
-     {
-        "Image": "Immagini/supporto-carica-switch.jpg",
-        "Type": "Accessory",
-        "Name": "Supporto controller Switch",
-        "Price": 18.90,
-        "IdProduct":"984",
+        "IdProduct": "121",
+        "Image": "Immagini/widowmaker-figure.jpg",
+        "Name": "Overwatch Widowmaker",
+        "Price": 19.5,
+        "Producer": "Hasbro",
+        "Type": "Collectible"
+    },
+    {
+        "Compatibility": [
+            "Nintendo Switch",
+            "Nintendo Switch 2"
+        ],
         "Copies_available": 3,
+        "Depht": 7.2,
         "Height": 6,
-        "Lenght": 16.20,
-        "Depht": 7.20,
-        "Weight": 568,
-    "Compatibility": ["Nintendo Switch", "Nintendo Switch 2"]
+        "IdProduct": "984",
+        "Image": "Immagini/supporto-carica-switch.jpg",
+        "Lenght": 16.2,
+        "Name": "Supporto controller Switch",
+        "Price": 18.9,
+        "Type": "Accessory",
+        "Weight": 568
+    },
+    {
+        "Compatibility": [
+            "Nintendo Switch",
+            "Nintendo Switch 2"
+        ],
+        "Copies_available": 20,
+        "Genres": [
+            "Action"
+        ],
+        "IdProduct": "40",
+        "Image": "Immagini/legend-of-zelda.jpg",
+        "Name": "Legendo of Zelda: Breath of the Wild",
+        "Price": 69.99,
+        "Producer": "Nintendo",
+        "Type": "Videogame"
+    },
+    {
+        "Copies_available": 3,
+        "IdProduct": "190",
+        "Image": "Immagini/xbox-seriesx.jpg",
+        "Memory": "",
+        "Price": 299.99,
+        "Serie": "Xbox Series X",
+        "Type": "Console"
+    },
+    {
+        "Compatibility": [
+            "Wii"
+        ],
+        "Copies_available": 8,
+        "Genres": [
+            "Action"
+        ],
+        "IdProduct": "6868",
+        "Image": "",
+        "Name": "cc",
+        "Price": 13,
+        "Producer": "bhbh",
+        "Type": "Videogame"
     }
 ]
-
-    
- 
