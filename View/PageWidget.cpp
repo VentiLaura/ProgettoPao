@@ -21,6 +21,7 @@ PageWidget::PageWidget(const std::vector<product::Product*>& products, QWidget* 
     //connect(mpw, &ModifyPageWidget::cancelClicked, this, &PageWidget::eraseGrid); 
     connect(mpw, &ModifyPageWidget::cancelClicked, this, &PageWidget::showGrid);
     //connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::AddProduct);
+    connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::Callsortfilter);
     connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::eraseGrid); 
     connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::showGrid);
     //connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::ReloadFilters); 
@@ -39,7 +40,7 @@ PageWidget::PageWidget(const std::vector<product::Product*>& products, QWidget* 
 void PageWidget::eraseGrid() {
     qDebug()<<"dopo prima aggiunta";
     qDebug()<<currentProducts.size();
-    currentProducts=mem.getCatalog();
+    //currentProducts=mem.getCatalog();
     updateProducts(currentProducts);
 }
 

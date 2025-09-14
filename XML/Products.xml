@@ -126,19 +126,4 @@
         <Serie>Xbox Series X</Serie>
         <Memory/>
     </Product>
-    <Product>
-        <Type>Videogame</Type>
-        <IdProduct>6868</IdProduct>
-        <Image></Image>
-        <Price>13.00</Price>
-        <Copies_available>8</Copies_available>
-        <Name>cc</Name>
-        <Producer>bhbh</Producer>
-        <Compatibility>
-            <Console>Wii</Console>
-        </Compatibility>
-        <Genres>
-            <Genre>Action</Genre>
-        </Genres>
-    </Product>
 </Products>

@@ -45,6 +45,7 @@ private:
     void showGrid();
     signals:
     void ReloadFilters();
+    void Callsortfilter();
 };
 
 #endif // PAGEWIDGET_H

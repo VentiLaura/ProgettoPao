@@ -125,20 +125,5 @@
         "Price": 299.99,
         "Serie": "Xbox Series X",
         "Type": "Console"
-    },
-    {
-        "Compatibility": [
-            "Wii"
-        ],
-        "Copies_available": 8,
-        "Genres": [
-            "Action"
-        ],
-        "IdProduct": "6868",
-        "Image": "",
-        "Name": "cc",
-        "Price": 13,
-        "Producer": "bhbh",
-        "Type": "Videogame"
     }
 ]

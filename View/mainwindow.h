@@ -23,7 +23,8 @@ class MainWindow: public QMainWindow {
         MainWindow(QWidget *parent = nullptr);
         void CallAddWindow(const QString&);
         //handleAddProduct(QString);
-
+        void Callsort();
+        void Callfilter();
     private:
         SortFilterWidget *sortfilter = new SortFilterWidget;
         QString activeFilter;

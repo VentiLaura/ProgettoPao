@@ -47,6 +47,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     //connect(this, &MainWindow::CallAddWindow, sortfilter, &SortFilterWidget::AddClicked);
     connect(sortfilter, &SortFilterWidget::AddClicked, this, &MainWindow::CallAddWindow);
     //connect(this, &MainWindow::ReloadFilters, sortfilter, &SortFilterWidget::Reload);
+    connect(page, &PageWidget::Callsortfilter, this, &MainWindow::Callfilter);
+    connect(page, &PageWidget::Callsortfilter, this, &MainWindow::Callsort);
+    
 }
 
 void MainWindow::updateFilter(const QString& selectedFilter) {
@@ -61,13 +64,26 @@ void MainWindow::updateFilter(const QString& selectedFilter) {
 }
 
 void MainWindow::updateSort(const QString& selectedSort) {
-    //auto allProducts = memory::Memory::getCentralMemoryInstance().getCatalog();
+    auto Products = memory::Memory::getCentralMemoryInstance().getCatalog();
     activeSort=selectedSort;
-    auto Products=page->currentProducts;
+    //auto Products=page->currentProducts;
     std::vector<product::Product*> sorted = applySort(selectedSort, Products);
+    if(!activeFilter.isEmpty()) {
+        sorted=applyFilter(activeFilter, Products);
+    }
     emit productsSorted(sorted);
 }
 
 void MainWindow::CallAddWindow(const QString& type) {
     page->callAddWindow(type);
+}
+
+void MainWindow::Callfilter() {
+    if(!activeFilter.isEmpty())
+        updateFilter(activeFilter);
+}
+
+void MainWindow::Callsort() {
+    if(!activeSort.isEmpty())
+        updateSort(activeSort);
 }
