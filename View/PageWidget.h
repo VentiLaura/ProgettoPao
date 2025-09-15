@@ -16,8 +16,7 @@
 
 class PageWidget : public QWidget {
     Q_OBJECT
-
-public:
+    public:
     explicit PageWidget(const std::vector<product::Product*>&, QWidget* = nullptr);
     void updateProducts(const std::vector<product::Product*>&);
     void CloseAllWindows();
@@ -27,21 +26,20 @@ public:
     void DeleteProduct();
     void callAddWindow(const QString&);
     void resetGrid();
-    std::vector<product::Product*> currentProducts;
      
-private:
+    private:
     memory::Memory& mem=memory::Memory::getCentralMemoryInstance();
+    std::vector<ProductWidget*> Products;
+    std::vector<product::Product*> currentProducts;
     product::Product* selected;
     DetailsPageWidget* detailsPage;
+    CreateWidget* AddWidget=nullptr;
     QVBoxLayout* mainLayout;
     QScrollArea* scrollArea;
     QWidget* scrollContent;
     QGridLayout* gridLayout;
-    CreateWidget* AddWidget=nullptr;
-    std::vector<ProductWidget*> Products;
     ModifyPageWidget* mpw;
     void populateGrid(const std::vector<product::Product*>& products);
-    //void AddProduct();
     public slots:
     void showProductDetails(product::Product* product);
     void showGrid();

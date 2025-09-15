@@ -120,6 +120,6 @@ void PageWidget::callAddWindow(const QString& type) {
 }
 
 void PageWidget::CloseAllWindows() {
-    if(detailsPage&&!detailsPage->isHidden())
+    if(detailsPage)
     detailsPage->DeleteAll();
 }
