@@ -1,15 +1,5 @@
 [
     {
-        "Copies_available": 6,
-        "Franchise": "Persona 5",
-        "IdProduct": "120",
-        "Image": "Immagini/joker-pop.jpg",
-        "Name": "Joker Vinyl Figure",
-        "Price": 16.5,
-        "Producer": "Funko Pop",
-        "Type": "Collectible"
-    },
-    {
         "Compatibility": [
             "PlayStation 4",
             "PlayStation 5"

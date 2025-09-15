@@ -17,7 +17,7 @@ class Memory {
     private:
     std::vector<product::Product*> Catalog;
     Memory();
-    Memory(std::vector<product::Product*>);     //questa potrebbe essere inutile
+    Memory(std::vector<product::Product*>);
     Memory& operator=(Memory&)=delete;
     Memory(Memory&)=delete;
     void UpdateXML(const QString&, const std::string&, product::Product*);

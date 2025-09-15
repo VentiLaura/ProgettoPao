@@ -3,6 +3,7 @@
 #include <QWidget>
 #include <QLabel>
 #include <QComboBox>
+#include <QFormLayout>
 
 class FilterWidget: public QWidget {
     Q_OBJECT

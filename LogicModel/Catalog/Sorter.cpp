@@ -1,5 +1,4 @@
 #include "Sorter.h"
-#include <algorithm>
 
 namespace sort{
     void SortByPriceAsc(std::vector<product::Product*>& products){

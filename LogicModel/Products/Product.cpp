@@ -1,5 +1,4 @@
-#include "Product.h"
-#include <fstream> 
+#include "Product.h" 
 namespace product {
 Product::~Product() {}
 Product::Product(std::string image, std::string name, double price, std::string idProduct, int availability): Name(name), Price(price), IdProduct(idProduct), Copies_available(availability) {

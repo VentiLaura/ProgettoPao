@@ -1,9 +1,9 @@
 #ifndef SORTWIDGET_H
 #define SORTWIDGET_H
-
 #include <QWidget>
 #include <QLabel>
 #include <QComboBox>
+#include <QFormLayout>
 
 class SortWidget: public QWidget{
     Q_OBJECT

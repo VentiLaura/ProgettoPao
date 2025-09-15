@@ -1,6 +1,7 @@
 #ifndef PRODUCT_H
 #define PRODUCT_H
 #include <string>
+#include <fstream>
 #include "../../View/Visitor/visitor.h"
 namespace product {
 class Product {

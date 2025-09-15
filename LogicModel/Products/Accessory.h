@@ -1,9 +1,9 @@
 #ifndef ACCESSORY_H
 #define ACCESSORY_H
 #include "Product.h"
-#include <vector>
 #include "Enums.h"
-//#include "../../View/Visitor/visitor.h"
+#include <vector>
+#include <stdexcept>
 namespace product {
 class Accessory: public Product {
     private:

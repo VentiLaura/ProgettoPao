@@ -7,7 +7,6 @@
 #include <QJsonDocument> 
 #include <QJsonObject> 
 #include <QJsonArray> 
-#include <QDebug>
 #include <stdexcept>
 using namespace product;
 namespace json {
@@ -31,7 +30,7 @@ Product* processObject(const QJsonObject& obj) {
         Accessory* accessory=new Accessory(height, lenght, depth, weight, compatibility, image, name, price, id, avaiability);
         return accessory;
 
-    } else if (type == "Videogame") {
+    } else if(type=="Videogame") {
         std::string image=(obj["Image"].toString().toStdString());
         std::string name=(obj["Name"].toString()).toStdString();
         double price=obj["Price"].toDouble();
@@ -39,20 +38,19 @@ Product* processObject(const QJsonObject& obj) {
         int avaiability=obj["Copies_available"].toInt();
         QJsonArray ArrayCompatibility=obj["Compatibility"].toArray();
         std::vector<Console_type> compatibility;
-        for (const QJsonValue& val : ArrayCompatibility) {
+        for(const QJsonValue& val : ArrayCompatibility) {
             compatibility.push_back(StringToConsoleType((val.toString()).toStdString()));
         }
         std::string producer=(obj["Producer"].toString()).toStdString();
         std::vector<Genre> genres;
         QJsonArray ArrayGenres=obj["Genres"].toArray();
-        for (const QJsonValue& val : ArrayGenres) {
+        for(const QJsonValue& val : ArrayGenres) {
             genres.push_back(StringToGenre((val.toString()).toStdString()));
         }
         Videogame* videogame=new Videogame(compatibility, producer, genres, image, name, price, id, avaiability);
         return videogame;
-    } else if (type=="Console") {
+    } else if(type=="Console") {
         std::string image=(obj["Image"].toString().toStdString());
-        //std::string name=(obj["Name"].toString()).toStdString();
         std::string memory=(obj["Memory"].toString().toStdString());
         double price=obj["Price"].toDouble();
         std::string id=obj["IdProduct"].toString().toStdString();
@@ -93,12 +91,12 @@ std::vector<Product*> JsonReader(const QString& path) {
         qWarning() << "Error during opening of file JSON";
         return ProductsRead;
     }
-    QByteArray data = file.readAll();
+    QByteArray data=file.readAll();
     file.close();
     QJsonParseError error;
-    QJsonDocument doc = QJsonDocument::fromJson(data, &error);
+    QJsonDocument doc=QJsonDocument::fromJson(data, &error);
     if(error.error!=QJsonParseError::NoError) {
-        qWarning() << "Error during JSON parsing:" << error.errorString();
+        qWarning()<<"Error during JSON parsing:"<<error.errorString();
         return ProductsRead;
     }
     if(doc.isArray()) {
@@ -106,13 +104,11 @@ std::vector<Product*> JsonReader(const QString& path) {
         for (const QJsonValue& val : array) {
             if(val.isObject())
                 ProductsRead.push_back(processObject(val.toObject()));
-                
         }
-        qDebug()<<ProductsRead.size();
     } else if(doc.isObject()) {
         ProductsRead.push_back(processObject(doc.object()));
     } else {
-        qWarning() << "JSON format not valid";
+        qWarning()<<"JSON format not valid";
     }
     return ProductsRead;
 }

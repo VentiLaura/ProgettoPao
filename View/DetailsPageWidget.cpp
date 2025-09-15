@@ -108,7 +108,6 @@ void DetailsPageWidget::ShowDetailsOf(product::Product* product) {
     detailsLayout->addWidget(imageLabel, 2);
     detailsLayout->addLayout(infoLayout, 3);
     pageLayout->addWidget(details, 9);
-    qDebug() << "fine funz";
 }
 
 void DetailsPageWidget::DeleteDetails() {

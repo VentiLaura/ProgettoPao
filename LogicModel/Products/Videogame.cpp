@@ -4,17 +4,15 @@ Videogame::~Videogame() {}
 Videogame::Videogame(std::vector<Console_type> compatible, std::string producer, std::vector<Genre> genre, std::string image, std::string name, double price, std::string idProduct, int availability): Product(image, name, price, idProduct, availability), Compatibility(compatible), Producer(producer), Genres(genre) {}
 Videogame& Videogame::operator=(Product& v) {
     Videogame* videogame=dynamic_cast<Videogame*>(&v);
-    if (!videogame) std::__throw_invalid_argument ("Assigned Product is not a videogame");
+    if(!videogame) std::__throw_invalid_argument ("Assigned Product is not a videogame");
         setName(videogame->getName());
         setPrice(videogame->getPrice());
         setIdProduct(videogame->getIdProduct());
         setImage(videogame->getImage());
         setAvailability(videogame->getAvailability());
-
-        // Assegna i campi specifici di Videogame
-        Producer = videogame->getProducer();
-        Compatibility = videogame->getCompatibility();
-        Genres = videogame->getGenres();
+        Producer=videogame->getProducer();
+        Compatibility=videogame->getCompatibility();
+        Genres=videogame->getGenres();
     return *this;
 }
 
@@ -52,6 +50,6 @@ void Videogame::setCompatibility(std::vector<Console_type>& c) {
     Compatibility=c;
 }
 void Videogame::accept(Visitor* v) {
-        v->visitVideogame(this);
+    v->visitVideogame(this);
 }
 }

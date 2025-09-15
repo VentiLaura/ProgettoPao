@@ -8,19 +8,16 @@
 #include <QJsonDocument> 
 #include <QJsonObject> 
 #include <QJsonArray> 
-#include <QDebug>
 #include <stdexcept>
 #include "../View/Visitor/visitor.h"
-
-class JSONWriter : public Visitor {
-private:
+namespace json {
+class JSONWriter: public Visitor {
+    private:
     QJsonArray array;
     QJsonObject currentObject;
     QString filePath;
-
-public:
+    public:
     explicit JSONWriter(const QString& filePath);
-
     void removeById(const std::string& id);
     void appendProduct(product::Product* p);
     void save();
@@ -31,4 +28,5 @@ public:
     void visitCollectible(product::Collectible*) override;
     void visitTshirt(product::T_shirt*) override;
 };
+}
 #endif

@@ -1,6 +1,5 @@
 #ifndef CONSOLE_CPP
 #define CONSOLE_CPP
-#include <QDebug>
 #include "Console.h"
 namespace product {
 Console::Console(Console_type c, std::string m, std::string i, double p, std::string id, int av): Product(i, ConsoleTypeToString(c), p, id, av), Serie(c), Memory(m) {}

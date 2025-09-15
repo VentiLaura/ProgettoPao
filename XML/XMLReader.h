@@ -1,9 +1,10 @@
 #ifndef XMLREADER_H
 #define XMLREADER_H
-#include "../LogicModel/Products/Product.h"
 #include <vector>
 #include <QString>
 #include <QtXml/QDomDocument>
+#include "../LogicModel/Products/IncludeAllProducts.h"
+#include <QFile>
 
 namespace xml { 
     product::Product* processObject(const QDomElement& prod);

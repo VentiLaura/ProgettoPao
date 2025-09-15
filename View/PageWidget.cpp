@@ -14,16 +14,16 @@ PageWidget::PageWidget(const std::vector<product::Product*>& products, QWidget* 
     setLayout(mainLayout);
     populateGrid(products); 
     detailsPage=new DetailsPageWidget;
-    mpw=new ModifyPageWidget;
+    AddWindow=new ModifyPageWidget;
     connect(detailsPage, &DetailsPageWidget::quitClicked, this, &PageWidget::showGrid);
     connect(detailsPage, &DetailsPageWidget::DeleteGridProduct, this, &PageWidget::DeleteProduct);
     connect(detailsPage, &DetailsPageWidget::ReturnToGrid, this, &PageWidget::eraseGrid); 
-    connect(mpw, &ModifyPageWidget::cancelClicked, this, &PageWidget::showGrid);
-    connect(mpw, &ModifyPageWidget::cancelClicked, this, &PageWidget::CloseAllWindows);
-    connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::resetGrid);
-    connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::Callsortfilter); 
-    connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::showGrid);
-    connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::CloseAllWindows);
+    connect(AddWindow, &ModifyPageWidget::cancelClicked, this, &PageWidget::showGrid);
+    connect(AddWindow, &ModifyPageWidget::cancelClicked, this, &PageWidget::CloseAllWindows);
+    connect(AddWindow, &ModifyPageWidget::acceptClicked, this, &PageWidget::resetGrid);
+    connect(AddWindow, &ModifyPageWidget::acceptClicked, this, &PageWidget::Callsortfilter); 
+    connect(AddWindow, &ModifyPageWidget::acceptClicked, this, &PageWidget::showGrid);
+    connect(AddWindow, &ModifyPageWidget::acceptClicked, this, &PageWidget::CloseAllWindows);
 } 
 
 void PageWidget::resetGrid() {
@@ -38,13 +38,10 @@ void PageWidget::eraseGrid() {
 void PageWidget::populateGrid(const std::vector<product::Product*>& products) { 
     currentProducts=products;
     const int columns = 4; 
-    for (int i = 0; i < static_cast<int>(products.size()); ++i) {
-            int row = i / columns; 
-            int col = i % columns; 
+    for (int i=0; i<static_cast<int>(products.size()); ++i) {
+            int row=i/columns; 
+            int col=i%columns; 
             ProductWidget* pw = new ProductWidget(products[i]); 
-           
-            
-
             gridLayout->addWidget(pw, row, col); 
             Products.push_back(pw); 
             connect(pw, &ProductWidget::clicked, this, &PageWidget::showProductDetails); 
@@ -52,9 +49,10 @@ void PageWidget::populateGrid(const std::vector<product::Product*>& products) {
         scrollContent->adjustSize(); 
         return;
 } 
+
 void PageWidget::updateProducts(const std::vector<product::Product*>& products) { 
     QLayoutItem* item;
-    while ((item = gridLayout->takeAt(0)) != nullptr) {
+    while ((item=gridLayout->takeAt(0))!=nullptr) {
         if (item->widget()) {
             delete item->widget();
         }
@@ -70,9 +68,9 @@ void PageWidget::showProductDetails(product::Product* product) {
     layout()->removeWidget(scrollArea);
     scrollArea->hide();
     }
-    if(mpw&&!mpw->isHidden()) {
-    layout()->removeWidget(mpw);
-    mpw->hide();
+    if(AddWindow&&!AddWindow->isHidden()) {
+    layout()->removeWidget(AddWindow);
+    AddWindow->hide();
     }
     detailsPage->ShowDetailsOf(product);
     layout()->addWidget(detailsPage);
@@ -85,9 +83,9 @@ void PageWidget::showGrid() {
     detailsPage->hide();
     selected=nullptr;
     }
-    if(mpw&&!mpw->isHidden()) {
-    layout()->removeWidget(mpw);
-    mpw->hide();
+    if(AddWindow&&!AddWindow->isHidden()) {
+    layout()->removeWidget(AddWindow);
+    AddWindow->hide();
     }
     layout()->addWidget(scrollArea);
     scrollArea->show();
@@ -110,21 +108,18 @@ void PageWidget::callAddWindow(const QString& type) {
     layout()->removeWidget(detailsPage);
     detailsPage->hide();
     }
-    if(mpw&&mpw->isVisible()) {
-        layout()->removeWidget(mpw);
-        delete mpw;
-        mpw=new ModifyPageWidget();
+    if(AddWindow&&AddWindow->isVisible()) {
+        layout()->removeWidget(AddWindow);
+        delete AddWindow;
+        AddWindow=new ModifyPageWidget();
     }
-    mpw->CreateProduct(type);
-    layout()->addWidget(mpw);
-    mpw->show();
+    AddWindow->CreateProduct(type);
+    layout()->addWidget(AddWindow);
+    AddWindow->show();
 }
 
 void PageWidget::CloseAllWindows() {
-    qDebug()<<"CloseAllWindows start";
     if(selected) {
-        qDebug()<<"CloseAllWindows inside";
     detailsPage->DeleteAll();
     }
-    qDebug()<<"CloseAllWindows finish";
 }

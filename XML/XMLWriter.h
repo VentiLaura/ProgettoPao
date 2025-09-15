@@ -5,29 +5,26 @@
 #include <QFile>
 #include "../LogicModel/Products/IncludeAllProducts.h"
 #include "../View/Visitor/visitor.h"
-#include <QDebug>
 #include <QTextStream>
-
+#include <stdexcept>
+namespace xml {
 class XMLWriter: public Visitor {
-private:
-    QDomDocument doc;          // ora non più puntatore
+    private:
+    QDomDocument doc;
     QDomElement root;
     QString filePath;
-public:
+    void writeCommonFields(product::Product*);
+    public:
     QDomElement productElement;
      XMLWriter(const QString& filePath);
-
-    void save();  // salva il documento aggiornato su file
+    void save();  
     void removeById(const std::string& id);
     void appendProduct(product::Product* p);
-
     void visitAccessory(product::Accessory*) override;
     void visitVideogame(product::Videogame*) override;
     void visitConsole(product::Console*) override;
     void visitCollectible(product::Collectible*) override;
     void visitTshirt(product::T_shirt*) override;
-    //void RemoveByIdXML(const QString&, const std::string&);
-private:
-    void writeCommonFields(product::Product*);
 };
+}
 #endif

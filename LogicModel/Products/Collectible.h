@@ -1,7 +1,6 @@
 #ifndef COLLECTIBLE_H
 #define COLLECTIBLE_H
 #include "Product.h"
-//#include "../../View/Visitor/visitor.h"
 namespace product {
 class Collectible: public Product {
     private:

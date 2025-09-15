@@ -32,13 +32,12 @@ class PageWidget : public QWidget {
     std::vector<ProductWidget*> Products;
     std::vector<product::Product*> currentProducts;
     product::Product* selected=nullptr;
+    ModifyPageWidget* AddWindow;
     DetailsPageWidget* detailsPage;
-    CreateWidget* AddWidget=nullptr;
     QVBoxLayout* mainLayout;
     QScrollArea* scrollArea;
     QWidget* scrollContent;
     QGridLayout* gridLayout;
-    ModifyPageWidget* mpw;
     void populateGrid(const std::vector<product::Product*>& products);
     public slots:
     void showProductDetails(product::Product* product);

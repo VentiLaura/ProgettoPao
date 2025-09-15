@@ -1,16 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Products>
     <Product>
-        <Type>Collectible</Type>
-        <Image>Immagini/joker-pop.jpg</Image>
-        <Name>Joker Vinyl Figure</Name>
-        <Price>16.50</Price>
-        <IdProduct>120</IdProduct>
-        <Copies_available>6</Copies_available>
-        <Franchise>Persona 5</Franchise>
-        <Producer>Funko Pop</Producer>
-    </Product>
-    <Product>
         <Type>Videogame</Type>
         <IdProduct>19</IdProduct>
         <Image>Immagini/Persona5R.jpg</Image>

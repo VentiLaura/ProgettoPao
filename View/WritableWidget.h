@@ -6,17 +6,17 @@
 #include <QObject>
 #include <QWidget>
 #include <vector>
-#include "../LogicModel/Products/IncludeAllProducts.h"
-#include"../LogicModel/Catalog/Memory.h"
 #include <QLabel>
 #include <QLineEdit>
 #include <QStringList>
 #include <QDebug>
 #include <QComboBox>
 #include <QMessageBox>
+#include "../LogicModel/Products/IncludeAllProducts.h"
+#include"../LogicModel/Catalog/Memory.h"
+
 class WritableWidget: public Visitor, public QWidget {
     public:
-    //WritableWidget(QWidget* =nullptr);
     void visitVideogame(product::Videogame*);
     void visitConsole(product::Console*);
     void visitTshirt(product::T_shirt*);
@@ -47,17 +47,14 @@ class WritableWidget: public Visitor, public QWidget {
     QLineEdit* franchiseEdit;
     QComboBox* serieComboBox;
     QComboBox* sizeComboBox;
-
     QLineEdit* categoryEdit;
     QLineEdit* memoryEdit;
     QLineEdit* heightEdit;
     QLineEdit* lengthEdit;
-    
-    QLineEdit* producerEdit;
     QLineEdit* depthEdit;
     QLineEdit* weightEdit;
+    QLineEdit* producerEdit;
     QLineEdit* CompatibilityEdit;
     QLineEdit* GenreEdit;
-    
 };
 #endif

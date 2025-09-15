@@ -8,6 +8,6 @@
 #include "Filter.h"
 
 namespace filter {
-Filter* createFilter (); 
+Filter* createFilter(); 
 }
 #endif

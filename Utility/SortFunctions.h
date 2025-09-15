@@ -6,7 +6,6 @@
 #include "../LogicModel/Products/Product.h"
 
 namespace sortfunctions {
-    std::vector<product::Product*> applySort(const QString& selectedSort, std::vector<product::Product*>& products);
+    std::vector<product::Product*> applySort(const QString&, std::vector<product::Product*>&);
 }
-
 #endif

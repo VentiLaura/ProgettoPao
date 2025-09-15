@@ -66,7 +66,6 @@ Console_type StringToConsoleType(const std::string& c) {
     if (console == "xbox one") return Console_type::Xbox_One;
     if (console == "xbox series s") return Console_type::Xbox_Series_S;
     if (console == "xbox series x") return Console_type::Xbox_Series_X;
-
     throw std::invalid_argument("Not a Console type: " + c);
 }
 

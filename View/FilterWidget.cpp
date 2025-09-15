@@ -1,5 +1,4 @@
 #include "FilterWidget.h"
-#include <QFormLayout>
 
 FilterWidget::FilterWidget(QWidget *parent): QWidget(parent){
     QFormLayout *filterLayout = new QFormLayout;

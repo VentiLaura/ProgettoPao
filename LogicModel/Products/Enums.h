@@ -2,7 +2,6 @@
 #define ENUMS_H
 #include <string>
 namespace product {
-
 enum class Genre {
     Action,
     Adventure,
