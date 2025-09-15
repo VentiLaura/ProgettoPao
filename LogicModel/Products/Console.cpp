@@ -30,8 +30,6 @@ Console& Console::operator=(Product& c) {
     setImage(console->getImage());
     setAvailability(console->getAvailability());
     Memory = console->getMemory();
-    qDebug()<<"console:";
-    qDebug()<<QString::fromStdString(ConsoleTypeToString((console->getSerie())));
     Serie = console->getSerie();
     return *this;
 }

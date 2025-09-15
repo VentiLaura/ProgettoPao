@@ -45,17 +45,13 @@ bool Memory::IsUnique(const std::string& id) {
     return true;
 }
 Memory& Memory::Add(product::Product* product) {
-    qDebug()<<"dentro Add product in Memory";
     if(IsUnique(product->getIdProduct())) { 
         Catalog.push_back(product);
         AddToJSON("JSON/Products.json", product);
         AddToXML("XML/Products.xml", product);
-        qDebug()<<"fine buona Add product in Memory";
         return *this;
     } else {
-        qDebug()<<"fine cattiva Add product in Memory";
         throw std::invalid_argument("Elemento non inserito perché id equivalente: " + product->getIdProduct());
-        qDebug()<<"dopo fine cattiva Add product in Memory";
     }
 }
 Memory& Memory::Add(std::vector<product::Product*> products) {

@@ -13,7 +13,6 @@ using namespace product;
 namespace json {
 Product* processObject(const QJsonObject& obj) {
     QString type = obj["Type"].toString();
-    qDebug()<<"entrato\n";
     if (type=="Accessory") {
         std::string image=(obj["Image"].toString().toStdString());
         std::string name=(obj["Name"].toString()).toStdString();

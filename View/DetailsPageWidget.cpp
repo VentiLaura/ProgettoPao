@@ -30,19 +30,10 @@ DetailsPageWidget::DetailsPageWidget(QWidget* parent): QWidget(parent) {
     connect(deleteButton, &QPushButton::clicked, this, &DetailsPageWidget::ReturnToGrid);
     connect(deleteButton, &QPushButton::clicked, this, &DetailsPageWidget::quitClicked);
     connect(deleteButton, &QPushButton::clicked, this, &DetailsPageWidget::DeleteDetails);
-    
-    
-
-
-
-
-
-    qDebug()<<"funziona";
     setLayout(pageLayout);
 }
 
 void DetailsPageWidget::ShowDetailsOf(product::Product* product) {
-    qDebug() << "funzione chiamata";
     selected = product;
     details = new QWidget;
     detailsLayout = new QHBoxLayout(details);
@@ -142,8 +133,6 @@ void DetailsPageWidget::ShowDetailsOf(product::Product* product) {
         infoLayout->addWidget(hips);
         infoLayout->addWidget(sleeve);
     }
-
-    qDebug() << "dopo if";
     detailsLayout->addWidget(imageLabel, 2);
     detailsLayout->addLayout(infoLayout, 3);
     pageLayout->addWidget(details, 9);
@@ -189,9 +178,6 @@ void DetailsPageWidget::Updateproduct() {
 void DetailsPageWidget::DeleteProduct() {
     memory::Memory& mem=memory::Memory::getCentralMemoryInstance();
     //std::vector<product::Product*> catalog=mem.getCatalog();
-    qDebug()<<"prima eliminato";
     mem.Remove(selected->getIdProduct());
-    qDebug()<<"prima delete";
     //delete selected;
-    qDebug()<<"eliminato";
 }

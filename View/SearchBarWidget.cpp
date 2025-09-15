@@ -19,5 +19,4 @@ SearchBarWidget::SearchBarWidget(QWidget* parent)
 
 void SearchBarWidget::search() {
     emit searchRequested(searchBar->text());
-    qDebug()<<"fine search";
 }

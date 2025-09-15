@@ -37,11 +37,9 @@ void ModifyPageWidget::CreateProduct(const QString& type) {
     CreatePage=new CreateWidget(type);
     modifylayout->addWidget(CreatePage, 9);
     pageLayout->addWidget(ModifyDetails, 9);
-    qDebug()<<"fine CreateProduct";
 }
 
 void ModifyPageWidget::DeleteDetails() {
-    qDebug()<<"deletedetails inizio";
     pageLayout->removeWidget(ModifyDetails);
     delete ModifyDetails;
     /*if(selected) {
@@ -52,15 +50,12 @@ void ModifyPageWidget::DeleteDetails() {
     delete CreatePage;*/
     //}
     //delete ModifyPage;
-    qDebug()<<"deletedetails fine";
 }
 void ModifyPageWidget::Updateproduct() {
-    qDebug()<<"Dentro update modifywidget";
     if(ModifyPage)
     ModifyPage->Updateproduct();
     if(CreatePage) {
         CreatePage->CreateProduct(Type);
-         qDebug()<<"Fuori update modifywidget";
     }
    
 }

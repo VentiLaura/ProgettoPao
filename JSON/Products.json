@@ -1,5 +1,40 @@
 [
     {
+        "Copies_available": 13,
+        "IdProduct": "11",
+        "Image": "Immagini/PS5_PRO.jpg",
+        "Memory": "idk",
+        "Price": 399.99,
+        "Serie": "PlayStation 5",
+        "Type": "Console"
+    },
+    {
+        "Copies_available": 2,
+        "IdProduct": "189",
+        "Image": "Immagini/xbox-seriesx.jpg",
+        "Memory": "550GB",
+        "Price": 299.99,
+        "Serie": "Xbox Series X",
+        "Type": "Console"
+    },
+    {
+        "Compatibility": [
+            "Wii",
+            "Wii U"
+        ],
+        "Copies_available": 2,
+        "Genres": [
+            "Action",
+            "Platform"
+        ],
+        "IdProduct": "1",
+        "Image": "Immagini/SuperSmashBros_Brawl.jpg",
+        "Name": "Super Smash Bros. Brawl",
+        "Price": 49.99,
+        "Producer": "Nintendo",
+        "Type": "Videogame"
+    },
+    {
         "Compatibility": [
             "PlayStation 4",
             "PlayStation 5"
@@ -13,6 +48,22 @@
         "Name": "Persona 5 Royal",
         "Price": 49.99,
         "Producer": "Atlus",
+        "Type": "Videogame"
+    },
+    {
+        "Compatibility": [
+            "Nintendo Switch",
+            "Nintendo Switch 2"
+        ],
+        "Copies_available": 20,
+        "Genres": [
+            "Action"
+        ],
+        "IdProduct": "45",
+        "Image": "Immagini/legend-of-zelda.jpg",
+        "Name": "Legendo of Zelda: Breath of the Wild",
+        "Price": 69.99,
+        "Producer": "Nintendo",
         "Type": "Videogame"
     },
     {
@@ -102,28 +153,12 @@
         "Weight": 568
     },
     {
-        "Compatibility": [
-            "Nintendo Switch",
-            "Nintendo Switch 2"
-        ],
-        "Copies_available": 20,
-        "Genres": [
-            "Action"
-        ],
-        "IdProduct": "40",
-        "Image": "Immagini/legend-of-zelda.jpg",
-        "Name": "Legendo of Zelda: Breath of the Wild",
-        "Price": 69.99,
-        "Producer": "Nintendo",
-        "Type": "Videogame"
-    },
-    {
-        "Copies_available": 3,
-        "IdProduct": "190",
-        "Image": "Immagini/xbox-seriesx.jpg",
+        "Copies_available": 5,
+        "IdProduct": "0",
+        "Image": "Immagini/Nintendo_3DS.jpg",
         "Memory": "",
-        "Price": 299.99,
-        "Serie": "Xbox Series X",
+        "Price": 129.99,
+        "Serie": "Nintendo 3DS",
         "Type": "Console"
     }
 ]

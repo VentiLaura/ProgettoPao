@@ -116,7 +116,6 @@ std::vector<Product*> XMLReader(const QString& filePath) {
         QDomElement elem = productNodes.at(i).toElement();
         if (!elem.isNull()) {
             try {
-                qDebug() << "Parsing elemento #" << i;
                 Product* prod = processObject(elem);
                 if (prod) products.push_back(prod);
             } catch (const std::exception& excep) {

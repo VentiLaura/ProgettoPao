@@ -1,7 +1,6 @@
 #include "CreateWidget.h"
 
 CreateWidget::CreateWidget(const QString& type) {
-    qDebug()<<"costruisco create";
     pageLayout = new QVBoxLayout(this); // pageLayout principale della pagina
     // Barra in alto con pulsante Quit
     /*bar=new QWidget;
@@ -50,7 +49,6 @@ qDebug()<<"prima chiamata Window specifica";
     if (type=="T-shirt") TshirtWindow();
     if (type=="Collectible") CollectibleWindow();
     if (type=="Accessory") AccessoryWindow();
-    qDebug()<<"fine costruzione";
 }
 
 
@@ -137,7 +135,6 @@ void CreateWidget::AccessoryWindow() {
 
 
 product::Product* CreateWidget::CreateProduct(const QString& type) {
-    qDebug()<<"fa due volte anche la funzione?";
     if(type=="Videogame") {
         QStringList genreLines = GenreEdit->text().split(", ");
         std::vector<product::Genre> genres;
@@ -150,7 +147,6 @@ product::Product* CreateWidget::CreateProduct(const QString& type) {
         for (const QString& line : compatLines) {
             compatibility.push_back(product::StringToConsoleType(line.toStdString()));
         }
-        qDebug()<<"prima creazione";
         newProduct=new product::Videogame(compatibility, 
         producerEdit->text().toStdString(), 
         genres, imageEdit->text().toStdString(), 
@@ -158,9 +154,7 @@ product::Product* CreateWidget::CreateProduct(const QString& type) {
         priceEdit->text().toDouble(), 
         idEdit->text().toStdString(), 
         copiesEdit->text().toInt());
-        qDebug()<<"dopo Creazione";
     } else if(type=="Console") {
-        qDebug()<<QString::fromStdString(product::ConsoleTypeToString(product::StringToConsoleType(serieComboBox->currentText().toStdString())));
         newProduct = new product::Console(
         product::StringToConsoleType(serieComboBox->currentText().toStdString()),
         memoryEdit->text().toStdString(),
@@ -194,7 +188,6 @@ product::Product* CreateWidget::CreateProduct(const QString& type) {
         idEdit->text().toStdString(), 
         copiesEdit->text().toInt());
     } else if(type=="T-shirt") {
-        qDebug()<<"viene fatto 2 volte anche tshirt?";
         newProduct = new product::T_shirt(
         product::StringToSize(sizeComboBox->currentText().toStdString()),
         franchiseEdit->text().toStdString(),
@@ -204,11 +197,8 @@ product::Product* CreateWidget::CreateProduct(const QString& type) {
         idEdit->text().toStdString(),
         copiesEdit->text().toInt());
     }
-    //memory::Memory& mem=memory::Memory::getCentralMemoryInstance();
-    qDebug()<<"isunique";
-    qDebug()<<mem.IsUnique(newProduct->getIdProduct());
+    //memory::Memory& mem=memory::Memory::getCentralMemoryInstance()
     mem.Add(newProduct);
-    qDebug()<<"fine createProduct";
     return newProduct;
     //*selected = *newProduct;
 }

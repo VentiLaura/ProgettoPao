@@ -27,7 +27,6 @@ void WritableWidget::createProduct(product::Product* product) {
 }
 
 void WritableWidget::visitVideogame(product::Videogame* videogame) {
-    qDebug()<<"dentro videogame";
     createProduct(videogame);
 
     layout->addWidget(new QLabel("Producer:"));
@@ -43,10 +42,7 @@ void WritableWidget::visitVideogame(product::Videogame* videogame) {
 
     layout->addWidget(new QLabel("Genres (comma-separated):"));
     QStringList genreList;
-    qDebug()<<videogame->getGenres().size();
     for (auto g : videogame->getGenres()) {
-        qDebug()<<"genere pushato dentro:";
-    qDebug()<<QString::fromStdString(GenreToString(g));
         genreList << QString::fromStdString(GenreToString(g));
     }
     GenreEdit = new QLineEdit(genreList.join(", "));
@@ -140,7 +136,6 @@ void WritableWidget::Updateproduct() {
         QStringList genreLines = GenreEdit->text().split(", ");
         std::vector<product::Genre> genres;
         for (const QString& line : genreLines) {
-            qDebug()<<line;
             genres.push_back(product::StringToGenre(line.toStdString()));
         }
         QStringList compatLines = CompatibilityEdit->text().split(", ");
@@ -148,7 +143,6 @@ void WritableWidget::Updateproduct() {
         for (const QString& line : compatLines) {
             compatibility.push_back(product::StringToConsoleType(line.toStdString()));
         }
-        qDebug()<<"prima creazione";
         newProduct=new product::Videogame(compatibility, 
         producerEdit->text().toStdString(), 
         genres, imageEdit->text().toStdString(), 
@@ -156,9 +150,7 @@ void WritableWidget::Updateproduct() {
         priceEdit->text().toDouble(), 
         idEdit->text().toStdString(), 
         copiesEdit->text().toInt());
-        qDebug()<<"dopo Creazione";
     } else if(dynamic_cast<product::Console*>(selected)) {
-        qDebug()<<QString::fromStdString(product::ConsoleTypeToString(product::StringToConsoleType(serieComboBox->currentText().toStdString())));
         newProduct = new product::Console(
         product::StringToConsoleType(serieComboBox->currentText().toStdString()),
         memoryEdit->text().toStdString(),
