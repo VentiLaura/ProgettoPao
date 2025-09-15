@@ -26,6 +26,7 @@ public:
     void eraseGrid();
     void DeleteProduct();
     void callAddWindow(const QString&);
+    void resetGrid();
     std::vector<product::Product*> currentProducts;
      
 private:
@@ -49,4 +50,4 @@ private:
     void Callsortfilter();
 };
 
-#endif // PAGEWIDGET_H
+#endif

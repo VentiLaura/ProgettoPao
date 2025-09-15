@@ -19,12 +19,17 @@ PageWidget::PageWidget(const std::vector<product::Product*>& products, QWidget* 
     connect(detailsPage, &DetailsPageWidget::DeleteGridProduct, this, &PageWidget::DeleteProduct);
     connect(detailsPage, &DetailsPageWidget::ReturnToGrid, this, &PageWidget::eraseGrid); 
     connect(mpw, &ModifyPageWidget::cancelClicked, this, &PageWidget::showGrid);
-    connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::Callsortfilter);
-    connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::eraseGrid); 
+    connect(mpw, &ModifyPageWidget::cancelClicked, this, &PageWidget::CloseAllWindows);
+    connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::resetGrid);
+    connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::Callsortfilter); 
     connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::showGrid);
     connect(mpw, &ModifyPageWidget::acceptClicked, this, &PageWidget::CloseAllWindows);
-    connect(mpw, &ModifyPageWidget::cancelClicked, this, &PageWidget::CloseAllWindows);
 } 
+
+void PageWidget::resetGrid() {
+    currentProducts=mem.getCatalog();
+    eraseGrid();
+}
 
 void PageWidget::eraseGrid() {
     updateProducts(currentProducts);
@@ -100,7 +105,7 @@ void PageWidget::callAddWindow(const QString& type) {
     layout()->removeWidget(scrollArea);    
     scrollArea->hide();
     }
-    if(detailsPage&&!detailsPage->isHidden() && detailsPage) {
+    if(detailsPage&&!detailsPage->isHidden()) {
     layout()->removeWidget(detailsPage);
     detailsPage->hide();
     }
@@ -115,5 +120,6 @@ void PageWidget::callAddWindow(const QString& type) {
 }
 
 void PageWidget::CloseAllWindows() {
+    if(detailsPage&&!detailsPage->isHidden())
     detailsPage->DeleteAll();
 }
