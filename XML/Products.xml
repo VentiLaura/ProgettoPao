@@ -1,125 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Products>
     <Product>
-        <Type>Console</Type>
-        <Image>Immagini/PS5_PRO.jpg</Image>
-        <Memory>idk</Memory>
-        <Serie>PlayStation 5</Serie>
-        <Price>399.99</Price>
-        <IdProduct>11</IdProduct>
-        <Copies_available>13</Copies_available>
-    </Product>
-    <Product>
-        <Type>Console</Type>
-        <Image>Immagini/xbox-seriesx.jpg</Image>
-        <Serie>Xbox Series X</Serie>
-        <Price>299.99</Price>
-        <IdProduct>189</IdProduct>
-        <Copies_available>2</Copies_available>
-    </Product>
-    <Product>
-        <Type>Videogame</Type>
-        <Image>Immagini/SuperSmashBros_Brawl.jpg</Image>
-        <Name>Super Smash Bros. Brawl</Name>
-        <Price>49.99</Price>
-        <IdProduct>1</IdProduct>
-        <Copies_available>2</Copies_available>
-        <Producer>Nintendo</Producer>
-        <Compatibility>
-            <Console>Wii</Console>
-            <Console>Wii U</Console>
-        </Compatibility>
-        <Genres>
-            <Genre>Action</Genre>
-            <Genre>Platform</Genre>
-        </Genres>
-    </Product>
-    <Product>
-        <Type>Videogame</Type>
-        <Image>Immagini/Persona5R.jpg</Image>
-        <Name>Persona 5 Royal</Name>
-        <Price>49.99</Price>
-        <IdProduct>19</IdProduct>
-        <Copies_available>7</Copies_available>
-        <Producer>Atlus</Producer>
-        <Compatibility>
-            <Console>PlayStation 4</Console>
-            <Console>PlayStation 5</Console>
-        </Compatibility>
-        <Genres>
-            <Genre>RPG</Genre>
-        </Genres>
-    </Product>
-    <Product>
-        <Type>Videogame</Type>
-        <Image>Immagini/legend-of-zelda.jpg</Image>
-        <Name>Legendo of Zelda: Breath of the Wild</Name>
-        <Price>69.99</Price>
-        <IdProduct>45</IdProduct>
-        <Copies_available>20</Copies_available>
-        <Producer>Nintendo</Producer>
-        <Compatibility>
-            <Console>Nintendo Switch</Console>
-            <Console>Nintendo Switch 2</Console>
-        </Compatibility>
-        <Genres>
-            <Genre>Action</Genre>
-        </Genres>
-    </Product>
-    <Product>
-        <Type>Videogame</Type>
-        <Image>Immagini/split-fiction.jpg</Image>
-        <Name>Split Fiction</Name>
-        <Price>59.99</Price>
-        <IdProduct>49</IdProduct>
-        <Copies_available>12</Copies_available>
-        <Producer>Eletronic Arts</Producer>
-        <Compatibility>
-            <Console>PlayStation 4</Console>
-            <Console>PlayStation 5</Console>
-        </Compatibility>
-        <Genres>
-            <Genre>Action</Genre>
-            <Genre>Adventure</Genre>
-            <Genre>Cooperative</Genre>
-        </Genres>
-    </Product>
-    <Product>
-        <Type>T-shirt</Type>
-        <Image>Immagini/maglietta-superman.jpg</Image>
-        <Name>Maglietta con logo di Super-Man</Name>
-        <Price>20.00</Price>
-        <IdProduct>454</IdProduct>
-        <Copies_available>5</Copies_available>
-        <Size>XL</Size>
-        <Franchise>DC Superman</Franchise>
-    </Product>
-    <Product>
-        <Type>T-shirt</Type>
-        <Image>Immagini/maglietta-super-mario-.jpg</Image>
-        <Name>Maglietta con logo di Super-Mario</Name>
-        <Price>29.95</Price>
-        <IdProduct>455</IdProduct>
-        <Copies_available>2</Copies_available>
-        <Size>XS</Size>
-        <Franchise>Super-Mario Bros</Franchise>
-    </Product>
-    <Product>
-        <Type>Accessory</Type>
-        <Image>Immagini/cuffie-gaming.jpg</Image>
-        <Name>Cuffie HyperX</Name>
-        <Price>38.20</Price>
-        <IdProduct>985</IdProduct>
-        <Copies_available>12</Copies_available>
-        <Height>17.60</Height>
-        <Lenght>20.10</Lenght>
-        <Depht>9.20</Depht>
-        <Weight>780</Weight>
-        <Compatibility>
-            <Console>Xbox</Console>
-        </Compatibility>
-    </Product>
-    <Product>
         <Type>Collectible</Type>
         <Image>Immagini/joker-pop.jpg</Image>
         <Name>Joker Vinyl Figure</Name>
@@ -128,16 +9,6 @@
         <Copies_available>6</Copies_available>
         <Franchise>Persona 5</Franchise>
         <Producer>Funko Pop</Producer>
-    </Product>
-    <Product>
-        <Type>Collectible</Type>
-        <Image>Immagini/widowmaker-figure.jpg</Image>
-        <Name>Overwatch Widowmaker</Name>
-        <Price>19.50</Price>
-        <IdProduct>121</IdProduct>
-        <Copies_available>2</Copies_available>
-        <Franchise>Overwatch</Franchise>
-        <Producer>Hasbro</Producer>
     </Product>
     <Product>
         <Type>Accessory</Type>
@@ -152,6 +23,74 @@
         <Weight>568</Weight>
     </Product>
     <Product>
+        <Type>Videogame</Type>
+        <IdProduct>19</IdProduct>
+        <Image>Immagini/Persona5R.jpg</Image>
+        <Price>49.99</Price>
+        <Copies_available>7</Copies_available>
+        <Name>Persona 5 Royal</Name>
+        <Producer>Atlus</Producer>
+        <Compatibility>
+            <Console>PlayStation 4</Console>
+            <Console>PlayStation 5</Console>
+        </Compatibility>
+        <Genres>
+            <Genre>RPG</Genre>
+        </Genres>
+    </Product>
+    <Product>
+        <Type>Videogame</Type>
+        <IdProduct>45</IdProduct>
+        <Image>Immagini/legend-of-zelda.jpg</Image>
+        <Price>69.99</Price>
+        <Copies_available>20</Copies_available>
+        <Name>Legendo of Zelda: Breath of the Wild</Name>
+        <Producer>Nintendo</Producer>
+        <Compatibility>
+            <Console>Nintendo Switch</Console>
+            <Console>Nintendo Switch 2</Console>
+        </Compatibility>
+        <Genres>
+            <Genre>Action</Genre>
+        </Genres>
+    </Product>
+    <Product>
+        <Type>Console</Type>
+        <IdProduct>11</IdProduct>
+        <Image>Immagini/PS5_PRO.jpg</Image>
+        <Price>399.99</Price>
+        <Copies_available>13</Copies_available>
+        <Serie>PlayStation 5</Serie>
+        <Memory>idk</Memory>
+    </Product>
+    <Product>
+        <Type>Videogame</Type>
+        <IdProduct>1</IdProduct>
+        <Image>Immagini/SuperSmashBros_Brawl.jpg</Image>
+        <Price>49.99</Price>
+        <Copies_available>2</Copies_available>
+        <Name>Super Smash Bros. Brawl</Name>
+        <Producer>Nintendo</Producer>
+        <Compatibility>
+            <Console>Wii</Console>
+            <Console>Wii U</Console>
+        </Compatibility>
+        <Genres>
+            <Genre>Action</Genre>
+            <Genre>Platform</Genre>
+        </Genres>
+    </Product>
+    <Product>
+        <Type>T-shirt</Type>
+        <IdProduct>455</IdProduct>
+        <Image>Immagini/maglietta-super-mario-.jpg</Image>
+        <Price>29.95</Price>
+        <Copies_available>2</Copies_available>
+        <Name>Maglietta con logo di Super-Mario</Name>
+        <Size>XS</Size>
+        <Franchise>Super-Mario Bros</Franchise>
+    </Product>
+    <Product>
         <Type>Console</Type>
         <IdProduct>0</IdProduct>
         <Image>Immagini/Nintendo_3DS.jpg</Image>
@@ -159,5 +98,68 @@
         <Copies_available>5</Copies_available>
         <Serie>Nintendo 3DS</Serie>
         <Memory/>
+    </Product>
+    <Product>
+        <Type>T-shirt</Type>
+        <IdProduct>454</IdProduct>
+        <Image>Immagini/maglietta-superman.jpg</Image>
+        <Price>20.00</Price>
+        <Copies_available>5</Copies_available>
+        <Name>Maglietta con logo di Super-Man</Name>
+        <Size>XL</Size>
+        <Franchise>DC Superman</Franchise>
+    </Product>
+    <Product>
+        <Type>Console</Type>
+        <IdProduct>189</IdProduct>
+        <Image>Immagini/xbox-seriesx.jpg</Image>
+        <Price>299.99</Price>
+        <Copies_available>2</Copies_available>
+        <Serie>Xbox Series X</Serie>
+        <Memory/>
+    </Product>
+    <Product>
+        <Type>Collectible</Type>
+        <IdProduct>121</IdProduct>
+        <Image>Immagini/widowmaker-figure.jpg</Image>
+        <Price>19.50</Price>
+        <Copies_available>2</Copies_available>
+        <Name>Overwatch Widowmaker</Name>
+        <Category/>
+        <Franchise>Overwatch</Franchise>
+        <Producer>Hasbro</Producer>
+    </Product>
+    <Product>
+        <Type>Videogame</Type>
+        <IdProduct>49</IdProduct>
+        <Image>Immagini/split-fiction.jpg</Image>
+        <Price>59.99</Price>
+        <Copies_available>12</Copies_available>
+        <Name>Split Fiction</Name>
+        <Producer>Eletronic Arts</Producer>
+        <Compatibility>
+            <Console>PlayStation 4</Console>
+            <Console>PlayStation 5</Console>
+        </Compatibility>
+        <Genres>
+            <Genre>Action</Genre>
+            <Genre>Adventure</Genre>
+            <Genre>Cooperative</Genre>
+        </Genres>
+    </Product>
+    <Product>
+        <Type>Accessory</Type>
+        <IdProduct>985</IdProduct>
+        <Image>Immagini/cuffie-gaming.jpg</Image>
+        <Price>38.20</Price>
+        <Copies_available>12</Copies_available>
+        <Name/>
+        <Height>17.6</Height>
+        <Length>0</Length>
+        <Depth>0</Depth>
+        <Weight>780</Weight>
+        <Compatibility>
+            <Console>Xbox</Console>
+        </Compatibility>
     </Product>
 </Products>

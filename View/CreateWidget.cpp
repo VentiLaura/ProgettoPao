@@ -1,31 +1,12 @@
 #include "CreateWidget.h"
 
 CreateWidget::CreateWidget(const QString& type) {
-    pageLayout = new QVBoxLayout(this); // pageLayout principale della pagina
-    // Barra in alto con pulsante Quit
-    /*bar=new QWidget;
-    topBarLayout = new QHBoxLayout(bar);
-    //cancelButton = new QPushButton("Cancel");
-    //acceptButton=new QPushButton("Accept");
-    topBarLayout->addStretch();           // spinge il pulsante a destra
-    //topBarLayout->addWidget(acceptButton);
-    //topBarLayout->addWidget(cancelButton); 
-    bar->setLayout(topBarLayout);  // aggiunge il pulsante
-    pageLayout->addWidget(bar, 1);  // aggiunge la barra in alto al pageLayout principale
-    setLayout(pageLayout);
-    /*connect(cancelButton, &QPushButton::clicked, this, &CreateWidget::cancelClicked);
-    connect(cancelButton, &QPushButton::clicked, this, &CreateWidget::DeleteDetails);
-    connect(acceptButton, &QPushButton::clicked, this, &CreateWidget::CreateProduct);
-    connect(acceptButton, &QPushButton::clicked, this, &CreateWidget::acceptClicked);
-    connect(acceptButton, &QPushButton::clicked, this, &CreateWidget::DeleteDetails);*/
-
-
+    pageLayout = new QVBoxLayout(this);
     if(type!="Console") {
     pageLayout->addWidget(new QLabel("Name:"));
     nameEdit = new QLineEdit();
     pageLayout->addWidget(nameEdit);
     }
-
     pageLayout->addWidget(new QLabel("Price:"));
     priceEdit = new QLineEdit();
     pageLayout->addWidget(priceEdit);
@@ -42,15 +23,12 @@ CreateWidget::CreateWidget(const QString& type) {
     copiesEdit = new QLineEdit();
     pageLayout->addWidget(copiesEdit);
     setLayout(pageLayout);
-
-qDebug()<<"prima chiamata Window specifica";
     if (type=="Videogame") VideogameWindow();
     if (type=="Console") ConsoleWindow();
     if (type=="T-shirt") TshirtWindow();
     if (type=="Collectible") CollectibleWindow();
     if (type=="Accessory") AccessoryWindow();
 }
-
 
 void CreateWidget::VideogameWindow() {
     pageLayout->addWidget(new QLabel("Producer:"));
@@ -65,8 +43,8 @@ void CreateWidget::VideogameWindow() {
     QStringList genreList;
     GenreEdit = new QLineEdit();
     pageLayout->addWidget(GenreEdit);  
-
 }
+
 void CreateWidget::ConsoleWindow() {
     pageLayout->addWidget(new QLabel("Serie:"));
     serieComboBox = new QComboBox();
@@ -91,11 +69,10 @@ void CreateWidget::TshirtWindow() {
     for (int i = static_cast<int>(product::Sizes::XS); i <= static_cast<int>(product::Sizes::XL); ++i) {
     product::Sizes size = static_cast<product::Sizes>(i);
     sizeComboBox->addItem(QString::fromStdString(product::SizeToString(size)));
-}
-
+    }
     pageLayout->addWidget(sizeComboBox);
-
 }
+
 void CreateWidget::CollectibleWindow() {
     pageLayout->addWidget(new QLabel("Category:"));
     categoryEdit = new QLineEdit();
@@ -108,8 +85,8 @@ void CreateWidget::CollectibleWindow() {
     pageLayout->addWidget(new QLabel("Producer:"));
     producerEdit = new QLineEdit();
     pageLayout->addWidget(producerEdit);
-
 }
+
 void CreateWidget::AccessoryWindow() {
     pageLayout->addWidget(new QLabel("Height (in cm):"));
     heightEdit = new QLineEdit();
@@ -130,9 +107,7 @@ void CreateWidget::AccessoryWindow() {
     pageLayout->addWidget(new QLabel("Compatibility (comma-separated):"));
     CompatibilityEdit = new QLineEdit();
     pageLayout->addWidget(CompatibilityEdit);
-
 }
-
 
 product::Product* CreateWidget::CreateProduct(const QString& type) {
     if(type=="Videogame") {
@@ -162,7 +137,6 @@ product::Product* CreateWidget::CreateProduct(const QString& type) {
         priceEdit->text().toDouble(),
         idEdit->text().toStdString(),
         copiesEdit->text().toInt());
-
     } else if(type=="Accessory") {
         QStringList compatLines = CompatibilityEdit->text().split(", ");
         std::vector<product::Console_type> compatibility;
@@ -197,14 +171,7 @@ product::Product* CreateWidget::CreateProduct(const QString& type) {
         idEdit->text().toStdString(),
         copiesEdit->text().toInt());
     }
-    //memory::Memory& mem=memory::Memory::getCentralMemoryInstance()
+    qDebug()<<"prima di memory add";
     mem.Add(newProduct);
     return newProduct;
-    //*selected = *newProduct;
 }
-
-
-/*void CreateWidget::DeleteDetails() {
-    delete this;
-    //delete ModifyPage;
-}*/

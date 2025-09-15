@@ -1,9 +1,7 @@
 #ifndef CREATEWIDGET_H
 #define CREATEWIDGET_H
 
-#include "Visitor/visitor.h"
 #include <QVBoxLayout>
-#include <QPushButton>
 #include <QObject>
 #include <QWidget>
 #include <vector>
@@ -12,13 +10,11 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QStringList>
-#include <QDebug>
 #include <QComboBox>
 
 class CreateWidget: public QWidget {
     Q_OBJECT
     public:
-    //WritableWidget(QWidget* =nullptr);
     CreateWidget(const QString&);
     product::Product* CreateProduct(const QString&);
     private:
@@ -34,12 +30,6 @@ class CreateWidget: public QWidget {
     product::Product* newProduct;
     product::Product* selected;
     QVBoxLayout* pageLayout;
-    QWidget* bar;
-    QHBoxLayout* topBarLayout;
-    QPushButton* cancelButton;
-    QHBoxLayout* detailsLayout;
-    QVBoxLayout* infoLayout;
-    QPushButton* acceptButton;
 
     QLineEdit* nameEdit;
     QLineEdit* priceEdit;
@@ -48,23 +38,20 @@ class CreateWidget: public QWidget {
     QLineEdit* copiesEdit;
 
     QLineEdit* franchiseEdit;
-    QComboBox* serieComboBox;
-    QComboBox* sizeComboBox;
-
     QLineEdit* categoryEdit;
     QLineEdit* memoryEdit;
     QLineEdit* heightEdit;
     QLineEdit* lengthEdit;
-    
-    QLineEdit* producerEdit;
     QLineEdit* depthEdit;
     QLineEdit* weightEdit;
+    QLineEdit* producerEdit;
     QLineEdit* CompatibilityEdit;
     QLineEdit* GenreEdit;
+    QComboBox* serieComboBox;
+    QComboBox* sizeComboBox;
 
     signals:
     void cancelClicked();
     void acceptClicked();
-    
 };
 #endif

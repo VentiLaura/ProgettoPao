@@ -1,38 +1,29 @@
 [
     {
-        "Copies_available": 13,
-        "IdProduct": "11",
-        "Image": "Immagini/PS5_PRO.jpg",
-        "Memory": "idk",
-        "Price": 399.99,
-        "Serie": "PlayStation 5",
-        "Type": "Console"
-    },
-    {
-        "Copies_available": 2,
-        "IdProduct": "189",
-        "Image": "Immagini/xbox-seriesx.jpg",
-        "Memory": "550GB",
-        "Price": 299.99,
-        "Serie": "Xbox Series X",
-        "Type": "Console"
+        "Copies_available": 6,
+        "Franchise": "Persona 5",
+        "IdProduct": "120",
+        "Image": "Immagini/joker-pop.jpg",
+        "Name": "Joker Vinyl Figure",
+        "Price": 16.5,
+        "Producer": "Funko Pop",
+        "Type": "Collectible"
     },
     {
         "Compatibility": [
-            "Wii",
-            "Wii U"
+            "Nintendo Switch",
+            "Nintendo Switch 2"
         ],
-        "Copies_available": 2,
-        "Genres": [
-            "Action",
-            "Platform"
-        ],
-        "IdProduct": "1",
-        "Image": "Immagini/SuperSmashBros_Brawl.jpg",
-        "Name": "Super Smash Bros. Brawl",
-        "Price": 49.99,
-        "Producer": "Nintendo",
-        "Type": "Videogame"
+        "Copies_available": 3,
+        "Depht": 7.2,
+        "Height": 6,
+        "IdProduct": "984",
+        "Image": "Immagini/supporto-carica-switch.jpg",
+        "Lenght": 16.2,
+        "Name": "Supporto controller Switch",
+        "Price": 18.9,
+        "Type": "Accessory",
+        "Weight": 568
     },
     {
         "Compatibility": [
@@ -67,6 +58,81 @@
         "Type": "Videogame"
     },
     {
+        "Copies_available": 13,
+        "IdProduct": "11",
+        "Image": "Immagini/PS5_PRO.jpg",
+        "Memory": "idk",
+        "Price": 399.99,
+        "Serie": "PlayStation 5",
+        "Type": "Console"
+    },
+    {
+        "Compatibility": [
+            "Wii",
+            "Wii U"
+        ],
+        "Copies_available": 2,
+        "Genres": [
+            "Action",
+            "Platform"
+        ],
+        "IdProduct": "1",
+        "Image": "Immagini/SuperSmashBros_Brawl.jpg",
+        "Name": "Super Smash Bros. Brawl",
+        "Price": 49.99,
+        "Producer": "Nintendo",
+        "Type": "Videogame"
+    },
+    {
+        "Copies_available": 2,
+        "Franchise": "Super-Mario Bros",
+        "IdProduct": "455",
+        "Image": "Immagini/maglietta-super-mario-.jpg",
+        "Name": "Maglietta con logo di Super-Mario",
+        "Price": 29.95,
+        "Size": "XS",
+        "Type": "T-shirt"
+    },
+    {
+        "Copies_available": 5,
+        "IdProduct": "0",
+        "Image": "Immagini/Nintendo_3DS.jpg",
+        "Memory": "",
+        "Price": 129.99,
+        "Serie": "Nintendo 3DS",
+        "Type": "Console"
+    },
+    {
+        "Copies_available": 5,
+        "Franchise": "DC Superman",
+        "IdProduct": "454",
+        "Image": "Immagini/maglietta-superman.jpg",
+        "Name": "Maglietta con logo di Super-Man",
+        "Price": 20,
+        "Size": "XL",
+        "Type": "T-shirt"
+    },
+    {
+        "Copies_available": 2,
+        "IdProduct": "189",
+        "Image": "Immagini/xbox-seriesx.jpg",
+        "Memory": "",
+        "Price": 299.99,
+        "Serie": "Xbox Series X",
+        "Type": "Console"
+    },
+    {
+        "Category": "",
+        "Copies_available": 2,
+        "Franchise": "Overwatch",
+        "IdProduct": "121",
+        "Image": "Immagini/widowmaker-figure.jpg",
+        "Name": "Overwatch Widowmaker",
+        "Price": 19.5,
+        "Producer": "Hasbro",
+        "Type": "Collectible"
+    },
+    {
         "Compatibility": [
             "PlayStation 4",
             "PlayStation 5"
@@ -85,80 +151,18 @@
         "Type": "Videogame"
     },
     {
-        "Copies_available": 5,
-        "Franchise": "DC Superman",
-        "IdProduct": "454",
-        "Image": "Immagini/maglietta-superman.jpg",
-        "Name": "Maglietta con logo di Super-Man",
-        "Price": 20,
-        "Size": "XL",
-        "Type": "T-shirt"
-    },
-    {
-        "Copies_available": 2,
-        "Franchise": "Super-Mario Bros",
-        "IdProduct": "455",
-        "Image": "Immagini/maglietta-super-mario-.jpg",
-        "Name": "Maglietta con logo di Super-Mario",
-        "Price": 29.95,
-        "Size": "XS",
-        "Type": "T-shirt"
-    },
-    {
+        "Compatibility": [
+            "Xbox"
+        ],
         "Copies_available": 12,
-        "Depht": 9.2,
+        "Depth": 0,
         "Height": 17.6,
         "IdProduct": "985",
         "Image": "Immagini/cuffie-gaming.jpg",
-        "Lenght": 20.1,
-        "Name": "Cuffie HyperX",
+        "Lenght": 0,
+        "Name": "",
         "Price": 38.2,
         "Type": "Accessory",
         "Weight": 780
-    },
-    {
-        "Copies_available": 6,
-        "Franchise": "Persona 5",
-        "IdProduct": "120",
-        "Image": "Immagini/joker-pop.jpg",
-        "Name": "Joker Vinyl Figure",
-        "Price": 16.5,
-        "Producer": "Funko Pop",
-        "Type": "Collectible"
-    },
-    {
-        "Copies_available": 2,
-        "Franchise": "Overwatch",
-        "IdProduct": "121",
-        "Image": "Immagini/widowmaker-figure.jpg",
-        "Name": "Overwatch Widowmaker",
-        "Price": 19.5,
-        "Producer": "Hasbro",
-        "Type": "Collectible"
-    },
-    {
-        "Compatibility": [
-            "Nintendo Switch",
-            "Nintendo Switch 2"
-        ],
-        "Copies_available": 3,
-        "Depht": 7.2,
-        "Height": 6,
-        "IdProduct": "984",
-        "Image": "Immagini/supporto-carica-switch.jpg",
-        "Lenght": 16.2,
-        "Name": "Supporto controller Switch",
-        "Price": 18.9,
-        "Type": "Accessory",
-        "Weight": 568
-    },
-    {
-        "Copies_available": 5,
-        "IdProduct": "0",
-        "Image": "Immagini/Nintendo_3DS.jpg",
-        "Memory": "",
-        "Price": 129.99,
-        "Serie": "Nintendo 3DS",
-        "Type": "Console"
     }
 ]

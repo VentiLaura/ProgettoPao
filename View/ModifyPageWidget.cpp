@@ -26,6 +26,7 @@ void ModifyPageWidget::ModifyInfoOf(product::Product* product) {
     product->accept(ModifyPage);
     modifylayout->addWidget(ModifyPage, 9);
     pageLayout->addWidget(ModifyDetails, 9);
+    qDebug()<<"dentro updatep 2";
 }
 
 void ModifyPageWidget::CreateProduct(const QString& type) {
@@ -52,9 +53,13 @@ void ModifyPageWidget::DeleteDetails() {
     //delete ModifyPage;
 }
 void ModifyPageWidget::Updateproduct() {
-    if(ModifyPage)
+    qDebug()<<"dentro updatep 1";
+    if(ModifyPage) {
+            qDebug()<<"dentro updatep 2";
     ModifyPage->Updateproduct();
+    }
     if(CreatePage) {
+        qDebug()<<"dentro updatep";
         CreatePage->CreateProduct(Type);
     }
    

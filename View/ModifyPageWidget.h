@@ -28,8 +28,8 @@ class ModifyPageWidget: public QWidget {
     QVBoxLayout* infoLayout;
     QPushButton* acceptButton;
     QVBoxLayout* modifylayout;
-    WritableWidget* ModifyPage;
-    CreateWidget* CreatePage;
+    WritableWidget* ModifyPage=nullptr;
+    CreateWidget* CreatePage=nullptr;
     QString Type;
     signals:
     void cancelClicked();

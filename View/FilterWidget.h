@@ -7,14 +7,11 @@
 class FilterWidget: public QWidget {
     Q_OBJECT
     public:
-        FilterWidget(QWidget *parent = nullptr);
+    FilterWidget(QWidget *parent = nullptr);
     private:
-        QLabel * filter;
-        QComboBox* filterMenu;
-    private slots:
-        void onFilterChanged(const QString&);
-
+    QLabel * filter;
+    QComboBox* filterMenu;
     signals:
-        void FilterChanged(const QString& filterChosen);
+    void FilterChanged(const QString& filterChosen);
 };
 #endif

@@ -20,6 +20,7 @@ class PageWidget : public QWidget {
 public:
     explicit PageWidget(const std::vector<product::Product*>&, QWidget* = nullptr);
     void updateProducts(const std::vector<product::Product*>&);
+    void CloseAllWindows();
     //void showGrid();
     //void clearLayout(QLayout*); 
     void eraseGrid();

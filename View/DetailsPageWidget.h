@@ -9,8 +9,6 @@
 #include "WritableWidget.h"
 #include "../LogicModel/Catalog/Memory.h"
 
-class ModifyPageWidget;
-
 class DetailsPageWidget: public QWidget {
     Q_OBJECT
     public:
@@ -20,26 +18,24 @@ class DetailsPageWidget: public QWidget {
     void ModifyClicked();
     void Return();
     void Updateproduct();
-    void UpdateDetails();
     void DeleteProduct();
+    void DeleteAll();
     private:
     product::Product* selected;
     QWidget* details;
     QWidget* bar;
     QVBoxLayout* pageLayout;
     QHBoxLayout* topBarLayout;
-    QPushButton* quitButton;
     QHBoxLayout* detailsLayout;
     QVBoxLayout* infoLayout;
     QPushButton* modifyButton;
     QPushButton* deleteButton;
+    QPushButton* quitButton;
     ModifyPageWidget* mpw;
     WritableWidget* ModifyPage;
     signals:
     void quitClicked();
     void ReturnToGrid();
     void DeleteGridProduct();
-    //void callMe();
-
 };
 #endif
