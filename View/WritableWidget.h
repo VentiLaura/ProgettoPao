@@ -13,6 +13,7 @@
 #include <QStringList>
 #include <QDebug>
 #include <QComboBox>
+#include <QMessageBox>
 class WritableWidget: public Visitor, public QWidget {
     public:
     //WritableWidget(QWidget* =nullptr);
@@ -21,7 +22,7 @@ class WritableWidget: public Visitor, public QWidget {
     void visitTshirt(product::T_shirt*);
     void visitCollectible(product::Collectible*);
     void visitAccessory(product::Accessory*);
-    void Updateproduct();
+    bool Updateproduct();
     private:
     memory::Memory& mem=memory::Memory::getCentralMemoryInstance();
     void createProduct(product::Product* product);

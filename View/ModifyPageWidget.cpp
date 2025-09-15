@@ -15,8 +15,8 @@ ModifyPageWidget::ModifyPageWidget(QWidget* parent): QWidget(parent) {
     connect(cancelButton, &QPushButton::clicked, this, &ModifyPageWidget::cancelClicked);
     connect(cancelButton, &QPushButton::clicked, this, &ModifyPageWidget::DeleteDetails);
     connect(acceptButton, &QPushButton::clicked, this, &ModifyPageWidget::Updateproduct);
-    connect(acceptButton, &QPushButton::clicked, this, &ModifyPageWidget::acceptClicked);
-    connect(acceptButton, &QPushButton::clicked, this, &ModifyPageWidget::DeleteDetails);
+    connect(this, &ModifyPageWidget::CorrectlyGenerated, this, &ModifyPageWidget::acceptClicked);
+    connect(this, &ModifyPageWidget::CorrectlyGenerated, this, &ModifyPageWidget::DeleteDetails);
 }
 void ModifyPageWidget::ModifyInfoOf(product::Product* product) {
     ModifyDetails=new QWidget;
@@ -56,11 +56,13 @@ void ModifyPageWidget::Updateproduct() {
     qDebug()<<"dentro updatep 1";
     if(ModifyPage) {
             qDebug()<<"dentro updatep 2";
-    ModifyPage->Updateproduct();
+    if(ModifyPage->Updateproduct()) 
+        emit CorrectlyGenerated();
     }
     if(CreatePage) {
         qDebug()<<"dentro updatep";
-        CreatePage->CreateProduct(Type);
+        if(CreatePage->CreateProduct(Type)) 
+            emit CorrectlyGenerated();
     }
    
 }

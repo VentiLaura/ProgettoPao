@@ -110,68 +110,95 @@ void CreateWidget::AccessoryWindow() {
 }
 
 product::Product* CreateWidget::CreateProduct(const QString& type) {
-    if(type=="Videogame") {
-        QStringList genreLines = GenreEdit->text().split(", ");
-        std::vector<product::Genre> genres;
-        for (const QString& line : genreLines) {
-            qDebug()<<line;
-            genres.push_back(product::StringToGenre(line.toStdString()));
+    try {
+        if(type == "Videogame") {
+            QStringList genreLines = GenreEdit->text().split(", ");
+            std::vector<product::Genre> genres;
+            for (const QString& line : genreLines) {
+                qDebug() << line;
+                genres.push_back(product::StringToGenre(line.toStdString()));
+            }
+
+            QStringList compatLines = CompatibilityEdit->text().split(", ");
+            std::vector<product::Console_type> compatibility;
+            for (const QString& line : compatLines) {
+                compatibility.push_back(product::StringToConsoleType(line.toStdString()));
+            }
+
+            newProduct = new product::Videogame(
+                compatibility,
+                producerEdit->text().toStdString(),
+                genres,
+                imageEdit->text().toStdString(),
+                nameEdit->text().toStdString(),
+                priceEdit->text().toDouble(),
+                idEdit->text().toStdString(),
+                copiesEdit->text().toInt()
+            );
+
+        } else if(type == "Console") {
+            newProduct = new product::Console(
+                product::StringToConsoleType(serieComboBox->currentText().toStdString()),
+                memoryEdit->text().toStdString(),
+                imageEdit->text().toStdString(),
+                priceEdit->text().toDouble(),
+                idEdit->text().toStdString(),
+                copiesEdit->text().toInt()
+            );
+
+        } else if(type == "Accessory") {
+            QStringList compatLines = CompatibilityEdit->text().split(", ");
+            std::vector<product::Console_type> compatibility;
+            for (const QString& line : compatLines) {
+                compatibility.push_back(product::StringToConsoleType(line.toStdString()));
+            }
+
+            newProduct = new product::Accessory(
+                heightEdit->text().toDouble(),
+                lengthEdit->text().toDouble(),
+                depthEdit->text().toDouble(),
+                weightEdit->text().toDouble(),
+                compatibility,
+                imageEdit->text().toStdString(),
+                nameEdit->text().toStdString(),
+                priceEdit->text().toDouble(),
+                idEdit->text().toStdString(),
+                copiesEdit->text().toInt()
+            );
+
+        } else if(type == "Collectible") {
+            newProduct = new product::Collectible(
+                categoryEdit->text().toStdString(),
+                franchiseEdit->text().toStdString(),
+                producerEdit->text().toStdString(),
+                imageEdit->text().toStdString(),
+                nameEdit->text().toStdString(),
+                priceEdit->text().toDouble(),
+                idEdit->text().toStdString(),
+                copiesEdit->text().toInt()
+            );
+
+        } else if(type == "T-shirt") {
+            newProduct = new product::T_shirt(
+                product::StringToSize(sizeComboBox->currentText().toStdString()),
+                franchiseEdit->text().toStdString(),
+                imageEdit->text().toStdString(),
+                nameEdit->text().toStdString(),
+                priceEdit->text().toDouble(),
+                idEdit->text().toStdString(),
+                copiesEdit->text().toInt()
+            );
         }
-        QStringList compatLines = CompatibilityEdit->text().split(", ");
-        std::vector<product::Console_type> compatibility;
-        for (const QString& line : compatLines) {
-            compatibility.push_back(product::StringToConsoleType(line.toStdString()));
-        }
-        newProduct=new product::Videogame(compatibility, 
-        producerEdit->text().toStdString(), 
-        genres, imageEdit->text().toStdString(), 
-        nameEdit->text().toStdString(), 
-        priceEdit->text().toDouble(), 
-        idEdit->text().toStdString(), 
-        copiesEdit->text().toInt());
-    } else if(type=="Console") {
-        newProduct = new product::Console(
-        product::StringToConsoleType(serieComboBox->currentText().toStdString()),
-        memoryEdit->text().toStdString(),
-        imageEdit->text().toStdString(),
-        priceEdit->text().toDouble(),
-        idEdit->text().toStdString(),
-        copiesEdit->text().toInt());
-    } else if(type=="Accessory") {
-        QStringList compatLines = CompatibilityEdit->text().split(", ");
-        std::vector<product::Console_type> compatibility;
-        for (const QString& line : compatLines) {
-            compatibility.push_back(product::StringToConsoleType(line.toStdString()));
-        }
-        newProduct=new product::Accessory(heightEdit->text().toDouble(), 
-        lengthEdit->text().toDouble(), 
-        depthEdit->text().toDouble(), 
-        weightEdit->text().toDouble(), 
-        compatibility, 
-        imageEdit->text().toStdString(), 
-        nameEdit->text().toStdString(), 
-        priceEdit->text().toDouble(), 
-        idEdit->text().toStdString(), 
-        copiesEdit->text().toInt());
-    } else if(type=="Collectible") {
-        newProduct=new product::Collectible(categoryEdit->text().toStdString(), 
-        franchiseEdit->text().toStdString(), producerEdit->text().toStdString(), 
-        imageEdit->text().toStdString(), 
-        nameEdit->text().toStdString(), 
-        priceEdit->text().toDouble(), 
-        idEdit->text().toStdString(), 
-        copiesEdit->text().toInt());
-    } else if(type=="T-shirt") {
-        newProduct = new product::T_shirt(
-        product::StringToSize(sizeComboBox->currentText().toStdString()),
-        franchiseEdit->text().toStdString(),
-        imageEdit->text().toStdString(),
-        nameEdit->text().toStdString(),
-        priceEdit->text().toDouble(),
-        idEdit->text().toStdString(),
-        copiesEdit->text().toInt());
+
+        qDebug() << "prima di memory add";
+        mem.Add(newProduct);
+        return newProduct;
+
+    } catch (const std::invalid_argument& e) {
+        QMessageBox::critical(this, "Errore", QString::fromStdString(e.what()));
+        return nullptr;
+    } catch (...) {
+        QMessageBox::critical(this, "Errore", "Si è verificato un errore sconosciuto.");
+        return nullptr;
     }
-    qDebug()<<"prima di memory add";
-    mem.Add(newProduct);
-    return newProduct;
 }

@@ -7,7 +7,6 @@
 namespace product {
 class Accessory: public Product {
     private:
-    std::string Name;
     double Height;
     double Lenght;
     double Depth;
@@ -17,8 +16,6 @@ class Accessory: public Product {
     Accessory(double, double, double, double, std::vector<Console_type>, std::string, std::string, double, std::string, int=1);
     ~Accessory();
     Accessory& operator=(Product&);
-    std::string getName() const; 
-    void setName(std::string);
     double getHeight() const;
     void setHeight(double);
     double getLenght() const;

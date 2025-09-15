@@ -11,22 +11,6 @@
     },
     {
         "Compatibility": [
-            "Nintendo Switch",
-            "Nintendo Switch 2"
-        ],
-        "Copies_available": 3,
-        "Depht": 7.2,
-        "Height": 6,
-        "IdProduct": "984",
-        "Image": "Immagini/supporto-carica-switch.jpg",
-        "Lenght": 16.2,
-        "Name": "Supporto controller Switch",
-        "Price": 18.9,
-        "Type": "Accessory",
-        "Weight": 568
-    },
-    {
-        "Compatibility": [
             "PlayStation 4",
             "PlayStation 5"
         ],
@@ -164,5 +148,20 @@
         "Price": 38.2,
         "Type": "Accessory",
         "Weight": 780
+    },
+    {
+        "Compatibility": [
+            "Nintendo Switch"
+        ],
+        "Copies_available": 3,
+        "Depth": 0,
+        "Height": 6,
+        "IdProduct": "984",
+        "Image": "Immagini/supporto-carica-switch.jpg",
+        "Lenght": 0,
+        "Name": "Supporto controller Switch",
+        "Price": 18.9,
+        "Type": "Accessory",
+        "Weight": 568
     }
 ]

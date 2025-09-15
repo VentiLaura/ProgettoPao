@@ -11,18 +11,6 @@
         <Producer>Funko Pop</Producer>
     </Product>
     <Product>
-        <Type>Accessory</Type>
-        <Image>Immagini/supporto-carica-switch.jpg</Image>
-        <Name>Supporto controller Switch</Name>
-        <Price>18.90</Price>
-        <IdProduct>984</IdProduct>
-        <Copies_available>3</Copies_available>
-        <Height>6</Height>
-        <Lenght>16.20</Lenght>
-        <Depht>7.20</Depht>
-        <Weight>568</Weight>
-    </Product>
-    <Product>
         <Type>Videogame</Type>
         <IdProduct>19</IdProduct>
         <Image>Immagini/Persona5R.jpg</Image>
@@ -160,6 +148,21 @@
         <Weight>780</Weight>
         <Compatibility>
             <Console>Xbox</Console>
+        </Compatibility>
+    </Product>
+    <Product>
+        <Type>Accessory</Type>
+        <IdProduct>984</IdProduct>
+        <Image>Immagini/supporto-carica-switch.jpg</Image>
+        <Price>18.90</Price>
+        <Copies_available>3</Copies_available>
+        <Name>Supporto controller Switch</Name>
+        <Height>6</Height>
+        <Length>0</Length>
+        <Depth>0</Depth>
+        <Weight>568</Weight>
+        <Compatibility>
+            <Console>Nintendo Switch</Console>
         </Compatibility>
     </Product>
 </Products>

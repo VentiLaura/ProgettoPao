@@ -31,7 +31,7 @@ class PageWidget : public QWidget {
     memory::Memory& mem=memory::Memory::getCentralMemoryInstance();
     std::vector<ProductWidget*> Products;
     std::vector<product::Product*> currentProducts;
-    product::Product* selected;
+    product::Product* selected=nullptr;
     DetailsPageWidget* detailsPage;
     CreateWidget* AddWidget=nullptr;
     QVBoxLayout* mainLayout;

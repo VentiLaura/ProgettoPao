@@ -131,68 +131,93 @@ void WritableWidget::visitAccessory(product::Accessory* acc) {
     
 }
 
-void WritableWidget::Updateproduct() {
-    if(dynamic_cast<product::Videogame*>(selected)) {
-        QStringList genreLines = GenreEdit->text().split(", ");
-        std::vector<product::Genre> genres;
-        for (const QString& line : genreLines) {
-            genres.push_back(product::StringToGenre(line.toStdString()));
-        }
-        QStringList compatLines = CompatibilityEdit->text().split(", ");
-        std::vector<product::Console_type> compatibility;
-        for (const QString& line : compatLines) {
-            compatibility.push_back(product::StringToConsoleType(line.toStdString()));
-        }
-        newProduct=new product::Videogame(compatibility, 
-        producerEdit->text().toStdString(), 
-        genres, imageEdit->text().toStdString(), 
-        nameEdit->text().toStdString(), 
-        priceEdit->text().toDouble(), 
-        idEdit->text().toStdString(), 
-        copiesEdit->text().toInt());
-    } else if(dynamic_cast<product::Console*>(selected)) {
-        newProduct = new product::Console(
-        product::StringToConsoleType(serieComboBox->currentText().toStdString()),
-        memoryEdit->text().toStdString(),
-        imageEdit->text().toStdString(),
-        priceEdit->text().toDouble(),
-        idEdit->text().toStdString(),
-        copiesEdit->text().toInt());
+bool WritableWidget::Updateproduct() {
+    try {
+        if(dynamic_cast<product::Videogame*>(selected)) {
+            QStringList genreLines = GenreEdit->text().split(", ");
+            std::vector<product::Genre> genres;
+            for (const QString& line : genreLines) {
+                genres.push_back(product::StringToGenre(line.toStdString()));
+            }
 
-    } else if(dynamic_cast<product::Accessory*>(selected)) {
-        QStringList compatLines = CompatibilityEdit->text().split(", ");
-        std::vector<product::Console_type> compatibility;
-        for (const QString& line : compatLines) {
-            compatibility.push_back(product::StringToConsoleType(line.toStdString()));
+            QStringList compatLines = CompatibilityEdit->text().split(", ");
+            std::vector<product::Console_type> compatibility;
+            for (const QString& line : compatLines) {
+                compatibility.push_back(product::StringToConsoleType(line.toStdString()));
+            }
+
+            newProduct = new product::Videogame(
+                compatibility,
+                producerEdit->text().toStdString(),
+                genres,
+                imageEdit->text().toStdString(),
+                nameEdit->text().toStdString(),
+                priceEdit->text().toDouble(),
+                idEdit->text().toStdString(),
+                copiesEdit->text().toInt()
+            );
+
+        } else if(dynamic_cast<product::Console*>(selected)) {
+            newProduct = new product::Console(
+                product::StringToConsoleType(serieComboBox->currentText().toStdString()),
+                memoryEdit->text().toStdString(),
+                imageEdit->text().toStdString(),
+                priceEdit->text().toDouble(),
+                idEdit->text().toStdString(),
+                copiesEdit->text().toInt()
+            );
+
+        } else if(dynamic_cast<product::Accessory*>(selected)) {
+            QStringList compatLines = CompatibilityEdit->text().split(", ");
+            std::vector<product::Console_type> compatibility;
+            for (const QString& line : compatLines) {
+                compatibility.push_back(product::StringToConsoleType(line.toStdString()));
+            }
+
+            newProduct = new product::Accessory(
+                heightEdit->text().toDouble(),
+                lengthEdit->text().toDouble(),
+                depthEdit->text().toDouble(),
+                weightEdit->text().toDouble(),
+                compatibility,
+                imageEdit->text().toStdString(),
+                nameEdit->text().toStdString(),
+                priceEdit->text().toDouble(),
+                idEdit->text().toStdString(),
+                copiesEdit->text().toInt()
+            );
+
+        } else if(dynamic_cast<product::Collectible*>(selected)) {
+            newProduct = new product::Collectible(
+                categoryEdit->text().toStdString(),
+                franchiseEdit->text().toStdString(),
+                producerEdit->text().toStdString(),
+                imageEdit->text().toStdString(),
+                nameEdit->text().toStdString(),
+                priceEdit->text().toDouble(),
+                idEdit->text().toStdString(),
+                copiesEdit->text().toInt()
+            );
+
+        } else if(dynamic_cast<product::T_shirt*>(selected)) {
+            newProduct = new product::T_shirt(
+                product::StringToSize(sizeComboBox->currentText().toStdString()),
+                franchiseEdit->text().toStdString(),
+                imageEdit->text().toStdString(),
+                nameEdit->text().toStdString(),
+                priceEdit->text().toDouble(),
+                idEdit->text().toStdString(),
+                copiesEdit->text().toInt()
+            );
         }
-        newProduct=new product::Accessory(heightEdit->text().toDouble(), 
-        lengthEdit->text().toDouble(), 
-        depthEdit->text().toDouble(), 
-        weightEdit->text().toDouble(), 
-        compatibility, 
-        imageEdit->text().toStdString(), 
-        nameEdit->text().toStdString(), 
-        priceEdit->text().toDouble(), 
-        idEdit->text().toStdString(), 
-        copiesEdit->text().toInt());
-    } else if(dynamic_cast<product::Collectible*>(selected)) {
-        newProduct=new product::Collectible(categoryEdit->text().toStdString(), 
-        franchiseEdit->text().toStdString(), producerEdit->text().toStdString(), 
-        imageEdit->text().toStdString(), 
-        nameEdit->text().toStdString(), 
-        priceEdit->text().toDouble(), 
-        idEdit->text().toStdString(), 
-        copiesEdit->text().toInt());
-    } else if(dynamic_cast<product::T_shirt*>(selected)) {
-        newProduct = new product::T_shirt(
-        product::StringToSize(sizeComboBox->currentText().toStdString()),
-        franchiseEdit->text().toStdString(),
-        imageEdit->text().toStdString(),
-        nameEdit->text().toStdString(),
-        priceEdit->text().toDouble(),
-        idEdit->text().toStdString(),
-        copiesEdit->text().toInt());
+        mem.UpdateProduct(selected->getIdProduct(), newProduct);
+        return 1;
+
+    } catch (const std::invalid_argument& e) {
+        QMessageBox::critical(this, "Errore di input", QString::fromStdString(e.what()));
+        return 0;
+    } catch (...) {
+        QMessageBox::critical(this, "Errore", "Si è verificato un errore durante l'aggiornamento del prodotto.");
+        return 0;
     }
-    mem.UpdateProduct(selected->getIdProduct(), newProduct);
-    //*selected = *newProduct;
 }

@@ -1,15 +1,10 @@
 #include "Accessory.h"
 #include "Enums.h"
 #include <vector>
+#include <stdexcept>
 namespace product {
 Accessory::Accessory(double h, double l, double d, double w, std::vector<Console_type> c,std::string i, std::string n, double p, std::string id, int a): Product(i,n,p,id,a), Height(h),Lenght(l),Depth(d), Weight(w), Compatibility(c) {}
 Accessory::~Accessory() {}
-std::string Accessory::getName() const {
-    return Name;
-}
-void Accessory::setName(std::string n) {
-    Name=n;
-}
 double Accessory::getHeight() const {
     return Height;
 }

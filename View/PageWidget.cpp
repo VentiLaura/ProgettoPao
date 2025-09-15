@@ -83,6 +83,7 @@ void PageWidget::showGrid() {
     if(detailsPage&&!detailsPage->isHidden()) {
     layout()->removeWidget(detailsPage);
     detailsPage->hide();
+    selected=nullptr;
     }
     if(mpw&&!mpw->isHidden()) {
     layout()->removeWidget(mpw);
@@ -120,6 +121,10 @@ void PageWidget::callAddWindow(const QString& type) {
 }
 
 void PageWidget::CloseAllWindows() {
-    if(detailsPage)
+    qDebug()<<"CloseAllWindows start";
+    if(selected) {
+        qDebug()<<"CloseAllWindows inside";
     detailsPage->DeleteAll();
+    }
+    qDebug()<<"CloseAllWindows finish";
 }

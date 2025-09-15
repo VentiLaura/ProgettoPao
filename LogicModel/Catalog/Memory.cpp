@@ -45,34 +45,38 @@ bool Memory::IsUnique(const std::string& id) {
     return true;
 }
 Memory& Memory::Add(product::Product* product) {
-    if(IsUnique(product->getIdProduct())) { 
-        Catalog.push_back(product);
-        AddToJSON("JSON/Products.json", product);
-        AddToXML("XML/Products.xml", product);
-        return *this;
-    } else {
-        throw std::invalid_argument("Elemento non inserito perché id equivalente: " + product->getIdProduct());
+    if(product) { 
+        if(IsUnique(product->getIdProduct())) { 
+            Catalog.push_back(product);
+            AddToJSON("JSON/Products.json", product);
+            AddToXML("XML/Products.xml", product);
+            return *this;
+        } else {
+            throw std::invalid_argument("Elemento non inserito perché id equivalente: " + product->getIdProduct());
+        }
     }
 }
 Memory& Memory::Add(std::vector<product::Product*> products) {
-    std::vector<std::string> errors;
-    for(std::vector<product::Product*>::iterator it=products.begin(); it!=products.end(); it++) {
-        if(IsUnique((*it)->getIdProduct())) {
-            Catalog.push_back(*it);
-            AddToJSON("JSON/Products.json", *it);
-            AddToXML("XML/Products.xml", *it);
+    if(!products.empty()) {
+        std::vector<std::string> errors;
+        for(std::vector<product::Product*>::iterator it=products.begin(); it!=products.end(); it++) {
+            if(IsUnique((*it)->getIdProduct())) {
+                Catalog.push_back(*it);
+                AddToJSON("JSON/Products.json", *it);
+                AddToXML("XML/Products.xml", *it);
+            } else {
+                errors.push_back((*it)->getIdProduct()+"\n");
+            }
+        }
+        if(errors.empty()) {
+            return *this;
         } else {
-            errors.push_back((*it)->getIdProduct()+"\n");
+            std::string Errors="";
+            for(auto it=errors.begin(); it!=errors.end(); it++) {
+                Errors=Errors+*it;
+            }
+            throw std::invalid_argument("Elemento/i non inserito/i perché id equivalente/i: " + Errors);
         }
-    }
-    if(errors.empty()) {
-        return *this;
-    } else {
-        std::string Errors="";
-        for(auto it=errors.begin(); it!=errors.end(); it++) {
-            Errors=Errors+*it;
-        }
-        throw std::invalid_argument("Elemento/i non inserito/i perché id equivalente/i: " + Errors);
     }
 }
 Memory& Memory::Remove(std::string id) {

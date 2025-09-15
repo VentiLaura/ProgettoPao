@@ -11,6 +11,7 @@
 #include <QLineEdit>
 #include <QStringList>
 #include <QComboBox>
+#include <QMessageBox>
 
 class CreateWidget: public QWidget {
     Q_OBJECT

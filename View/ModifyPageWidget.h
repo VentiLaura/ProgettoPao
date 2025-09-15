@@ -35,6 +35,7 @@ class ModifyPageWidget: public QWidget {
     void cancelClicked();
     void acceptClicked();
     void update();
+    void CorrectlyGenerated();
 
 };
 #endif
