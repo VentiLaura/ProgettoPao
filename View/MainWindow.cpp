@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     MainLayout->addWidget(sortfilter);
     MainLayout->addWidget(page);
     MainLayout->setStretch(0, 1);
-    MainLayout->setStretch(1, 9);
+    MainLayout->setStretch(1, 12);
     centralContainer->setLayout(MainLayout);
     setCentralWidget(centralContainer);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
